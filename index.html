@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Mahekar - Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #f72585;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --text-color: #2b2d42;
+            --text-light: #ffffff;
+            --gradient: linear-gradient(135deg, #4361ee 0%, #3a0ca3 50%, #7209b7 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: var(--gradient);
+            color: var(--text-light);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        nav {
+            background-color: var(--light-color);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-button {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .nav-button:hover {
+            color: var(--text-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(67, 97, 238, 0.3);
+            border-color: transparent;
+        }
+
+        .nav-button:hover::before {
+            left: 0;
+        }
+
+        .nav-button.active {
+            background: var(--gradient);
+            color: var(--text-light);
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            background-color: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        section:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--accent-color);
+            font-size: 1.8rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: var(--gradient);
+        }
+
+        .current-position {
+            background-color: rgba(67, 97, 238, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 500;
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .action-button {
+            background: var(--gradient);
+            color: var(--text-light);
+            border: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            min-width: 220px;
+            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .action-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f72585 0%, #b5179e 50%, #7209b7 100%);
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .action-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(67, 97, 238, 0.4);
+        }
+
+        .action-button:hover::before {
+            left: 0;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--primary-color);
+            background-color: rgba(67, 97, 238, 0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background-color: rgba(67, 97, 238, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-item i {
+            font-size: 1.2rem;
+        }
+
+        .education-item, .language-item, .skill-item, .volunteer-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .education-item h3, .volunteer-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .education-item p, .volunteer-item p {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+
+        .education-item .date {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-pill {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .skill-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            background: white;
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .project-image {
+            height: 220px;
+            background-color: #f5f7ff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(67, 97, 238, 0.1) 0%, rgba(114, 9, 183, 0.1) 100%);
+        }
+
+        .project-details {
+            padding: 1.8rem;
+        }
+
+        .project-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .project-details p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        .project-link i {
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover i {
+            transform: translateX(3px);
+        }
+
+        .profile-summary {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.05) 0%, rgba(114, 9, 183, 0.05) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-summary::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(247, 37, 133, 0.1) 0%, rgba(247, 37, 133, 0) 70%);
+            z-index: 0;
+        }
+
+        .profile-summary h2 {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-summary p {
+            position: relative;
+            z-index: 1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: var(--gradient);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' opacity='0.1'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        footer p {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hide all sections initially */
+        section {
+            display: none;
+        }
+
+        /* Show only the active section */
+        section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .button-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .action-button {
+                width: 100%;
+            }
+
+            main {
+                padding: 1.5rem;
+            }
+
+            section {
+                padding: 2rem;
+            }
+
+            .project-image {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                gap: 0.8rem;
+                flex-wrap: wrap;
+            }
+
+            .nav-button {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .contact-item {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Aditya Mahekar</h1>
+            <p>Computer Science Engineering Student | Developer | UI/UX Enthusiast</p>
+        </header>
+
+        <nav>
+            <a href="#" class="nav-button active" onclick="showSection('home')">Home</a>
+            <a href="#" class="nav-button" onclick="showSection('resume')">Resume</a>
+            <a href="#" class="nav-button" onclick="showSection('projects')">Projects</a>
+        </nav>
+
+        <main>
+            <!-- Home Section -->
+            <section id="home" class="active">
+                <div class="current-position">
+                    <i class="fas fa-user-graduate"></i> Currently pursuing Computer Science Engineering at BMS Institute of Technology and Management
+                </div>
+                
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <p>Passionate Computer Science Engineering student at BMS Institute of Technology and Management, Bengaluru, with a strong foundation in Mechanical Engineering from Government Polytechnic Karwar.</p>
+                    
+                    <p>Proficient in Java, Python, C, HTML, CSS, JavaScript, and CNC Programming, I bridge the gap between Mechanical and Software Engineering. With strong UI/UX design skills, I craft user-friendly digital solutions.</p>
+                    
+                    <p>Fluent in multiple languages, I thrive in diverse teams and am eager to contribute to innovative projects that make an impact.</p>
+                </div>
+
+                <div class="button-container">
+                    <a href="#" class="action-button" onclick="showSection('resume')">
+                        <i class="fas fa-file-alt"></i> View Resume
+                    </a>
+                    <a href="#" class="action-button" onclick="showSection('projects')">
+                        <i class="fas fa-project-diagram"></i> View Projects
+                    </a>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:mahekaraditya468@gmail.com">mahekaraditya468@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:9480100787">+91 9480100787</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/adityamahekar" target="_blank">GitHub Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/aditya-mahekar/" target="_blank">LinkedIn Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-code"></i>
+                        <a href="https://leetcode.com/u/aditya__mahekar/" target="_blank">LeetCode Profile</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Resume Section -->
+            <section id="resume">
+                <div class="profile-summary">
+                    <h2>Profile Summary</h2>
+                    <p>Computer Science Engineering student with a mechanical engineering background, skilled in multiple programming languages and UI/UX design. Passionate about creating innovative solutions that bridge hardware and software domains. Strong problem-solving abilities with experience in both mechanical systems and software development.</p>
+                </div>
+
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>BMS Institute of Technology and Management College</h3>
+                    <p>Bachelor of Engineering - BE, Computer Science</p>
+                    <p class="date">Apr 2024 - Apr 2027</p>
+                </div>
+                <div class="education-item">
+                    <h3>Government Polytechnic College Karwar</h3>
+                    <p>Diploma, Mechanical Engineering</p>
+                    <p class="date">Nov 2021 - Apr 2024</p>
+                </div>
+                <div class="education-item">
+                    <h3>Premier English medium highschool Karwar</h3>
+                    <p class="date">Jul 2018 - Jul 2021</p>
+                </div>
+                <div class="education-item">
+                    <h3>Shivaji Balmandir English medium school Karwar</h3>
+                    <p class="date">Jul 2011 - May 2017</p>
+                </div>
+
+                <h2>Skills</h2>
+                <div class="skills-container">
+                    <span class="skill-pill">Front-End Web Development</span>
+                    <span class="skill-pill">HTML 5</span>
+                    <span class="skill-pill">CSS 3</span>
+                    <span class="skill-pill">Flexbox</span>
+                    <span class="skill-pill">Grid</span>
+                    <span class="skill-pill">Bootstrap 5</span>
+                    <span class="skill-pill">JavaScript ES6</span>
+                    <span class="skill-pill">DOM Manipulation</span>
+                    <span class="skill-pill">jQuery</span>
+                    <span class="skill-pill">Bash Command Line</span>
+                    <span class="skill-pill">Git</span>
+                    <span class="skill-pill">GitHub</span>
+                    <span class="skill-pill">Version Control</span>
+                    <span class="skill-pill">Backend Web Development</span>
+                    <span class="skill-pill">Node.js</span>
+                    <span class="skill-pill">NPM</span>
+                    <span class="skill-pill">Express.js</span>
+                    <span class="skill-pill">EJS</span>
+                    <span class="skill-pill">REST</span>
+                    <span class="skill-pill">APIs</span>
+                    <span class="skill-pill">Databases</span>
+                    <span class="skill-pill">SQL</span>
+                    <span class="skill-pill">PostgreSQL</span>
+                    <span class="skill-pill">Authentication</span>
+                    <span class="skill-pill">React.js</span>
+                    <span class="skill-pill">React Hooks</span>
+                    <span class="skill-pill">Web Design</span>
+                    <span class="skill-pill">Deployment</span>
+                    <span class="skill-pill">GitHub Pages</span>
+                    <span class="skill-pill">Web3 Development</span>
+                    <span class="skill-pill">Blockchain Technology</span>
+                    <span class="skill-pill">Token Contract Development</span>
+                    <span class="skill-pill">NFT Minting</span>
+                    <span class="skill-pill">NFT Buying/Selling Logic</span>
+                    <span class="skill-pill">IoT</span>
+                    <span class="skill-pill">Object-Oriented Programming</span>
+                    <span class="skill-pill">Data Visualization</span>
+                    <span class="skill-pill">Data Structures</span>
+                    <span class="skill-pill">Algorithms</span>
+                    <span class="skill-pill">UI/UX Design</span>
+                    <span class="skill-pill">Java</span>
+                    <span class="skill-pill">MySQL</span>
+                    <span class="skill-pill">C Programming</span>
+                    <span class="skill-pill">Python</span>
+                    <span class="skill-pill">Matplotlib</span>
+                    <span class="skill-pill">Data Analysis</span>
+                    <span class="skill-pill">CNC Programming</span>
+                    <span class="skill-pill">PLC Programming</span>
+                    <span class="skill-pill">Robotic Simulation</span>
+                    <span class="skill-pill">Ansys</span>
+                    <span class="skill-pill">Automation</span>
+                    <span class="skill-pill">Robotics</span>
+                    <span class="skill-pill">RPA</span>
+                    <span class="skill-pill">Microsoft Office</span>
+                    <span class="skill-pill">Problem Solving</span>
+                    <span class="skill-pill">Team Collaboration</span>
+                    <span class="skill-pill">Agile Methodologies</span>
+                </div>
+
+                <h2>Languages</h2>
+                <div class="language-item">
+                    <p>English, Hindi, Kannada, Konkani, Marathi </p>
+                </div>
+                
+                <h2>Volunteer Experience</h2>
+                <div class="volunteer-item">
+                    <h3>Rotary Club</h3>
+                    <p>Active member contributing to community service initiatives and social welfare programs</p>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects">
+                <h2>My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="EdTech Platform">
+                        </div>
+                        <div class="project-details">
+                            <h3>EdTech Platform</h3>
+                            <p>An innovative educational technology platform designed to enhance learning experiences through interactive content and personalized learning paths. Combines modern web technologies with educational best practices to create an engaging learning environment.</p>
+                            <a href="https://adityamahekar.github.io/EdTechnew/" class="project-link" target="_blank">
+                                View Details <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80" alt="Pick and Place Robot">
+                        </div>
+                        <div class="project-details">
+                            <h3>Pick and Place Robot</h3>
+                            <p>An automated robotic system capable of identifying, picking, and placing objects with precision. Combines mechanical engineering principles with software control systems to create an efficient automation solution for industrial applications.</p>
+                            <a href="#" class="project-link">
+                                View Details <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Aditya Mahekar. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Update active nav button
+            document.querySelectorAll('.nav-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+            
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
