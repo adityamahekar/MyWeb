@@ -510,6 +510,35 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Download Button Styles */
+        .download-button {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(247, 37, 133, 0.3);
+            margin-top: 1rem;
+        }
+
+        .download-button:hover {
+            background: #d11674;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(247, 37, 133, 0.4);
+        }
+
+        .download-button i {
+            font-size: 0.9rem;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 992px) {
             .projects-grid {
@@ -649,10 +678,22 @@
                         <a href="https://leetcode.com/u/aditya__mahekar/" target="_blank">LeetCode Profile</a>
                     </div>
                 </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="#" class="download-button" onclick="downloadResume()">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
             </section>
 
             <!-- Resume Section -->
             <section id="resume">
+                <div style="text-align: right; margin-bottom: 1.5rem;">
+                    <a href="#" class="download-button" onclick="downloadResume()">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
+                
                 <div class="profile-summary">
                     <h2>Profile Summary</h2>
                     <p>Computer Science Engineering student with a mechanical engineering background, skilled in multiple programming languages and UI/UX design. Passionate about creating innovative solutions that bridge hardware and software domains. Strong problem-solving abilities with experience in both mechanical systems and software development.</p>
@@ -806,6 +847,22 @@
             
             // Scroll to top
             window.scrollTo(0, 0);
+        }
+
+        function downloadResume() {
+            // Replace this with your actual resume PDF URL
+            const resumeUrl = 'path/to/your/resume.pdf';
+            
+            // Create a temporary anchor element
+            const link = document.createElement('a');
+            link.href = resumeUrl;
+            link.download = 'Aditya_Mahekar_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Fallback in case the above doesn't work
+            window.open(resumeUrl, '_blank');
         }
     </script>
 </body>
