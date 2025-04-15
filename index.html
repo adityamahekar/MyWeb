@@ -288,25 +288,25 @@
             font-size: 1.2rem;
         }
 
-        .education-item, .language-item, .skill-item, .volunteer-item {
+        .education-item, .language-item, .skill-item, .volunteer-item, .activity-item, .experience-item {
             margin-bottom: 1.5rem;
             padding-left: 1.5rem;
             border-left: 3px solid var(--accent-color);
         }
 
-        .education-item h3, .volunteer-item h3 {
+        .education-item h3, .volunteer-item h3, .activity-item h3, .experience-item h3 {
             color: var(--secondary-color);
             margin-bottom: 0.5rem;
             font-size: 1.2rem;
         }
 
-        .education-item p, .volunteer-item p {
+        .education-item p, .volunteer-item p, .activity-item p, .experience-item p {
             font-style: italic;
             color: #666;
             margin-bottom: 0.3rem;
         }
 
-        .education-item .date {
+        .education-item .date, .activity-item .date, .experience-item .date {
             color: var(--accent-color);
             font-weight: 500;
         }
@@ -333,13 +333,13 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
-        .projects-grid {
+        .projects-grid, .certification-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2.5rem;
         }
 
-        .project-card {
+        .project-card, .certification-card {
             border-radius: 12px;
             overflow: hidden;
             transition: all 0.3s ease;
@@ -348,7 +348,7 @@
             position: relative;
         }
 
-        .project-card::before {
+        .project-card::before, .certification-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -361,34 +361,34 @@
             z-index: 1;
         }
 
-        .project-card:hover {
+        .project-card:hover, .certification-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
         }
 
-        .project-card:hover::before {
+        .project-card:hover::before, .certification-card:hover::before {
             opacity: 0.05;
         }
 
-        .project-image {
+        .project-image, .certification-image {
             height: 220px;
             background-color: #f5f7ff;
             position: relative;
             overflow: hidden;
         }
 
-        .project-image img {
+        .project-image img, .certification-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .project-card:hover .project-image img {
+        .project-card:hover .project-image img, .certification-card:hover .certification-image img {
             transform: scale(1.05);
         }
 
-        .project-image::before {
+        .project-image::before, .certification-image::before {
             content: '';
             position: absolute;
             top: 0;
@@ -398,17 +398,17 @@
             background: linear-gradient(45deg, rgba(67, 97, 238, 0.1) 0%, rgba(114, 9, 183, 0.1) 100%);
         }
 
-        .project-details {
+        .project-details, .certification-details {
             padding: 1.8rem;
         }
 
-        .project-details h3 {
+        .project-details h3, .certification-details h3 {
             color: var(--primary-color);
             margin-bottom: 0.8rem;
             font-size: 1.4rem;
         }
 
-        .project-details p {
+        .project-details p, .certification-details p {
             margin-bottom: 1.5rem;
             color: #555;
         }
@@ -541,7 +541,7 @@
 
         /* Responsive adjustments */
         @media (max-width: 992px) {
-            .projects-grid {
+            .projects-grid, .certification-grid {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
         }
@@ -572,7 +572,7 @@
                 padding: 2rem;
             }
 
-            .project-image {
+            .project-image, .certification-image {
                 height: 180px;
             }
         }
@@ -603,7 +603,7 @@
                 justify-content: center;
             }
 
-            .projects-grid {
+            .projects-grid, .certification-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -629,6 +629,8 @@
             <a href="#" class="nav-button active" onclick="showSection('home')">Home</a>
             <a href="#" class="nav-button" onclick="showSection('resume')">Resume</a>
             <a href="#" class="nav-button" onclick="showSection('projects')">Projects</a>
+            <a href="#" class="nav-button" onclick="showSection('activities')">Activities</a>
+            <a href="#" class="nav-button" onclick="showSection('certifications')">Certifications</a>
         </nav>
 
         <main>
@@ -653,6 +655,12 @@
                     </a>
                     <a href="#" class="action-button" onclick="showSection('projects')">
                         <i class="fas fa-project-diagram"></i> View Projects
+                    </a>
+                    <a href="#" class="action-button" onclick="showSection('activities')">
+                        <i class="fas fa-running"></i> View Activities
+                    </a>
+                    <a href="#" class="action-button" onclick="showSection('certifications')">
+                        <i class="fas fa-certificate"></i> View Certifications
                     </a>
                 </div>
 
@@ -697,6 +705,13 @@
                 <div class="profile-summary">
                     <h2>Profile Summary</h2>
                     <p>Computer Science Engineering student with a mechanical engineering background, skilled in multiple programming languages and UI/UX design. Passionate about creating innovative solutions that bridge hardware and software domains. Strong problem-solving abilities with experience in both mechanical systems and software development.</p>
+                </div>
+
+                <h2>Experience</h2>
+                <div class="experience-item">
+                    <h3>Fresher</h3>
+                    <p>Currently seeking opportunities to apply my skills and knowledge in real-world projects.</p>
+                    <p class="date">Present</p>
                 </div>
 
                 <h2>Education</h2>
@@ -819,6 +834,46 @@
                                 View Details <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Activities Section -->
+            <section id="activities">
+                <h2>My Activities</h2>
+                
+                <div class="activity-item">
+                    <h3>Rotary Club Member</h3>
+                    <p class="date">2022</p>
+                    <p>Active member contributing to community service initiatives and social welfare programs, participating in various community development activities and charity events.</p>
+                </div>
+                
+                <div class="activity-item">
+                    <h3>Hackathon Participant</h3>
+                    <p class="date">2025</p>
+                    <p>Participated in multiple hackathons, collaborating with teams to develop innovative solutions within constrained timeframes, enhancing problem-solving and teamwork skills.</p>
+                </div>
+              
+            </section>
+
+            <!-- Certifications Section -->
+            <section id="certifications">
+                <h2>My Certifications & Licenses</h2>
+                
+                <div class="certification-grid">
+                    
+                    <div class="certification-card">
+                        <div class="certification-image">
+                            <img src=" " alt="Python Programming Certification">
+                        </div>
+                        <div class="certification-details">
+                            <h3>Python Programming</h3>
+                            <p>Certified in Python programming covering fundamentals, data structures, algorithms, and application development.</p>
+                            <p class="date">Issued: March 2024</p>
+                        </div>
+                    </div>
+                    
+                  
                     </div>
                 </div>
             </section>
