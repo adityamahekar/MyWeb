@@ -13,7 +13,28 @@
             --dark-color: #212529;
             --text-color: #2b2d42;
             --text-light: #ffffff;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --nav-bg: #ffffff;
             --gradient: linear-gradient(135deg, #4361ee 0%, #3a0ca3 50%, #7209b7 100%);
+            --shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+            --hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode {
+            --primary-color: #4895ef;
+            --secondary-color: #560bad;
+            --accent-color: #f72585;
+            --light-color: #121212;
+            --dark-color: #f8f9fa;
+            --text-color: #e0e0e0;
+            --text-light: #ffffff;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --nav-bg: #1e1e1e;
+            --gradient: linear-gradient(135deg, #4895ef 0%, #560bad 50%, #7209b7 100%);
+            --shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+            --hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
         }
 
         * {
@@ -21,14 +42,16 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+            transition: background-color 0.5s ease, color 0.3s ease;
         }
 
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
         body {
-            background-color: var(--light-color);
+            background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
+            transition: background-color 0.5s ease;
         }
 
         .container {
@@ -58,6 +81,12 @@
             background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
             transform: rotate(30deg);
             z-index: 1;
+            animation: rotateBackground 20s linear infinite;
+        }
+
+        @keyframes rotateBackground {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         header h1 {
@@ -66,6 +95,7 @@
             position: relative;
             z-index: 2;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            animation: fadeInDown 1s ease;
         }
 
         header p {
@@ -75,10 +105,11 @@
             z-index: 2;
             max-width: 800px;
             margin: 0 auto;
+            animation: fadeInUp 1s ease 0.2s both;
         }
 
         nav {
-            background-color: var(--light-color);
+            background-color: var(--nav-bg);
             padding: 1rem;
             display: flex;
             justify-content: center;
@@ -144,16 +175,17 @@
 
         section {
             margin-bottom: 3rem;
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 12px;
             padding: 2.5rem;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow);
             transition: all 0.3s ease;
+            animation: fadeIn 0.8s ease;
         }
 
         section:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
+            transform: translateY(-5px);
         }
 
         h2 {
@@ -173,6 +205,12 @@
             width: 100px;
             height: 3px;
             background: var(--gradient);
+            animation: expandLine 1.5s ease;
+        }
+
+        @keyframes expandLine {
+            0% { width: 0; }
+            100% { width: 100px; }
         }
 
         .current-position {
@@ -188,6 +226,13 @@
             align-items: center;
             justify-content: center;
             gap: 0.8rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
         }
 
         .about-content {
@@ -226,6 +271,7 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            animation: fadeInUp 1s ease;
         }
 
         .action-button::before {
@@ -241,7 +287,7 @@
         }
 
         .action-button:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
             box-shadow: 0 8px 24px rgba(67, 97, 238, 0.4);
         }
 
@@ -266,11 +312,12 @@
             padding: 1rem 1.5rem;
             border-radius: 50px;
             transition: all 0.3s ease;
+            animation: fadeIn 1s ease;
         }
 
         .contact-item:hover {
             background-color: rgba(67, 97, 238, 0.2);
-            transform: translateY(-2px);
+            transform: translateY(-5px) scale(1.05);
         }
 
         .contact-item a {
@@ -292,6 +339,7 @@
             margin-bottom: 1.5rem;
             padding-left: 1.5rem;
             border-left: 3px solid var(--accent-color);
+            animation: fadeInLeft 0.8s ease;
         }
 
         .education-item h3, .volunteer-item h3, .activity-item h3, .experience-item h3 {
@@ -302,7 +350,8 @@
 
         .education-item p, .volunteer-item p, .activity-item p, .experience-item p {
             font-style: italic;
-            color: #666;
+            color: var(--text-color);
+            opacity: 0.9;
             margin-bottom: 0.3rem;
         }
 
@@ -326,10 +375,11 @@
             font-weight: 500;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            animation: fadeIn 0.8s ease;
         }
 
         .skill-pill:hover {
-            transform: translateY(-2px);
+            transform: translateY(-5px) scale(1.05);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
@@ -343,9 +393,10 @@
             border-radius: 12px;
             overflow: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-            background: white;
+            box-shadow: var(--shadow);
+            background: var(--card-bg);
             position: relative;
+            animation: fadeInUp 0.8s ease;
         }
 
         .project-card::before, .certification-card::before {
@@ -362,8 +413,8 @@
         }
 
         .project-card:hover, .certification-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+            transform: translateY(-8px);
+            box-shadow: var(--hover-shadow);
         }
 
         .project-card:hover::before, .certification-card:hover::before {
@@ -372,7 +423,7 @@
 
         .project-image, .certification-image {
             height: 220px;
-            background-color: #f5f7ff;
+            background-color: var(--light-color);
             position: relative;
             overflow: hidden;
         }
@@ -385,7 +436,7 @@
         }
 
         .project-card:hover .project-image img, .certification-card:hover .certification-image img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .project-image::before, .certification-image::before {
@@ -410,7 +461,8 @@
 
         .project-details p, .certification-details p {
             margin-bottom: 1.5rem;
-            color: #555;
+            color: var(--text-color);
+            opacity: 0.9;
         }
 
         .project-link {
@@ -425,7 +477,7 @@
 
         .project-link:hover {
             color: var(--secondary-color);
-            transform: translateX(5px);
+            transform: translateX(8px);
         }
 
         .project-link i {
@@ -433,7 +485,7 @@
         }
 
         .project-link:hover i {
-            transform: translateX(3px);
+            transform: translateX(5px);
         }
 
         .profile-summary {
@@ -444,6 +496,7 @@
             border-left: 4px solid var(--accent-color);
             position: relative;
             overflow: hidden;
+            animation: fadeIn 0.8s ease;
         }
 
         .profile-summary::before {
@@ -455,6 +508,13 @@
             height: 200px;
             background: radial-gradient(circle, rgba(247, 37, 133, 0.1) 0%, rgba(247, 37, 133, 0) 70%);
             z-index: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, 20px); }
+            100% { transform: translate(0, 0); }
         }
 
         .profile-summary h2 {
@@ -487,6 +547,12 @@
             width: 100%;
             height: 100%;
             background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' opacity='0.1'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: patternMove 20s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 60px; }
         }
 
         footer p {
@@ -510,6 +576,21 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
         /* Download Button Styles */
         .download-button {
             background: var(--accent-color);
@@ -527,16 +608,44 @@
             text-decoration: none;
             box-shadow: 0 4px 8px rgba(247, 37, 133, 0.3);
             margin-top: 1rem;
+            animation: pulse 2s infinite;
         }
 
         .download-button:hover {
             background: #d11674;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(247, 37, 133, 0.4);
+            animation: none;
         }
 
         .download-button i {
             font-size: 0.9rem;
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1.5rem;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(30deg);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
         }
 
         /* Responsive adjustments */
@@ -574,6 +683,14 @@
 
             .project-image, .certification-image {
                 height: 180px;
+            }
+
+            .theme-toggle {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.2rem;
             }
         }
 
@@ -928,8 +1045,8 @@
 
         <!-- Mercury Ship Repairs Internship -->
         <div class="certification-card">
-            <div class="certification-image" style="background-color: #f5f7ff; display: flex; justify-content: center; align-items: center;">
-                <i class="fas fa-ship" style="font-size: 3rem; color: #4361ee;"></i>
+            <div class="certification-image" style="background-color: var(--light-color); display: flex; justify-content: center; align-items: center;">
+                <i class="fas fa-ship" style="font-size: 3rem; color: var(--primary-color);"></i>
             </div>
             <div class="certification-details">
                 <h3>Internship (Mechanical)</h3>
@@ -981,8 +1098,8 @@
 
         <!-- Kirloskar Toyota Apprenticeship -->
         <div class="certification-card">
-            <div class="certification-image" style="background-color: #f5f7ff; display: flex; justify-content: center; align-items: center;">
-                <i class="fas fa-cogs" style="font-size: 3rem; color: #4361ee;"></i>
+            <div class="certification-image" style="background-color: var(--light-color); display: flex; justify-content: center; align-items: center;">
+                <i class="fas fa-cogs" style="font-size: 3rem; color: var(--primary-color);"></i>
             </div>
             <div class="certification-details">
                 <h3>Apprenticeship (Mechanical)</h3>
@@ -994,8 +1111,8 @@
 
         <!-- PLC Training -->
         <div class="certification-card">
-            <div class="certification-image" style="background-color: #f5f7ff; display: flex; justify-content: center; align-items: center;">
-                <i class="fas fa-robot" style="font-size: 3rem; color: #4361ee;"></i>
+            <div class="certification-image" style="background-color: var(--light-color); display: flex; justify-content: center; align-items: center;">
+                <i class="fas fa-robot" style="font-size: 3rem; color: var(--primary-color);"></i>
             </div>
             <div class="certification-details">
                 <h3>Basics of PLC</h3>
@@ -1020,8 +1137,8 @@
 
         <!-- Nirakar Engineering Internship (Oldest) -->
         <div class="certification-card">
-            <div class="certification-image" style="background-color: #f5f7ff; display: flex; justify-content: center; align-items: center;">
-                <i class="fas fa-industry" style="font-size: 3rem; color: #4361ee;"></i>
+            <div class="certification-image" style="background-color: var(--light-color); display: flex; justify-content: center; align-items: center;">
+                <i class="fas fa-industry" style="font-size: 3rem; color: var(--primary-color);"></i>
             </div>
             <div class="certification-details">
                 <h3>Internship (Mechanical)</h3>
@@ -1038,6 +1155,10 @@
             <p>&copy; 2024 Aditya Mahekar. All rights reserved.</p>
         </footer>
     </div>
+
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
 
     <script>
         function showSection(sectionId) {
@@ -1056,12 +1177,12 @@
             document.getElementById(sectionId).classList.add('active');
             
             // Scroll to top
-            window.scrollTo(0, 0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function downloadResume() {
             // Replace this with your actual resume PDF URL
-            const resumeUrl = 'path/to/your/resume.pdf';
+            const resumeUrl = 'https://docs.google.com/document/d/1_R-uNJbsfpI1cCQVQWQywgFeE-5IBDyx/edit?tab=t.0';
             
             // Create a temporary anchor element
             const link = document.createElement('a');
@@ -1074,6 +1195,48 @@
             // Fallback in case the above doesn't work
             window.open(resumeUrl, '_blank');
         }
+
+        // Dark/Light Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const icon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or use preferred color scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.body.classList.add('dark-mode');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Add animation to elements when they come into view
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.education-item, .skill-pill, .project-card, .certification-card, .activity-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
     </script>
 </body>
 </html>
