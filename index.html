@@ -739,7 +739,45 @@
     <div class="container">
         <header>
             <h1>Aditya Mahekar</h1>
-            <p>Computer Science Engineering Student | Developer | UI/UX Enthusiast</p>
+         <p id="typing" style="font-family: monospace; display: inline;"></p><span id="cursor" style="font-family: monospace; display: inline; animation: blink 0.5s step-end infinite;">|</span>
+
+<script>
+  (function() {
+    const titles = [
+      " Computer Science Engineer ",
+      " Developer ",
+      " UI/UX Enthusiast "
+    ];
+    const typingElement = document.getElementById("typing");
+    let currentTitle = 0, charIndex = 0, isDeleting = false;
+
+    function typeEffect() {
+      const currentText = titles[currentTitle];
+      typingElement.textContent = isDeleting
+        ? currentText.substring(0, charIndex--)
+        : currentText.substring(0, charIndex++);
+
+      if (!isDeleting && charIndex === currentText.length) {
+        setTimeout(() => { isDeleting = true; typeEffect(); }, 1000);
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        currentTitle = (currentTitle + 1) % titles.length;
+        setTimeout(typeEffect, 500);
+      } else {
+        setTimeout(typeEffect, isDeleting ? 50 : 100);
+      }
+    }
+
+    typeEffect();
+  })();
+</script>
+
+<style>
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+</style>
+
         </header>
 
         <nav>
@@ -927,8 +965,7 @@
   <span class="skill-pill">Algorithms</span>
 
 </div>
-
-
+                
                 <h2>Languages</h2>
                 <div class="language-item">
                     <p>English, Hindi, Kannada, Konkani, Marathi </p>
