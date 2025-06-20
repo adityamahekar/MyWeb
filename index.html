@@ -53,7 +53,7 @@
             line-height: 1.6;
             transition: background-color 0.5s ease;
         }
-
+        
         .container {
             width: 100%;
             min-height: 100vh;
@@ -366,28 +366,51 @@
             gap: 1rem;
         }
 
-    .skill-pill {
-    /* Ultra-light background with subtle gradient */
+   .skill-pill {
+    /* Light background (almost white) */
+    background: rgba(255, 255, 255, 0.9);
+    
+    /* Thick gradient border (3px) */
+    border: 3px solid transparent;
+    border-radius: 50px;
+    background-clip: padding-box; /* Prevents gradient bleed */
+    position: relative;
+    
+    /* Gradient border via pseudo-element */
+    &::before {
+        content: '';
+        position: absolute;
+        top: -3px; left: -3px; right: -3px; bottom: -3px;
+        z-index: -1;
+        border-radius: 50px; /* Match pill shape */
+        background: linear-gradient(
+            to right, 
+            var(--primary-color), 
+            var(--secondary-color)
+        );
+    }
+    
+    /* Gradient text */
+    color: transparent;
     background: linear-gradient(
-        to right, 
-        rgba(86, 11, 173, 0.08),  /* 8% opacity primary */
-        rgba(134, 38, 255, 0.08)   /* 8% opacity secondary */
-    );
-    /* Border using original gradient colors */
-    border: 1px solid;
-    border-image: linear-gradient(
         to right, 
         var(--primary-color), 
         var(--secondary-color)
-    ) 1;
-    /* Text color matching the gradient */
-    color: var(--primary-color); /* Or use gradient text for bold effect */
-    font-weight: 600; /* Bolder text for contrast */
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: 600;
+    
     padding: 0.6rem 1.2rem;
-    border-radius: 50px;
     font-size: 0.9rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.skill-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
         .skill-pill:hover {
