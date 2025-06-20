@@ -366,20 +366,28 @@
             gap: 1rem;
         }
 
-     .skill-pill {
+    .skill-pill {
+    /* Ultra-light background with subtle gradient */
     background: linear-gradient(
         to right, 
-        rgba(86, 11, 173, 0.7),  /* --primary-color with 70% opacity */
-        rgba(134, 38, 255, 0.7)   /* --secondary-color with 70% opacity */
+        rgba(86, 11, 173, 0.08),  /* 8% opacity primary */
+        rgba(134, 38, 255, 0.08)   /* 8% opacity secondary */
     );
-    color: var(--text-light);
+    /* Border using original gradient colors */
+    border: 1px solid;
+    border-image: linear-gradient(
+        to right, 
+        var(--primary-color), 
+        var(--secondary-color)
+    ) 1;
+    /* Text color matching the gradient */
+    color: var(--primary-color); /* Or use gradient text for bold effect */
+    font-weight: 600; /* Bolder text for contrast */
     padding: 0.6rem 1.2rem;
     border-radius: 50px;
     font-size: 0.9rem;
-    font-weight: 500;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
     transition: all 0.3s ease;
-    animation: fadeIn 0.8s ease;
 }
 
         .skill-pill:hover {
