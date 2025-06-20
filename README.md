@@ -1,1 +1,52 @@
-# MyWeb
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+</head>
+<body>
+
+  <h1>👨‍💻 Welcome to My Portfolio</h1>
+
+  <p>
+    Hi! I'm a passionate developer with hands-on experience in web development, IoT projects, and automation systems.
+    This page showcases a few of my recent works and project interfaces. I enjoy building real-world applications and continuously learning new technologies.
+  </p>
+
+  <hr>
+
+  <h2>🖼️ Project Screenshots</h2>
+
+  <table>
+    <tr>
+      <td>
+        <img src="https://i.postimg.cc/648Pm12q/Screenshot-2025-06-20-215758.png" alt="Project Image 1">
+      </td>
+      <td>
+        <img src="https://i.postimg.cc/0rjhjrWv/Screenshot-2025-06-20-215811.png" alt="Project Image 2">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="https://i.postimg.cc/dDfpyvpy/Screenshot-2025-06-20-215846.png" alt="Project Image 3">
+      </td>
+      <td>
+        <img src="https://i.postimg.cc/TpWSjFvH/Screenshot-2025-06-20-215915.png" alt="Project Image 4">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align:center;">
+        <img src="https://i.postimg.cc/zyZQx7JD/Screenshot-2025-06-20-215929.png" alt="Project Image 5">
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+
+  <p>
+    📫 Want to get in touch? You can reach me at: <strong>your.email@example.com</strong><br>
+    💼 Connect on LinkedIn: <a href="https://www.linkedin.com/in/your-profile">your-profile</a>
+  </p>
+
+</body>
+</html>
