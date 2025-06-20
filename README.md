@@ -43,10 +43,7 @@
 
   <hr>
 
-  <p>
-    📫 Want to get in touch? You can reach me at: <strong>your.email@example.com</strong><br>
-    💼 Connect on LinkedIn: <a href="https://www.linkedin.com/in/your-profile">your-profile</a>
-  </p>
+
 
 </body>
 </html>
