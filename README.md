@@ -16,7 +16,7 @@
 
 <p>
   <span>Link:</span>
-  <span><a href="https://adityamahekar.github.io/MyWeb/"> My Web </a></span>
+  <span><a href="https://adityamahekar.github.io/MyWeb/"> MyPortfolio </a></span>
 </p>
   <hr>
 
