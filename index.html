@@ -379,7 +379,7 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   
-  /* Gradient border INSIDE the pill */
+  /* Thicker gradient border INSIDE the pill */
   &::before {
     content: '';
     position: absolute;
@@ -388,7 +388,7 @@
     right: 0;
     bottom: 0;
     border-radius: 50px;
-    padding: 3px; /* Border thickness */
+    padding: 4px; /* Increased from 3px to 4px */
     background: linear-gradient(
       to right, 
       var(--primary-color), 
@@ -404,6 +404,11 @@
   
   /* Solid text color */
   color: var(--primary-color);
+}
+
+.skill-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .skill-pill:hover {
