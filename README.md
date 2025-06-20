@@ -13,7 +13,11 @@
     This page showcases a few of my recent works and project interfaces. I enjoy building real-world applications and continuously learning new technologies.
   </p>
 <hr>
-<a href="https://adityamahekar.github.io/MyWeb/"> My Web </a>
+
+<p>
+  <span>Link:</span>
+  <span><a href="https://adityamahekar.github.io/MyWeb/"> My Web </a></span>
+</p>
   <hr>
 
   <h2>🖼️ Project Screenshots</h2>
