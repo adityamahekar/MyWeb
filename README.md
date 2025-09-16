@@ -22,7 +22,8 @@
   <hr>
 
   <h2>🖼️ Project Screenshots</h2>
-![MyWeb1](https://i.postimg.cc/648Pm12q/Screenshot-2025-06-20-215758.png)
+[![MyWeb1](https://i.postimg.cc/648Pm12q/Screenshot-2025-06-20-215758.png)](https://i.postimg.cc/648Pm12q/Screenshot-2025-06-20-215758.png)
+
 
   <table style="width: 100%; border-spacing: 20px;">
     <tr>
