@@ -22,7 +22,7 @@
   <hr>
 
   <h2>🖼️ Project Screenshots</h2>
-![MyWeb1](https://i.postimg.cc/648Pm12q/Screenshot-2025-06-20-215758.png alt="Project Image 1" style="width: 600px; height: 300px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1))
+![MyWeb1](https://i.postimg.cc/648Pm12q/Screenshot-2025-06-20-215758.png)
 
   <table style="width: 100%; border-spacing: 20px;">
     <tr>
