@@ -1,3 +1,4 @@
+![Demo Screenshot](https://example.com/demo.png)
 
 <html lang="en">
 <head>
