@@ -1,1872 +1,1868 @@
 
-< !DOCTYPE html >
-    <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Aditya Mahekar - Portfolio</title>
-                    <style>
-                        :root {
-                            --primary - color: #4361ee;
-                        --secondary-color: #3a0ca3;
-                        --accent-color: #f72585;
-                        --light-color: #f8f9fa;
-                        --dark-color: #212529;
-                        --text-color: #2b2d42;
-                        --text-light: #ffffff;
-                        --bg-color: #f8f9fa;
-                        --card-bg: #ffffff;
-                        --nav-bg: #ffffff;
-                        --gradient: linear-gradient(135deg, #4361ee 0%, #3a0ca3 50%, #7209b7 100%);
-                        --shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-                        --hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Mahekar - Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #f72585;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --text-color: #2b2d42;
+            --text-light: #ffffff;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --nav-bg: #ffffff;
+            --gradient: linear-gradient(135deg, #4361ee 0%, #3a0ca3 50%, #7209b7 100%);
+            --shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+            --hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
         }
 
-                        .dark-mode {
-                            --primary - color: #4895ef;
-                        --secondary-color: #560bad;
-                        --accent-color: #f72585;
-                        --light-color: #121212;
-                        --dark-color: #f8f9fa;
-                        --text-color: #e0e0e0;
-                        --text-light: #ffffff;
-                        --bg-color: #121212;
-                        --card-bg: #1e1e1e;
-                        --nav-bg: #1e1e1e;
-                        --gradient: linear-gradient(135deg, #4895ef 0%, #560bad 50%, #7209b7 100%);
-                        --shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-                        --hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        .dark-mode {
+            --primary-color: #4895ef;
+            --secondary-color: #560bad;
+            --accent-color: #f72585;
+            --light-color: #121212;
+            --dark-color: #f8f9fa;
+            --text-color: #e0e0e0;
+            --text-light: #ffffff;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --nav-bg: #1e1e1e;
+            --gradient: linear-gradient(135deg, #4895ef 0%, #560bad 50%, #7209b7 100%);
+            --shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+            --hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
         }
 
-                        * {
-                            margin: 0;
-                        padding: 0;
-                        box-sizing: border-box;
-                        font-family: 'Poppins', sans-serif;
-                        transition: background-color 0.5s ease, color 0.3s ease;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.5s ease, color 0.3s ease;
         }
 
-                        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-                        body {
-                            background - color: var(--bg-color);
-                        color: var(--text-color);
-                        line-height: 1.6;
-                        transition: background-color 0.5s ease;
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.5s ease;
+        }
+        
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-                        .container {
-                            width: 100%;
-                        min-height: 100vh;
-                        display: flex;
-                        flex-direction: column;
+        header {
+            background: var(--gradient);
+            color: var(--text-light);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
         }
 
-                        header {
-                            background: var(--gradient);
-                        color: var(--text-light);
-                        padding: 2rem 1.5rem;
-                        text-align: center;
-                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                        position: relative;
-                        overflow: hidden;
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+            z-index: 1;
+            animation: rotateBackground 20s linear infinite;
         }
 
-                        header::before {
-                            content: "";
-                        position: absolute;
-                        top: -50%;
-                        left: -50%;
-                        width: 200%;
-                        height: 200%;
-                        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-                        transform: rotate(30deg);
-                        z-index: 1;
-                        animation: rotateBackground 20s linear infinite;
+        @keyframes rotateBackground {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
-                        @keyframes rotateBackground {
-                            0 % { transform: rotate(0deg); }
-            100% {transform: rotate(360deg); }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            animation: fadeInDown 1s ease;
         }
 
-                        header h1 {
-                            font - size: 2.5rem;
-                        margin-bottom: 0.5rem;
-                        position: relative;
-                        z-index: 2;
-                        text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-                        animation: fadeInDown 1s ease;
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease 0.2s both;
         }
 
-                        header p {
-                            font - size: 1.2rem;
-                        opacity: 0.9;
-                        position: relative;
-                        z-index: 2;
-                        max-width: 800px;
-                        margin: 0 auto;
-                        animation: fadeInUp 1s ease 0.2s both;
+        nav {
+            background-color: var(--nav-bg);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-                        nav {
-                            background - color: var(--nav-bg);
-                        padding: 1rem;
-                        display: flex;
-                        justify-content: center;
-                        gap: 1.5rem;
-                        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-                        position: sticky;
-                        top: 0;
-                        z-index: 100;
+        .nav-button {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
         }
 
-                        .nav-button {
-                            background - color: transparent;
-                        color: var(--primary-color);
-                        border: 2px solid var(--primary-color);
-                        padding: 0.8rem 1.8rem;
-                        border-radius: 50px;
-                        cursor: pointer;
-                        font-size: 1rem;
-                        font-weight: 500;
-                        transition: all 0.3s ease;
-                        text-decoration: none;
-                        position: relative;
-                        overflow: hidden;
+        .nav-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            transition: all 0.4s ease;
+            z-index: -1;
         }
 
-                        .nav-button::before {
-                            content: '';
-                        position: absolute;
-                        top: 0;
-                        left: -100%;
-                        width: 100%;
-                        height: 100%;
-                        background: var(--gradient);
-                        transition: all 0.4s ease;
-                        z-index: -1;
+        .nav-button:hover {
+            color: var(--text-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(67, 97, 238, 0.3);
+            border-color: transparent;
         }
 
-                        .nav-button:hover {
-                            color: var(--text-light);
-                        transform: translateY(-2px);
-                        box-shadow: 0 4px 8px rgba(67, 97, 238, 0.3);
-                        border-color: transparent;
+        .nav-button:hover::before {
+            left: 0;
         }
 
-                        .nav-button:hover::before {
-                            left: 0;
+        .nav-button.active {
+            background: var(--gradient);
+            color: var(--text-light);
+            border-color: transparent;
+            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
         }
 
-                        .nav-button.active {
-                            background: var(--gradient);
-                        color: var(--text-light);
-                        border-color: transparent;
-                        box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+        main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
         }
 
-                        main {
-                            flex: 1;
-                        padding: 2rem;
-                        max-width: 1200px;
-                        margin: 0 auto;
-                        width: 100%;
+        section {
+            margin-bottom: 3rem;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            animation: fadeIn 0.8s ease;
         }
 
-                        section {
-                            margin - bottom: 3rem;
-                        background-color: var(--card-bg);
-                        border-radius: 12px;
-                        padding: 2.5rem;
-                        box-shadow: var(--shadow);
-                        transition: all 0.3s ease;
-                        animation: fadeIn 0.8s ease;
+        section:hover {
+            box-shadow: var(--hover-shadow);
+            transform: translateY(-5px);
         }
 
-                        section:hover {
-                            box - shadow: var(--hover-shadow);
-                        transform: translateY(-5px);
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 3px solid var(--accent-color);
+            font-size: 1.8rem;
+            position: relative;
         }
 
-                        h2 {
-                            color: var(--primary-color);
-                        margin-bottom: 1.5rem;
-                        padding-bottom: 0.8rem;
-                        border-bottom: 3px solid var(--accent-color);
-                        font-size: 1.8rem;
-                        position: relative;
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: var(--gradient);
+            animation: expandLine 1.5s ease;
         }
 
-                        h2::after {
-                            content: '';
-                        position: absolute;
-                        bottom: -3px;
-                        left: 0;
-                        width: 100px;
-                        height: 3px;
-                        background: var(--gradient);
-                        animation: expandLine 1.5s ease;
+        @keyframes expandLine {
+            0% { width: 0; }
+            100% { width: 100px; }
         }
 
-                        @keyframes expandLine {
-                            0 % { width: 0; }
-            100% {width: 100px; }
+        .current-position {
+            background-color: rgba(67, 97, 238, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 500;
+            color: var(--primary-color);
+            border-left: 4px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            animation: pulse 2s infinite;
         }
 
-                        .current-position {
-                            background - color: rgba(67, 97, 238, 0.1);
-                        padding: 1rem;
-                        border-radius: 8px;
-                        margin-bottom: 2rem;
-                        text-align: center;
-                        font-weight: 500;
-                        color: var(--primary-color);
-                        border-left: 4px solid var(--accent-color);
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 0.8rem;
-                        animation: pulse 2s infinite;
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
         }
 
-                        @keyframes pulse {
-                            0 % { transform: scale(1); }
-            50% {transform: scale(1.02); }
-                        100% {transform: scale(1); }
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
-                        .about-content {
-                            display: flex;
-                        flex-direction: column;
-                        gap: 1.5rem;
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
 
-                        .about-content p {
-                            font - size: 1.1rem;
-                        line-height: 1.8;
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
         }
 
-                        .button-container {
-                            display: flex;
-                        justify-content: center;
-                        gap: 2rem;
-                        margin-top: 3rem;
-                        flex-wrap: wrap;
+        .action-button {
+            background: var(--gradient);
+            color: var(--text-light);
+            border: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            min-width: 220px;
+            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
         }
 
-                        .action-button {
-                            background: var(--gradient);
-                        color: var(--text-light);
-                        border: none;
-                        padding: 1.2rem 2.5rem;
-                        border-radius: 50px;
-                        cursor: pointer;
-                        font-size: 1.1rem;
-                        font-weight: 500;
-                        transition: all 0.3s ease;
-                        text-decoration: none;
-                        text-align: center;
-                        min-width: 220px;
-                        box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
-                        position: relative;
-                        overflow: hidden;
-                        z-index: 1;
-                        animation: fadeInUp 1s ease;
+        .action-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f72585 0%, #b5179e 50%, #7209b7 100%);
+            transition: all 0.4s ease;
+            z-index: -1;
         }
 
-                        .action-button::before {
-                            content: '';
-                        position: absolute;
-                        top: 0;
-                        left: -100%;
-                        width: 100%;
-                        height: 100%;
-                        background: linear-gradient(135deg, #f72585 0%, #b5179e 50%, #7209b7 100%);
-                        transition: all 0.4s ease;
-                        z-index: -1;
+        .action-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(67, 97, 238, 0.4);
         }
 
-                        .action-button:hover {
-                            transform: translateY(-5px);
-                        box-shadow: 0 8px 24px rgba(67, 97, 238, 0.4);
+        .action-button:hover::before {
+            left: 0;
         }
 
-                        .action-button:hover::before {
-                            left: 0;
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-                        .contact-info {
-                            display: flex;
-                        flex-wrap: wrap;
-                        justify-content: center;
-                        gap: 2rem;
-                        margin-top: 3rem;
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--primary-color);
+            background-color: rgba(67, 97, 238, 0.1);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease;
         }
 
-                        .contact-item {
-                            display: flex;
-                        align-items: center;
-                        gap: 0.8rem;
-                        color: var(--primary-color);
-                        background-color: rgba(67, 97, 238, 0.1);
-                        padding: 1rem 1.5rem;
-                        border-radius: 50px;
-                        transition: all 0.3s ease;
-                        animation: fadeIn 1s ease;
+        .contact-item:hover {
+            background-color: rgba(67, 97, 238, 0.2);
+            transform: translateY(-5px) scale(1.05);
         }
 
-                        .contact-item:hover {
-                            background - color: rgba(67, 97, 238, 0.2);
-                        transform: translateY(-5px) scale(1.05);
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
-                        .contact-item a {
-                            color: var(--primary-color);
-                        text-decoration: none;
-                        font-weight: 500;
-                        transition: color 0.3s ease;
+        .contact-item a:hover {
+            color: var(--accent-color);
         }
 
-                        .contact-item a:hover {
-                            color: var(--accent-color);
+        .contact-item i {
+            font-size: 1.2rem;
         }
 
-                        .contact-item i {
-                            font - size: 1.2rem;
+        .education-item, .language-item, .skill-item, .volunteer-item, .activity-item, .experience-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--accent-color);
+            animation: fadeInLeft 0.8s ease;
         }
 
-                        .education-item, .language-item, .skill-item, .volunteer-item, .activity-item, .experience-item {
-                            margin - bottom: 1.5rem;
-                        padding-left: 1.5rem;
-                        border-left: 3px solid var(--accent-color);
-                        animation: fadeInLeft 0.8s ease;
+        .education-item h3, .volunteer-item h3, .activity-item h3, .experience-item h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
         }
 
-                        .education-item h3, .volunteer-item h3, .activity-item h3, .experience-item h3 {
-                            color: var(--secondary-color);
-                        margin-bottom: 0.5rem;
-                        font-size: 1.2rem;
+        .education-item p, .volunteer-item p, .activity-item p, .experience-item p {
+            font-style: italic;
+            color: var(--text-color);
+            opacity: 0.9;
+            margin-bottom: 0.3rem;
         }
 
-                        .education-item p, .volunteer-item p, .activity-item p, .experience-item p {
-                            font - style: italic;
-                        color: var(--text-color);
-                        opacity: 0.9;
-                        margin-bottom: 0.3rem;
+        .education-item .date, .activity-item .date, .experience-item .date {
+            color: var(--accent-color);
+            font-weight: 500;
         }
 
-                        .education-item .date, .activity-item .date, .experience-item .date {
-                            color: var(--accent-color);
-                        font-weight: 500;
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-                        .skills-container {
-                            display: flex;
-                        flex-wrap: wrap;
-                        gap: 1rem;
-        }
-
-                        .skill-pill {
-                            /* Solid white background */
-                            background: white;
-
-                        /* Internal gradient border effect */
-                        padding: 0.6rem 1.2rem;
-                        border-radius: 50px;
-                        position: relative;
-                        font-size: 0.9rem;
-                        font-weight: 600;
-                        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-                        transition: all 0.3s ease;
-
-                        /* Thicker gradient border INSIDE the pill */
-                        &::before {
-                            content: '';
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        border-radius: 50px;
-                        padding: 4px; /* Increased from 3px to 4px */
-                        background: linear-gradient(
-                        to right,
-                        var(--primary-color),
-                        var(--secondary-color)
-                        );
-                        -webkit-mask:
-                        linear-gradient(#fff 0 0) content-box,
-                        linear-gradient(#fff 0 0);
-                        -webkit-mask-composite: xor;
-                        mask-composite: exclude;
-                        z-index: -1;
+.skill-pill {
+  /* Solid white background */
+  background: white;
+  
+  /* Internal gradient border effect */
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  
+  /* Thicker gradient border INSIDE the pill */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50px;
+    padding: 4px; /* Increased from 3px to 4px */
+    background: linear-gradient(
+      to right, 
+      var(--primary-color), 
+      var(--secondary-color)
+    );
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
   }
-
-                        /* Solid text color */
-                        color: var(--primary-color);
+  
+  /* Solid text color */
+  color: var(--primary-color);
 }
 
-                        .skill-pill:hover {
-                            transform: translateY(-2px);
-                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.skill-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-                        .skill-pill:hover {
-                            transform: translateY(-2px);
-                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.skill-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-                        /* Hover effect */
-                        .skill-pill:hover {
-                            transform: translateY(-2px);
-                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+/* Hover effect */
+.skill-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
-                        /* Hover effect */
-                        .skill-pill:hover {
-                            transform: translateY(-2px);
-                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
-
-                        .skill-pill:hover {
-                            transform: translateY(-5px) scale(1.05);
-                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-
-                        .projects-grid, .certification-grid {
-                            display: grid;
-                        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-                        gap: 2.5rem;
-        }
-
-                        .project-card, .certification-card {
-                            border - radius: 12px;
-                        overflow: hidden;
-                        transition: all 0.3s ease;
-                        box-shadow: var(--shadow);
-                        background: var(--card-bg);
-                        position: relative;
-                        animation: fadeInUp 0.8s ease;
-        }
-
-                        .project-card::before, .certification-card::before {
-                            content: '';
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: var(--gradient);
-                        opacity: 0;
-                        transition: all 0.3s ease;
-                        z-index: 1;
-        }
-
-                        .project-card:hover, .certification-card:hover {
-                            transform: translateY(-8px);
-                        box-shadow: var(--hover-shadow);
-        }
-
-                        .project-card:hover::before, .certification-card:hover::before {
-                            opacity: 0.05;
-        }
-
-                        .project-image, .certification-image {
-                            height: 220px;
-                        background-color: var(--light-color);
-                        position: relative;
-                        overflow: hidden;
-        }
-
-                        .project-image img, .certification-image img {
-                            width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        transition: transform 0.5s ease;
-        }
-
-                        .project-card:hover .project-image img, .certification-card:hover .certification-image img {
-                            transform: scale(1.1);
-        }
-
-                        .project-image::before, .certification-image::before {
-                            content: '';
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: linear-gradient(45deg, rgba(67, 97, 238, 0.1) 0%, rgba(114, 9, 183, 0.1) 100%);
-        }
-
-                        .project-details, .certification-details {
-                            padding: 1.8rem;
-        }
-
-                        .project-details h3, .certification-details h3 {
-                            color: var(--primary-color);
-                        margin-bottom: 0.8rem;
-                        font-size: 1.4rem;
-        }
-
-                        .project-details p, .certification-details p {
-                            margin - bottom: 1.5rem;
-                        color: var(--text-color);
-                        opacity: 0.9;
-        }
-
-                        .project-link {
-                            display: inline-flex;
-                        align-items: center;
-                        gap: 0.5rem;
-                        color: var(--accent-color);
-                        text-decoration: none;
-                        font-weight: 600;
-                        transition: all 0.3s ease;
-        }
-
-                        .project-link:hover {
-                            color: var(--secondary-color);
-                        transform: translateX(8px);
-        }
-
-                        .project-link i {
-                            transition: all 0.3s ease;
-        }
-
-                        .project-link:hover i {
-                            transform: translateX(5px);
-        }
-
-                        .profile-summary {
-                            background: linear-gradient(135deg, rgba(67, 97, 238, 0.05) 0%, rgba(114, 9, 183, 0.05) 100%);
-                        padding: 2rem;
-                        border-radius: 12px;
-                        margin-bottom: 3rem;
-                        border-left: 4px solid var(--accent-color);
-                        position: relative;
-                        overflow: hidden;
-                        animation: fadeIn 0.8s ease;
-        }
-
-                        .profile-summary::before {
-                            content: '';
-                        position: absolute;
-                        top: -50%;
-                        right: -50%;
-                        width: 200px;
-                        height: 200px;
-                        background: radial-gradient(circle, rgba(247, 37, 133, 0.1) 0%, rgba(247, 37, 133, 0) 70%);
-                        z-index: 0;
-                        animation: float 6s ease-in-out infinite;
-        }
-
-                        @keyframes float {
-                            0 % { transform: translate(0, 0); }
-            50% {transform: translate(-20px, 20px); }
-                        100% {transform: translate(0, 0); }
-        }
-
-                        .profile-summary h2 {
-                            position: relative;
-                        z-index: 1;
-        }
-
-                        .profile-summary p {
-                            position: relative;
-                        z-index: 1;
-                        font-size: 1.1rem;
-                        line-height: 1.8;
-        }
-
-                        footer {
-                            background: var(--gradient);
-                        color: var(--text-light);
-                        text-align: center;
-                        padding: 2rem 1.5rem;
-                        margin-top: auto;
-                        position: relative;
-                        overflow: hidden;
-        }
-
-                        footer::before {
-                            content: "";
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' opacity='0.1'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-                        animation: patternMove 20s linear infinite;
-        }
-
-                        @keyframes patternMove {
-                            0 % { background- position: 0 0; }
-                        100% {background - position: 60px 60px; }
-        }
-
-                        footer p {
-                            position: relative;
-                        z-index: 1;
-        }
-
-                        /* Hide all sections initially */
-                        section {
-                            display: none;
-        }
-
-                        /* Show only the active section */
-                        section.active {
-                            display: block;
-                        animation: fadeIn 0.5s ease;
-        }
-
-                        @keyframes fadeIn {
-                            from {opacity: 0; transform: translateY(20px); }
-                        to {opacity: 1; transform: translateY(0); }
-        }
-
-                        @keyframes fadeInDown {
-                            from {opacity: 0; transform: translateY(-20px); }
-                        to {opacity: 1; transform: translateY(0); }
-        }
-
-                        @keyframes fadeInUp {
-                            from {opacity: 0; transform: translateY(20px); }
-                        to {opacity: 1; transform: translateY(0); }
-        }
-
-                        @keyframes fadeInLeft {
-                            from {opacity: 0; transform: translateX(-20px); }
-                        to {opacity: 1; transform: translateX(0); }
-        }
-
-                        /* Download Button Styles */
-                        .download-button {
-                            background: var(--accent-color);
-                        color: white;
-                        border: none;
-                        padding: 0.8rem 1.5rem;
-                        border-radius: 50px;
-                        font-size: 1rem;
-                        font-weight: 500;
-                        cursor: pointer;
-                        transition: all 0.3s ease;
-                        display: inline-flex;
-                        align-items: center;
-                        gap: 0.5rem;
-                        text-decoration: none;
-                        box-shadow: 0 4px 8px rgba(247, 37, 133, 0.3);
-                        margin-top: 1rem;
-                        animation: pulse 2s infinite;
-        }
-
-                        .download-button:hover {
-                            background: #d11674;
-                        transform: translateY(-3px);
-                        box-shadow: 0 6px 12px rgba(247, 37, 133, 0.4);
-                        animation: none;
-        }
-
-                        .download-button i {
-                            font - size: 0.9rem;
-        }
-
-                        /* Dark Mode Toggle */
-                        .theme-toggle {
-                            position: fixed;
-                        bottom: 30px;
-                        right: 30px;
-                        width: 60px;
-                        height: 60px;
-                        border-radius: 50%;
-                        background: var(--gradient);
-                        color: white;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        cursor: pointer;
-                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-                        z-index: 100;
-                        transition: all 0.3s ease;
-                        border: none;
-                        font-size: 1.5rem;
-        }
-
-                        .theme-toggle:hover {
-                            transform: scale(1.1) rotate(30deg);
-                        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-        }
-
-                        /* Responsive adjustments */
-                        @media (max-width: 992px) {
-            .projects - grid, .certification - grid {
-                            grid - template - columns: repeat(auto-fill, minmax(300px, 1fr));
-            }
-        }
-
-                        @media (max-width: 768px) {
-                            header h1 {
-                            font - size: 2rem;
-            }
-
-                        header p {
-                            font - size: 1rem;
-            }
-
-                        .button-container {
-                            flex - direction: column;
-                        gap: 1.5rem;
-            }
-
-                        .action-button {
-                            width: 100%;
-            }
-
-                        main {
-                            padding: 1.5rem;
-            }
-
-                        section {
-                            padding: 2rem;
-            }
-
-                        .project-image, .certification-image {
-                            height: 180px;
-            }
-
-                        .theme-toggle {
-                            width: 50px;
-                        height: 50px;
-                        bottom: 20px;
-                        right: 20px;
-                        font-size: 1.2rem;
-            }
-        }
-
-                        @media (max-width: 576px) {
-                            header h1 {
-                            font - size: 1.8rem;
-            }
-
-                        nav {
-                            gap: 0.8rem;
-                        flex-wrap: wrap;
-            }
-
-                        .nav-button {
-                            padding: 0.7rem 1.2rem;
-                        font-size: 0.9rem;
-            }
-
-                        .contact-info {
-                            flex - direction: column;
-                        align-items: center;
-                        gap: 1rem;
-            }
-
-                        .contact-item {
-                            width: 100%;
-                        justify-content: center;
-            }
-
-                        .projects-grid, .certification-grid {
-                            grid - template - columns: 1fr;
-            }
-
-                        section {
-                            padding: 1.5rem;
-            }
-
-                        h2 {
-                            font - size: 1.6rem;
-            }
-        }
-                        /* Project Filter Pills */
-                        .project-filters {
-                            display: flex;
-                        justify-content: center;
-                        gap: 1rem;
-                        margin-bottom: 2.5rem;
-                        flex-wrap: wrap;
+/* Hover effect */
+.skill-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-                        .filter-pill {
-                            background - color: var(--card-bg);
-                        color: var(--primary-color);
-                        padding: 0.6rem 1.2rem;
-                        border-radius: 50px;
-                        cursor: pointer;
-                        font-size: 0.9rem;
-                        font-weight: 600;
-                        transition: all 0.3s ease;
-                        box-shadow: var(--shadow);
-                        position: relative;
-                        border: 2px solid transparent;
+        .skill-pill:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .projects-grid, .certification-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card, .certification-card {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            background: var(--card-bg);
+            position: relative;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .project-card::before, .certification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .project-card:hover, .certification-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .project-card:hover::before, .certification-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .project-image, .certification-image {
+            height: 220px;
+            background-color: var(--light-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img, .certification-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img, .certification-card:hover .certification-image img {
+            transform: scale(1.1);
+        }
+
+        .project-image::before, .certification-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(67, 97, 238, 0.1) 0%, rgba(114, 9, 183, 0.1) 100%);
+        }
+
+        .project-details, .certification-details {
+            padding: 1.8rem;
+        }
+
+        .project-details h3, .certification-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .project-details p, .certification-details p {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            opacity: 0.9;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--secondary-color);
+            transform: translateX(8px);
+        }
+
+        .project-link i {
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover i {
+            transform: translateX(5px);
+        }
+
+        .profile-summary {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.05) 0%, rgba(114, 9, 183, 0.05) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .profile-summary::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(247, 37, 133, 0.1) 0%, rgba(247, 37, 133, 0) 70%);
+            z-index: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, 20px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .profile-summary h2 {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-summary p {
+            position: relative;
+            z-index: 1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: var(--gradient);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' opacity='0.1'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: patternMove 20s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 60px; }
+        }
+
+        footer p {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hide all sections initially */
+        section {
+            display: none;
+        }
+
+        /* Show only the active section */
+        section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Download Button Styles */
+        .download-button {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(247, 37, 133, 0.3);
+            margin-top: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .download-button:hover {
+            background: #d11674;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(247, 37, 133, 0.4);
+            animation: none;
+        }
+
+        .download-button i {
+            font-size: 0.9rem;
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1.5rem;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(30deg);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .projects-grid, .certification-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .button-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .action-button {
+                width: 100%;
+            }
+
+            main {
+                padding: 1.5rem;
+            }
+
+            section {
+                padding: 2rem;
+            }
+
+            .project-image, .certification-image {
+                height: 180px;
+            }
+
+            .theme-toggle {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                gap: 0.8rem;
+                flex-wrap: wrap;
+            }
+
+            .nav-button {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .contact-item {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .projects-grid, .certification-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+        /* Project Filter Pills */
+.project-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
 }
 
-                        .filter-pill::before {
-                            content: '';
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        border-radius: 50px;
-                        padding: 2px;
-                        background: var(--gradient);
-                        -webkit-mask:
-                        linear-gradient(#fff 0 0) content-box,
-                        linear-gradient(#fff 0 0);
-                        -webkit-mask-composite: xor;
-                        mask-composite: exclude;
-                        z-index: -1;
+.filter-pill {
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    position: relative;
+    border: 2px solid transparent;
 }
 
-                        .filter-pill:hover, .filter-pill.active {
-                            background: var(--gradient);
-                        color: var(--text-light);
-                        transform: translateY(-2px);
-                        box-shadow: var(--hover-shadow);
+.filter-pill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50px;
+    padding: 2px;
+    background: var(--gradient);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
 }
 
-                        /* Message Form Styles */
-                        .message-form {
-                            background - color: var(--card-bg);
-                        padding: 2rem;
-                        border-radius: 12px;
-                        margin-top: 2rem;
-                        box-shadow: var(--shadow);
+.filter-pill:hover, .filter-pill.active {
+    background: var(--gradient);
+    color: var(--text-light);
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
 }
 
-                        .message-form h3 {
-                            color: var(--primary-color);
-                        margin-bottom: 1.5rem;
-                        text-align: center;
+/* Message Form Styles */
+.message-form {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+    box-shadow: var(--shadow);
 }
 
-                        .form-group {
-                            margin - bottom: 1.5rem;
+.message-form h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
 }
 
-                        .form-group input,
-                        .form-group textarea {
-                            width: 100%;
-                        padding: 1rem;
-                        border: 2px solid rgba(67, 97, 238, 0.2);
-                        border-radius: 8px;
-                        background-color: var(--bg-color);
-                        color: var(--text-color);
-                        font-size: 1rem;
-                        transition: all 0.3s ease;
+.form-group {
+    margin-bottom: 1.5rem;
 }
 
-                        .form-group input:focus,
-                        .form-group textarea:focus {
-                            outline: none;
-                        border-color: var(--primary-color);
-                        box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid rgba(67, 97, 238, 0.2);
+    border-radius: 8px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
-                        .form-group textarea {
-                            resize: vertical;
-                        min-height: 120px;
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
 }
 
-                        /* Responsive adjustments for filters */
-                        @media (max-width: 576px) {
-    .project - filters {
-                            gap: 0.5rem;
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Responsive adjustments for filters */
+@media (max-width: 576px) {
+    .project-filters {
+        gap: 0.5rem;
     }
-
-                        .filter-pill {
-                            padding: 0.5rem 1rem;
-                        font-size: 0.8rem;
+    
+    .filter-pill {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
     }
 }
-                    </style>
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-                    </head>
-                    <body>
-                        <div class="container">
-                            <header>
-                                <h1>Aditya Mahekar</h1>
-                                <p id="typing" style="font-family: monospace; display: inline;"></p><span id="cursor" style="font-family: monospace; display: inline; animation: blink 0.5s step-end infinite;">|</span>
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Aditya Mahekar</h1>
+         <p id="typing" style="font-family: monospace; display: inline;"></p><span id="cursor" style="font-family: monospace; display: inline; animation: blink 0.5s step-end infinite;">|</span>
 
-                                <script>
-                                    (function() {
+<script>
+  (function() {
     const titles = [
-                                    " Computer Science Engineer ",
-                                    " Developer ",
-                                    " UI/UX Enthusiast ",
-                                    " Aspiring Full-Stack Developer ",
-                                    " Problem Solver "
-                                    ];
-                                    const typingElement = document.getElementById("typing");
-                                    let currentTitle = 0, charIndex = 0, isDeleting = false;
+      " Computer Science Engineer ",
+      " Developer ",
+      " UI/UX Enthusiast ",
+      " Aspiring Full-Stack Developer ",
+      " Problem Solver "
+    ];
+    const typingElement = document.getElementById("typing");
+    let currentTitle = 0, charIndex = 0, isDeleting = false;
 
-                                    function typeEffect() {
+    function typeEffect() {
       const currentText = titles[currentTitle];
-                                    typingElement.textContent = isDeleting
-                                    ? currentText.substring(0, charIndex--)
-                                    : currentText.substring(0, charIndex++);
+      typingElement.textContent = isDeleting
+        ? currentText.substring(0, charIndex--)
+        : currentText.substring(0, charIndex++);
 
-                                    if (!isDeleting && charIndex === currentText.length) {
-                                        setTimeout(() => { isDeleting = true; typeEffect(); }, 1000);
+      if (!isDeleting && charIndex === currentText.length) {
+        setTimeout(() => { isDeleting = true; typeEffect(); }, 1000);
       } else if (isDeleting && charIndex === 0) {
-                                        isDeleting = false;
-                                    currentTitle = (currentTitle + 1) % titles.length;
-                                    setTimeout(typeEffect, 500);
+        isDeleting = false;
+        currentTitle = (currentTitle + 1) % titles.length;
+        setTimeout(typeEffect, 500);
       } else {
-                                        setTimeout(typeEffect, isDeleting ? 50 : 100);
+        setTimeout(typeEffect, isDeleting ? 50 : 100);
       }
     }
 
-                                    typeEffect();
+    typeEffect();
   })();
-                                </script>
-
-                                <style>
-                                    @keyframes blink {
-                                        50 % { opacity: 0; }
-                                    }
-                                </style>
-
-                            </header>
-
-                            <nav>
-                                <a href="#" class="nav-button active" onclick="showSection('home')">Home</a>
-                                <a href="#" class="nav-button" onclick="showSection('resume')">Resume</a>
-                                <a href="#" class="nav-button" onclick="showSection('projects')">Projects</a>
-                                <a href="#" class="nav-button" onclick="showSection('activities')">Activities</a>
-                                <a href="#" class="nav-button" onclick="showSection('certifications')">Certifications</a>
-                                <a href="#" class="nav-button" onclick="showSection('connect')">Connect Me</a>
-                            </nav>
-
-                            <main>
-                                <!-- Home Section -->
-                                <section id="home" class="active">
-                                    <div class="current-position">
-                                        <i class="fas fa-user-graduate"></i> Currently pursuing Computer Science Engineering at BMS Institute of Technology and Management
-                                    </div>
-
-                                    <h2>About Me</h2>
-                                    <div class="about-content">
-                                        <p>Passionate Computer Science Engineering student at BMS Institute of Technology and Management, Bengaluru, with a strong foundation in Mechanical Engineering from Government Polytechnic Karwar.</p>
-
-                                        <p>Proficient in Java, Python, C, HTML, CSS, JavaScript, and CNC Programming, I bridge the gap between Mechanical and Software Engineering. With strong UI/UX design skills, I craft user-friendly digital solutions.</p>
-
-                                        <p>Fluent in multiple languages, I thrive in diverse teams and am eager to contribute to innovative projects that make an impact.</p>
-                                    </div>
-
-                                    <div class="button-container">
-                                        <a href="#" class="action-button" onclick="showSection('resume')">
-                                            <i class="fas fa-file-alt"></i> View Resume
-                                        </a>
-                                        <a href="#" class="action-button" onclick="showSection('projects')">
-                                            <i class="fas fa-project-diagram"></i> View Projects
-                                        </a>
-                                        <a href="#" class="action-button" onclick="showSection('activities')">
-                                            <i class="fas fa-running"></i> View Activities
-                                        </a>
-                                        <a href="#" class="action-button" onclick="showSection('certifications')">
-                                            <i class="fas fa-certificate"></i> View Certifications
-                                        </a>
-                                          <a href="#" class="action-button" onclick="showSection('connect')">
-                                            <i class="fas fa-connect"></i> Connect me
-                                        </a>
-                          
-                                    </div>
-
-                                    <div class="contact-info">
-                                        <div class="contact-item">
-                                            <i class="fas fa-envelope"></i>
-                                            <a href="mailto:mahekaraditya468@gmail.com">mahekaraditya468@gmail.com</a>
-                                        </div>
-                                        <div class="contact-item">
-                                            <i class="fas fa-phone-alt"></i>
-                                            <a href="tel:9480100787">+91 9480100787</a>
-                                        </div>
-                                        <div class="contact-item">
-                                            <i class="fab fa-github"></i>
-                                            <a href="https://github.com/adityamahekar" target="_blank">GitHub Profile</a>
-                                        </div>
-                                        <div class="contact-item">
-                                            <i class="fab fa-linkedin"></i>
-                                            <a href="https://www.linkedin.com/in/aditya-mahekar/" target="_blank">LinkedIn Profile</a>
-                                        </div>
-                                        <div class="contact-item">
-                                            <i class="fas fa-code"></i>
-                                            <a href="https://leetcode.com/u/aditya__mahekar/" target="_blank">LeetCode Profile</a>
-                                        </div>
-                                        <div class="contact-item">
-                                            <i class="fab fa-figma"></i>
-                                            <a href="https://www.figma.com/files/team/1519982424999534908/recents-and-sharing?fuid=1519982419772983298" target="_blank">Figma Drafts</a>
-                                        </div>
-                                        <div class="contact-item">
-                                            <i class="fas fa-laptop-code"></i>
-                                            <a href="https://www.hackerearth.com/@aditya__mahekar/" target="_blank">HackerEarth Profile</a>
-                                        </div>
-                                    </div>
-
-                                    <div style="text-align: center; margin-top: 2rem;">
-                                        <a href="https://docs.google.com/document/d/1_R-uNJbsfpI1cCQVQWQywgFeE-5IBDyx/edit?tab=t.0" class="download-button" onclick="downloadResume()">
-                                            <i class="fas fa-download"></i> Download Resume
-                                        </a>
-                                    </div>
-                                </section>
-
-                                <!-- Resume Section -->
-                                <section id="resume">
-                                    <div style="text-align: right; margin-bottom: 1.5rem;">
-                                        <a href="https://docs.google.com/document/d/1_R-uNJbsfpI1cCQVQWQywgFeE-5IBDyx/edit?tab=t.0" class="download-button" onclick="downloadResume()">
-                                            <i class="fas fa-download"></i> Download Resume
-                                        </a>
-                                    </div>
-
-                                    <div class="profile-summary">
-                                        <h2>Profile Summary</h2>
-                                        <p>Computer Science Engineering student with a mechanical engineering background, skilled in multiple programming languages and UI/UX design. Passionate about creating innovative solutions that bridge hardware and software domains. Strong problem-solving abilities with experience in both mechanical systems and software development.</p>
-                                    </div>
-
-                                    <h2>Experience</h2>
-                                    <div class="experience-item">
-                                        <h3>Fresher</h3>
-                                        <p>Currently seeking opportunities to apply my skills and knowledge in real-world projects.</p>
-                                        <p class="date">Present</p>
-                                    </div>
-
-                                    <h2>Education</h2>
-                                    <div class="education-item">
-                                        <h3>BMS Institute of Technology and Management College</h3>
-                                        <p>Bachelor of Engineering - BE, Computer Science</p>
-                                        <p class="date">Apr 2024 - Apr 2027</p>
-                                    </div>
-                                    <div class="education-item">
-                                        <h3>Government Polytechnic College Karwar</h3>
-                                        <p>Diploma, Mechanical Engineering</p>
-                                        <p class="date">Nov 2021 - Apr 2024</p>
-                                    </div>
-                                    <div class="education-item">
-                                        <h3>Premier English medium highschool Karwar</h3>
-                                        <p class="date">Jul 2018 - Jul 2021</p>
-                                    </div>
-                                    <div class="education-item">
-                                        <h3>Shivaji Balmandir English medium school Karwar</h3>
-                                        <p class="date">Jul 2011 - May 2017</p>
-                                    </div>
-
-                                    <h2>Skills</h2>
-                                    <div class="skills-container" style="display: flex; flex-wrap: wrap; gap: 8px;">
-
-                                        <strong style="width: 100%; color:#560bad;">Programming Languages:</strong>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Java</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> C</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Python</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> JavaScript</span>
-                                        <span class="skill-pill">CNC</span>
-                                        <span class="skill-pill">PLC Programming</span>
-
-
-                                        <strong style="width: 100%; margin-top: 12px; color:#560bad;">Front-End Web Development:</strong>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> HTML 5</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> CSS 3</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Bootstrap 5</span>
-                                        <span class="skill-pill">DOM Manipulation</span>
-                                        <span class="skill-pill">UI/UX Design</span>
-                                        <span class="skill-pill">Web Design</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> GitHub Pages</span>
-
-                                        <strong style="width: 100%; margin-top: 12px; color:#560bad;">Back-End Web Development:</strong>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> NPM</span>
-                                        <span class="skill-pill">EJS</span>
-                                        <span class="skill-pill">REST</span>
-                                        <span class="skill-pill">Deployment</span>
-
-                                        <strong style="width: 100%; margin-top: 12px; color:#560bad;">Database & APIs:</strong>
-                                        <span class="skill-pill">Databases</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> MySQL</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> PostgreSQL</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> MongoDB</span>
-                                        <span class="skill-pill">APIs</span>
-                                        <span class="skill-pill">Authentication</span>
-
-
-                                        <strong style="width: 100%; margin-top: 12px; color:#560bad;">Emerging Technologies & Web3:</strong>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ethereum/ethereum-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Blockchain</span>
-                                        <span class="skill-pill">Token Contract Dev</span>
-                                        <span class="skill-pill">NFT Minting</span>
-                                        <span class="skill-pill">NFT Buying/Selling</span>
-                                        <span class="skill-pill">Web3</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> IoT</span>
-                                        <span class="skill-pill">Automation</span>
-                                        <span class="skill-pill">Robotics</span>
-                                        <span class="skill-pill">Robotic Simulation</span>
-                                        <span class="skill-pill">RPA</span>
-
-
-                                        <strong style="width: 100%; margin-top: 12px; color:#560bad;">Soft Skills & Methodology:</strong>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> UI/UX</span>
-                                        <span class="skill-pill">Web Design</span>
-                                        <span class="skill-pill">Data Visualization</span>
-                                        <span class="skill-pill">Agile</span>
-                                        <span class="skill-pill">Problem Solving</span>
-                                        <span class="skill-pill">Teamwork</span>
-                                        <span class="skill-pill">Prompt Engineering</span>
-
-                                        <strong style="width: 100%; margin-top: 12px; color:#560bad;">Data & Analysis:</strong>
-                                        <span class="skill-pill">Data Visualization</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Matplotlib</span>
-                                        <span class="skill-pill">Data Analysis</span>
-                                        <span class="skill-pill">Data Structures</span>
-                                        <span class="skill-pill">Algorithms</span>
-
-                                        <strong style="width: 100%; margin-top: 12px; color:#560bad;">JavaScript Libraries:</strong>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> React.js</span>
-                                        <span class="skill-pill">React Hooks</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> jQuery</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Express.js</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Node.js</span>
-
-
-                                        <strong style="width: 100%; margin-top: 12px; color:#560bad;">Operating Systems:</strong>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Windows</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Linux: Ubuntu</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fedora/fedora-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Linux: Fedora</span>
-
-                                        <strong style="width: 100%; margin-top: 12px; color:#560bad;">Tools:</strong>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Git</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> GitHub</span>
-                                        <span class="skill-pill">Version Control</span>
-                                        <span class="skill-pill">Bash Command Line</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> MS Office</span>
-
-                                        <strong style="width: 100%; margin-top: 12px; color:#560bad;">Software:</strong>
-                                        <span class="skill-pill">SEENC Mill</span>
-                                        <span class="skill-pill">SEENC Turn</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansys/ansys-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Ansys</span>
-                                        <span class="skill-pill">SolidEdge</span>
-                                        <span class="skill-pill">RoboDK</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> VS Code</span>
-                                        <span class="skill-pill">XAMPP</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sublime/sublime-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Sublime</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Postman</span>
-                                        <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Figma</span>
-                                        <span class="skill-pill">Flutter Flow</span>
-                                        <span class="skill-pill">Siemens S7 PLC</span>
-                                        <span class="skill-pill">Xilinx</span>
-                                        <span class="skill-pill">Keil uVision</span>
-                                        <span class="skill-pill">Jupyter</span>
-                                        <span class="skill-pill">Eclipse</span>
-                                    </div>
-
-
-                                    <h2>Languages</h2>
-                                    <div class="language-item">
-                                        <p>
-                                            <ul style="list-style: none; padding: 0;">
-                                                <li><span style="color: red;">•</span> English </li>
-                                                <li><span style="color: red;">•</span> Hindi </li>
-                                                <li><span style="color: red;">•</span> Kannada </li>
-                                                <li><span style="color: red;">•</span> Konkani </li>
-                                                <li><span style="color: red;">•</span> Marathi </li>
-
-                                            </ul>
-                                        </p>
-                                    </div>
-
-                                    <h2>Volunteer Experience</h2>
-                                    <div class="volunteer-item">
-                                        <h3>Rotarct Club Member(Vice-president)</h3>
-                                        <p>Active member contributing to community service initiatives and social welfare programs</p>
-                                    </div>
-                                </section>
-
-                                <!-- Projects Section -->
-                                <section id="projects">
-                                    <h2>My Projects</h2>
-                                    <div class="project-filters">
-                                        <span class="filter-pill active" data-filter="all">All</span>
-                                        <span class="filter-pill" data-filter="major">Major Projects</span>
-                                        <span class="filter-pill" data-filter="mini">Mini Projects</span>
-                                        <span class="filter-pill" data-filter="micro">Micro Projects</span>
-                                        <span class="filter-pill" data-filter="nano">Nano Projects</span>
-                                    </div>
-
-
-                                    <div class="projects-grid">
-
-                                        <a href="https://blood-donation-management-bht9.onrender.com/" class="project-link" target="_blank">
-                                            <div class="project-card" data-type="mini">
-
-                                                <div class="project-image">
-                                                    <img src="./c16.png" alt="EdTech Platform">
-                                                </div>
-                                                <div class="project-details">
-                                                    <h3>Blood Donation Management System</h3>
-                                                    <p>This project is designed to streamline the process of blood donation and request management. It provides a platform where users can register as donors, search for available donors by blood group and location, and request blood when needed. The system also includes admin features for monitoring activity and managing users.</p>
-
-                                                    View Details <i class="fas fa-arrow-right"></i>
-
-                                                </div>
-                                            </div>
-                                        </a>
-
-
-
-                                        <a href="https://adityamahekar.github.io/MyWeb/" class="project-link" target="_blank">
-                                            <div class="project-card" data-type="mini">
-
-                                                <div class="project-image">
-                                                    <img src="./c15.png" alt="EdTech Platform">
-                                                </div>
-                                                <div class="project-details">
-                                                    <h3>My Portfolio</h3>
-                                                    <p>Welcome to my portfolio! This is a collection of the projects I’ve worked on, reflecting my passion for building and creating. Each project represents a unique learning experience and showcases my interest in solving problems through practical applications.</p>
-
-                                                    View Details <i class="fas fa-arrow-right"></i>
-
-                                                </div>
-                                            </div>
-                                        </a>
-
-
-
-                                        <a href="https://adityamahekar.github.io/EdTechnew/" class="project-link" target="_blank">
-                                            <div class="project-card" data-type="mini">
-
-                                                <div class="project-image">
-                                                    <img src="./EdTech_img.png" alt="EdTech Platform">
-                                                </div>
-                                                <div class="project-details">
-                                                    <h3>EdTech Platform</h3>
-                                                    <p>An innovative educational technology platform designed to enhance learning experiences through interactive content and personalized learning paths. Combines modern web technologies with educational best practices to create an engaging learning environment.</p>
-
-                                                    View Details <i class="fas fa-arrow-right"></i>
-                                                </div>
-                                            </div>
-                                        </a>
-
-
-
-                                        <a href="#" class="project-link">
-                                            <div class="project-card" data-type="major">
-
-                                                <div class="project-image">
-                                                    <img src="./Pick_and_Place_img.png" alt="Pick and Place Robot">
-                                                </div>
-                                                <div class="project-details">
-                                                    <h3>Pick and Place Robot</h3>
-                                                    <p>An automated robotic system capable of identifying, picking, and placing objects with precision. Combines mechanical engineering principles with software control systems to create an efficient automation solution for industrial applications.</p>
-
-                                                    View Details <i class="fas fa-arrow-right"></i>
-
-                                                </div>
-                                            </div>
-
-                                        </a>
-
-
-
-                                        <a href="https://adityamahekar.github.io/Dice_Game/" class="project-link" target="_blank">
-                                            <div class="project-card" data-type="micro">
-
-                                                <div class="project-image">
-                                                    <img src="./DiceGame.png " alt="Dice Game">
-                                                </div>
-                                                <div class="project-details">
-
-                                                    <h3>Dice Game</h3>
-                                                    <p>Developed a two-player Dice Game using HTML, CSS, and JavaScript, where players roll dice alternately and the higher roll determines the winner in each round.</p>
-
-                                                    View Details <i class="fas fa-arrow-right"></i>
-
-
-                                                </div>
-                                            </div>
-                                        </a>
-
-
-
-                                        <a href="https://adityamahekar.github.io/Drum_Kit/" class="project-link" target="_blank">
-                                            <div class="project-card" data-type="micro">
-
-                                                <div class="project-image">
-                                                    <img src="./DrumKit.png" alt="Drum Kit">
-                                                </div>
-                                                <div class="project-details">
-                                                    <h3>Drum Kit</h3>
-                                                    <p>Designed and developed an interactive DrumKit web application using HTML, CSS, and JavaScript, enabling users to play drum sounds through keypress and button clicks for an engaging musical experience.</p>
-
-                                                    View Details <i class="fas fa-arrow-right"></i>
-
-
-                                                </div>
-                                            </div>
-                                        </a>
-
-
-
-                                        <a href="https://adityamahekar.github.io/SimonGame/" class="project-link" target="_blank">
-                                            <div class="project-card" data-type="micro">
-
-                                                <div class="project-image">
-                                                    <img src="./simon_game.png" alt="Simon game">
-                                                </div>
-                                                <div class="project-details">
-                                                    <h3>Simon Game</h3>
-                                                    <p>Developed a Simon Game using HTML, CSS, and JavaScript that challenges players to remember and repeat an increasing sequence of colors and sounds, enhancing memory and concentration through interactive gameplay.</p>
-
-                                                    View Details <i class="fas fa-arrow-right"></i>
-
-
-                                                </div>
-                                            </div>
-                                        </a>
-
-
-
-                                        <a href="https://github.com/adityamahekar/Demo_web_with_header_Footer/" class="project-link" target="_blank">
-                                            <div class="project-card" data-type="nano">
-
-                                                <div class="project-image">
-                                                    <img src="./hf1.png" alt="Animated Header & Footer using EJS">
-                                                </div>
-                                                <div class="project-details">
-                                                    <h3>Animated Header & Footer using EJS</h3>
-                                                    <p>A simple demo website showcasing a reusable **header and footer** with smooth animations. Built using **EJS**, **CSS**, and **JavaScript**, powered by **Node.js & Express**.</p>
-
-                                                    View Details <i class="fas fa-arrow-right"></i>
-                                                </div>
-                                            </div>
-                                        </a>
-
-
-
-
-                                        <a href="https://adityamahekar.github.io/QR_generator/" class="project-link" target="_blank">
-                                            <div class="project-card" data-type="nano">
-
-                                                <div class="project-image">
-                                                    <img src="./qr_gen.png" alt="QR Code Generator">
-                                                </div>
-                                                <div class="project-details">
-                                                    <h3>QR Code Generator</h3>
-                                                    <p>This QR Code Generator uses HTML, CSS, and JavaScript with the QRCode.js library. It demonstrates frontend development skills including responsive design, DOM manipulation, and API integration. The project showcases UI/UX principles with clean visuals and user input validation.</p>
-
-                                                    View Details <i class="fas fa-arrow-right"></i>
-                                                </div>
-                                            </div>
-                                        </a>
-
-
-                                        <a href="https://github.com/adityamahekar/tiny_dog/" class="project-link" target="_blank">
-                                            <div class="project-card" data-type="nano">
-
-                                                <div class="project-image">
-                                                    <img src="./td1.png" alt="Tiny dog">
-                                                </div>
-                                                <div class="project-details">
-                                                    <h3>Tiny Dog</h3>
-                                                    <p>A simple and responsive TinyDog themed website built using only HTML and CSS. This project demonstrates clean UI design, responsive layouts, and fundamental web development skills without using JavaScript or external frameworks.</p>
-
-                                                    View Details <i class="fas fa-arrow-right"></i>
-                                                </div>
-                                            </div>
-                                        </a>
-
-
-
-                                        <a href="https://github.com/adityamahekar/Recipe_page_using_JSON/" class="project-link" target="_blank">
-                                            <div class="project-card" data-type="nano">
-
-                                                <div class="project-image">
-                                                    <img src="./rc1.png" alt="Taco recipe using Json">
-                                                </div>
-                                                <div class="project-details">
-                                                    <h3>Recipe page using JSON</h3>
-                                                    <p>A simple website showcasing taco recipes dynamically using JSON data. Built with EJS, CSS, and Node.js + Express.</p>
-
-                                                    View Details <i class="fas fa-arrow-right"></i>
-                                                </div>
-                                            </div>
-                                        </a>
-
-
-
-                                    </div>
-
-                                </section>
-
-                                <!-- Activities Section -->
-                                <section id="activities">
-                                    <h2>My Activities</h2>
-
-                                    <div class="activity-item">
-                                        <h3>Rotarct Club Member(Vice-president) </h3>
-                                        <p class="date">2022</p>
-                                        <p>Active member contributing to community service initiatives and social welfare programs, participating in various community development activities and charity events.</p>
-                                    </div>
-
-                                    <div class="activity-item">
-                                        <h3>Hackathon Participant</h3>
-                                        <p class="date">2025</p>
-                                        <p>Participated in multiple hackathons, collaborating with teams to develop innovative solutions within constrained timeframes, enhancing problem-solving and teamwork skills.</p>
-                                    </div>
-
-
-                                    <div class="activity-item">
-                                        <h3>Ideathon Participant</h3>
-                                        <p class="date">2025</p>
-                                        <p>Participated in Ideathon 2025, collaborating with diverse minds to develop innovative solutions for real-world challenges.</p>
-                                    </div>
-
-                                </section>
-
-                                <!-- Certifications Section -->
-                                <section id="certifications">
-
-
-                                    <h2>My Certifications & Licenses</h2>
-                                    <div class="certification-grid">
-
-                                        <!-- Ideathon-->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: #fff; padding: 10px;">
-                                                <img src="./c19_cer.jpeg" alt="Ideathon">
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>UIUX Ideathon Certificate</h3>
-                                                <p>Awarded for active and significant participation in the IDEATHON UI/UX Design Competition held on 24th May 2025, organized by the Department of Computer Science, BMS Institute of Technology and Management, Yelahanka.</p>
-                                                <p class="date">Issued: May 2025</p>
-                                                <p>Skills: UIUX Designing </p>
-                                            </div>
-                                        </div>
-
-
-
-
-                                        <!-- Git GitHub -->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: #fff; padding: 10px;">
-                                                <img src="./C17_cer.jpeg" alt="Git GitHub">
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>Git & GitHub WorkShop</h3>
-                                                <p>Certificate of Participation for attending the Git & GitHub Workshop conducted by OS Code at BMSIT, gaining hands-on experience in version control and collaborative development.</p>
-                                                <p class="date">Issued: May 2025</p>
-                                                <p>Skills: Git & GitHub</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- MongoDB -->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: #fff; padding: 10px;">
-                                                <img src="./c14_cer.png" alt="MongoDB">
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>Introduction to MongoDB</h3>
-                                                <p>beginner-friendly overview of MongoDB fundamentals, including CRUD operations, data modeling, and using MongoDB Atlas for cloud-based database management.</p>
-                                                <p class="date">Issued: May 2025</p>
-                                                <p>Skills: MongoDB</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- Accenture Job Simulation (Newest) -->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: #fff; padding: 10px;">
-                                                <img src="./c1_cer.jpg" alt="Accenture">
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>Accenture Nordics - Software Engineering Job Simulation</h3>
-                                                <p>Completed software engineering job simulation covering various aspects of professional software development.</p>
-                                                <p class="date">Issued: Apr 2025</p>
-                                                <p>Credential ID: CNrDZYKokzg27tCLJ</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- Core Java Bootcamp -->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: #fff; padding: 10px;">
-                                                <img src="./c5_cer.jpg" alt="Udemy">
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>2025 Core JAVA Bootcamp zero to Hero</h3>
-                                                <p>Comprehensive Java programming course covering fundamentals to advanced concepts.</p>
-                                                <p class="date">Issued: Mar 2025</p>
-                                                <p>Skills: Java, Object-Oriented Programming (OOP)</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- EA Job Simulation -->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: #fff; padding: 10px;">
-                                                <img src="./c2_cer.jpg" alt="EA">
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>Electronic Arts - Software Engineering Job Simulation</h3>
-                                                <p>Completed software engineering simulation focused on game development processes.</p>
-                                                <p class="date">Issued: Mar 2025</p>
-                                                <p>Credential ID: 3coYvP8gAFdbq2tvT</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- Figma Training -->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: #fff; padding: 10px;">
-                                                <img src="./c13_cer.jpg" alt="Figma">
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>Figma Essential Training: The Basics</h3>
-                                                <p>Learned essential UI/UX design skills using Figma design tool.</p>
-                                                <p class="date">Issued: Mar 2025</p>
-                                                <p>Skills: UI/UX Design</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- Python Programming -->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: #fff; padding: 10px;">
-                                                <img src="./c3_cer.jpg" alt="Udemy">
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>Learn the Python Programming Language</h3>
-                                                <p>Comprehensive Python programming course covering fundamentals to advanced concepts.</p>
-                                                <p class="date">Issued: Mar 2025</p>
-                                                <p>Skills: Python Programming</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- Data Structures and Algorithms -->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: #fff; padding: 10px;">
-                                                <img src="./c8_cer.jpg" alt="Infosys">
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>Data Structures and Algorithms</h3>
-                                                <p>Learned fundamental data structures and algorithms using C programming language.</p>
-                                                <p class="date">Issued: Dec 2024</p>
-                                                <p>Skills: Data Structure and Algorithm (DSA), C Programming</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- Data Visualization -->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: #fff; padding: 10px;">
-                                                <img src="./c10_cer.jpg" alt="IBM">
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>Data Visualization with Python</h3>
-                                                <p>Learned to create insightful visualizations using Matplotlib, Seaborn, and Folium.</p>
-                                                <p class="date">Issued: Dec 2024</p>
-                                                <p>Credential ID: 4f7de68ec33f4da2a649993c0051f89b</p>
-                                                <p>Skills: Data Visualization, Matplotlib, Python</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- Java Programming -->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: #fff; padding: 10px;">
-                                                <img src="./c7_cer.jpg" alt="Infosys">
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>Java Programming Fundamentals</h3>
-                                                <p>Learned core Java programming concepts and object-oriented programming.</p>
-                                                <p class="date">Issued: Dec 2024</p>
-                                                <p>Skills: Java Programming</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- Mercury Ship Repairs Internship -->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: var(--light-color); display: flex; justify-content: center; align-items: center;">
-                                                <img src="./c9_cer.jpg" alt="Internship">
-
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>Internship (Mechanical)</h3>
-                                                <p>Completed mechanical engineering internship at Mercury Ship Repairs Pvt. Ltd.</p>
-                                                <p class="date">Issued: Apr 2024</p>
-                                                <p>Skills: Ship repair, Mechanical systems, Industrial operations</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- Kirloskar Toyota Apprenticeship -->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: var(--light-color); display: flex; justify-content: center; align-items: center;">
-                                                <img src="./c6_cer.jpg" alt="Kirloskar Toyota Offer Letter">
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>Apprenticeship (Mechanical)</h3>
-                                                <p> apprenticeship offer letter from Kirloskar Toyota Textile Machinery Pvt. Ltd.</p>
-                                                <p class="date">Issued: Nov 2023</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- PLC Training -->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: var(--light-color); display: flex; justify-content: center; align-items: center;">
-                                                <img src="./c11_cer.jpg" alt="GTTC">
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>Basics of PLC</h3>
-                                                <p>Gained hands-on experience in Programmable Logic Controllers and industrial automation.</p>
-                                                <p class="date">Issued: Aug 2023</p>
-                                                <p>Skills: Robotic Process Automation, PLC Programming, Robotic Simulation</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- RPA Training -->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: #fff; padding: 10px;">
-                                                <img src="./c12_cer.jpg" alt="Infosys">
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>Introduction to Robotics Process Automation</h3>
-                                                <p>Learned fundamentals of robotic process automation and industrial robotics.</p>
-                                                <p class="date">Issued: Aug 2023</p>
-                                                <p>Skills: Automation and Robotics</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- Nirakar Engineering Internship (Oldest) -->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: var(--light-color); display: flex; justify-content: center; align-items: center;">
-                                                <img src="./c4_cer.jpg" alt="NEPL">
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>Internship (Mechanical)</h3>
-                                                <p>Completed internship at Nirakar Engineering Private Limited (Jan 26, 2023 - Mar 28, 2023).</p>
-                                                <p>Gained practical experience in engineering processes and manufacturing operations.</p>
-                                                <p class="date">Issued: Mar 2023</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- Rotract Club-->
-                                        <div class="certification-card">
-                                            <div class="certification-image" style="background-color: #fff; padding: 10px;">
-                                                <img src="./C18_cer.jpeg" alt="Rotract Club Certificate">
-                                            </div>
-                                            <div class="certification-details">
-                                                <h3>Rotract Club Karwar Certificate</h3>
-                                                <p>"Successfully served as the Vice-President of the Rotaract Club, contributing to leadership and community service initiatives. Recognized for dedication, teamwork, and commitment to impactful social projects."</p>
-                                                <p class="date">Issued: Nov 2022</p>
-                                                <p>Skills: Leadership</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-
-                                <!-- Connect Me Section -->
-                                <section id="connect">
-                                    <h2>Connect With Me</h2>
-
-                                    <div class="contact-info">
-                                        <div class="contact-item">
-                                            <i class="fas fa-envelope"></i>
-                                            <a href="mailto:mahekaraditya468@gmail.com">mahekaraditya468@gmail.com</a>
-                                        </div>
-                                        <div class="contact-item">
-                                            <i class="fas fa-phone-alt"></i>
-                                            <a href="tel:9480100787">+91 9480100787</a>
-                                        </div>
-                                        <div class="contact-item">
-                                            <i class="fab fa-github"></i>
-                                            <a href="https://github.com/adityamahekar" target="_blank">GitHub Profile</a>
-                                        </div>
-                                        <div class="contact-item">
-                                            <i class="fab fa-linkedin"></i>
-                                            <a href="https://www.linkedin.com/in/aditya-mahekar/" target="_blank">LinkedIn Profile</a>
-                                        </div>
-                                        <div class="contact-item">
-                                            <i class="fas fa-code"></i>
-                                            <a href="https://leetcode.com/u/aditya__mahekar/" target="_blank">LeetCode Profile</a>
-                                        </div>
-                                        <div class="contact-item">
-                                            <i class="fab fa-figma"></i>
-                                            <a href="https://www.figma.com/files/team/1519982424999534908/recents-and-sharing?fuid=1519982419772983298" target="_blank">Figma Drafts</a>
-                                        </div>
-                                        <div class="contact-item">
-                                            <i class="fas fa-laptop-code"></i>
-                                            <a href="https://www.hackerearth.com/@aditya__mahekar/" target="_blank">HackerEarth Profile</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="message-form">
-                                        <h3>Send me a message</h3>
-                                        <form id="contactForm">
-                                            <div class="form-group">
-                                                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="email" id="email" name="email" placeholder="Your Email" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-                                            </div>
-                                            <button type="submit" class="action-button">
-                                                <i class="fas fa-paper-plane"></i> Send Message
-                                            </button>
-                                        </form>
-                                    </div>
-                                </section>
-                            </main>
-
-                            <footer>
-                                <p>&copy; 2024 Aditya Mahekar. All rights reserved.</p>
-                            </footer>
+</script>
+
+<style>
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+</style>
+
+        </header>
+
+        <nav>
+            <a href="#" class="nav-button active" onclick="showSection('home')">Home</a>
+            <a href="#" class="nav-button" onclick="showSection('resume')">Resume</a>
+            <a href="#" class="nav-button" onclick="showSection('projects')">Projects</a>
+            <a href="#" class="nav-button" onclick="showSection('activities')">Activities</a>
+            <a href="#" class="nav-button" onclick="showSection('certifications')">Certifications</a>
+            <a href="#" class="nav-button" onclick="showSection('connect')">Connect Me</a>
+        </nav>
+
+        <main>
+            <!-- Home Section -->
+            <section id="home" class="active">
+                <div class="current-position">
+                    <i class="fas fa-user-graduate"></i> Currently pursuing Computer Science Engineering at BMS Institute of Technology and Management
+                </div>
+                
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <p>Passionate Computer Science Engineering student at BMS Institute of Technology and Management, Bengaluru, with a strong foundation in Mechanical Engineering from Government Polytechnic Karwar.</p>
+                    
+                    <p>Proficient in Java, Python, C, HTML, CSS, JavaScript, and CNC Programming, I bridge the gap between Mechanical and Software Engineering. With strong UI/UX design skills, I craft user-friendly digital solutions.</p>
+                    
+                    <p>Fluent in multiple languages, I thrive in diverse teams and am eager to contribute to innovative projects that make an impact.</p>
+                </div>
+
+                <div class="button-container">
+                    <a href="#" class="action-button" onclick="showSection('resume')">
+                        <i class="fas fa-file-alt"></i> View Resume
+                    </a>
+                    <a href="#" class="action-button" onclick="showSection('projects')">
+                        <i class="fas fa-project-diagram"></i> View Projects
+                    </a>
+                    <a href="#" class="action-button" onclick="showSection('activities')">
+                        <i class="fas fa-running"></i> View Activities
+                    </a>
+                    <a href="#" class="action-button" onclick="showSection('certifications')">
+                        <i class="fas fa-certificate"></i> View Certifications
+                    </a>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:mahekaraditya468@gmail.com">mahekaraditya468@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:9480100787">+91 9480100787</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/adityamahekar" target="_blank">GitHub Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/aditya-mahekar/" target="_blank">LinkedIn Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-code"></i>
+                        <a href="https://leetcode.com/u/aditya__mahekar/" target="_blank">LeetCode Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-figma"></i>
+                        <a href="https://www.figma.com/files/team/1519982424999534908/recents-and-sharing?fuid=1519982419772983298" target="_blank">Figma Drafts</a>
+                    </div>
+                    <div class="contact-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <a href="https://www.hackerearth.com/@aditya__mahekar/" target="_blank">HackerEarth Profile</a>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="https://docs.google.com/document/d/1_R-uNJbsfpI1cCQVQWQywgFeE-5IBDyx/edit?tab=t.0" class="download-button" onclick="downloadResume()">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
+            </section>
+
+            <!-- Resume Section -->
+            <section id="resume">
+                <div style="text-align: right; margin-bottom: 1.5rem;">
+                    <a href="https://docs.google.com/document/d/1_R-uNJbsfpI1cCQVQWQywgFeE-5IBDyx/edit?tab=t.0" class="download-button" onclick="downloadResume()">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                </div>
+                
+                <div class="profile-summary">
+                    <h2>Profile Summary</h2>
+                    <p>Computer Science Engineering student with a mechanical engineering background, skilled in multiple programming languages and UI/UX design. Passionate about creating innovative solutions that bridge hardware and software domains. Strong problem-solving abilities with experience in both mechanical systems and software development.</p>
+                </div>
+
+                <h2>Experience</h2>
+                <div class="experience-item">
+                    <h3>Fresher</h3>
+                    <p>Currently seeking opportunities to apply my skills and knowledge in real-world projects.</p>
+                    <p class="date">Present</p>
+                </div>
+
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>BMS Institute of Technology and Management College</h3>
+                    <p>Bachelor of Engineering - BE, Computer Science</p>
+                    <p class="date">Apr 2024 - Apr 2027</p>
+                </div>
+                <div class="education-item">
+                    <h3>Government Polytechnic College Karwar</h3>
+                    <p>Diploma, Mechanical Engineering</p>
+                    <p class="date">Nov 2021 - Apr 2024</p>
+                </div>
+                <div class="education-item">
+                    <h3>Premier English medium highschool Karwar</h3>
+                    <p class="date">Jul 2018 - Jul 2021</p>
+                </div>
+                <div class="education-item">
+                    <h3>Shivaji Balmandir English medium school Karwar</h3>
+                    <p class="date">Jul 2011 - May 2017</p>
+                </div>
+
+               <h2>Skills</h2>
+<div class="skills-container" style="display: flex; flex-wrap: wrap; gap: 8px;">
+
+<strong style="width: 100%; color:#560bad;">Programming Languages:</strong>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Java</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> C</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Python</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> JavaScript</span>
+<span class="skill-pill">CNC</span>
+<span class="skill-pill">PLC Programming</span>
+
+
+<strong style="width: 100%; margin-top: 12px; color:#560bad;">Front-End Web Development:</strong>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> HTML 5</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> CSS 3</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Bootstrap 5</span>
+<span class="skill-pill">DOM Manipulation</span>
+<span class="skill-pill">UI/UX Design</span>
+<span class="skill-pill">Web Design</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> GitHub Pages</span>
+
+<strong style="width: 100%; margin-top: 12px; color:#560bad;">Back-End Web Development:</strong>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> NPM</span>
+<span class="skill-pill">EJS</span>
+<span class="skill-pill">REST</span>
+<span class="skill-pill">Deployment</span>
+
+<strong style="width: 100%; margin-top: 12px; color:#560bad;">Database & APIs:</strong>
+<span class="skill-pill">Databases</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> MySQL</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> PostgreSQL</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> MongoDB</span>
+<span class="skill-pill">APIs</span>
+<span class="skill-pill">Authentication</span>
+
+
+<strong style="width: 100%; margin-top: 12px; color:#560bad;">Emerging Technologies & Web3:</strong>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ethereum/ethereum-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Blockchain</span>
+<span class="skill-pill">Token Contract Dev</span>
+<span class="skill-pill">NFT Minting</span>
+<span class="skill-pill">NFT Buying/Selling</span>
+<span class="skill-pill">Web3</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> IoT</span>
+<span class="skill-pill">Automation</span>
+<span class="skill-pill">Robotics</span>
+<span class="skill-pill">Robotic Simulation</span>
+<span class="skill-pill">RPA</span>
+
+
+<strong style="width: 100%; margin-top: 12px; color:#560bad;">Soft Skills & Methodology:</strong>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> UI/UX</span>
+<span class="skill-pill">Web Design</span>
+<span class="skill-pill">Data Visualization</span>
+<span class="skill-pill">Agile</span>
+<span class="skill-pill">Problem Solving</span>
+<span class="skill-pill">Teamwork</span>
+<span class="skill-pill">Prompt Engineering</span>
+
+<strong style="width: 100%; margin-top: 12px; color:#560bad;">Data & Analysis:</strong>
+<span class="skill-pill">Data Visualization</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Matplotlib</span>
+<span class="skill-pill">Data Analysis</span>
+<span class="skill-pill">Data Structures</span>
+<span class="skill-pill">Algorithms</span>
+
+    <strong style="width: 100%; margin-top: 12px; color:#560bad;">JavaScript Libraries:</strong>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> React.js</span>
+<span class="skill-pill">React Hooks</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> jQuery</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Express.js</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Node.js</span>
+
+
+    <strong style="width: 100%; margin-top: 12px; color:#560bad;">Operating Systems:</strong>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Windows</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Linux: Ubuntu</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fedora/fedora-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Linux: Fedora</span>
+
+    <strong style="width: 100%; margin-top: 12px; color:#560bad;">Tools:</strong>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Git</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> GitHub</span>
+<span class="skill-pill">Version Control</span>
+<span class="skill-pill">Bash Command Line</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> MS Office</span>
+
+<strong style="width: 100%; margin-top: 12px; color:#560bad;">Software:</strong>
+<span class="skill-pill">SEENC Mill</span>
+<span class="skill-pill">SEENC Turn</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansys/ansys-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Ansys</span>
+<span class="skill-pill">SolidEdge</span>
+<span class="skill-pill">RoboDK</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> VS Code</span>
+<span class="skill-pill">XAMPP</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sublime/sublime-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Sublime</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Postman</span>
+<span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Figma</span>
+<span class="skill-pill">Flutter Flow</span>
+<span class="skill-pill">Siemens S7 PLC</span>
+<span class="skill-pill">Xilinx</span>
+<span class="skill-pill">Keil uVision</span>
+<span class="skill-pill">Jupyter</span>
+<span class="skill-pill">Eclipse</span>
+</div>
+
+                
+                <h2>Languages</h2>
+                <div class="language-item">
+                    <p>
+                        <ul style="list-style: none; padding: 0;">
+                          <li><span style="color: red;">•</span> English </li>
+                          <li><span style="color: red;">•</span> Hindi </li>
+                          <li><span style="color: red;">•</span> Kannada </li>
+                         <li><span style="color: red;">•</span> Konkani </li>
+                         <li><span style="color: red;">•</span> Marathi </li>
+                            
+                        </ul>
+                </p> 
+                </div>
+                
+                <h2>Volunteer Experience</h2>
+                <div class="volunteer-item">
+                    <h3>Rotarct Club Member(Vice-president)</h3>
+                    <p>Active member contributing to community service initiatives and social welfare programs</p>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects">
+                <h2>My Projects</h2>
+                <div class="project-filters">
+    <span class="filter-pill active" data-filter="all">All</span>
+    <span class="filter-pill" data-filter="major">Major Projects</span>
+    <span class="filter-pill" data-filter="mini">Mini Projects</span>
+    <span class="filter-pill" data-filter="micro">Micro Projects</span>
+    <span class="filter-pill" data-filter="nano">Nano Projects</span>
+</div>
+
+                
+                <div class="projects-grid">
+                    
+                    <a href="https://blood-donation-management-bht9.onrender.com/" class="project-link" target="_blank">
+                        <div class="project-card" data-type="mini">
+               
+                        <div class="project-image">
+                            <img src="./c16.png" alt="EdTech Platform">
                         </div>
+                        <div class="project-details">
+                            <h3>Blood Donation Management System</h3>
+                            <p>This project is designed to streamline the process of blood donation and request management. It provides a platform where users can register as donors, search for available donors by blood group and location, and request blood when needed. The system also includes admin features for monitoring activity and managing users.</p>
+                            
+                                View Details <i class="fas fa-arrow-right"></i>
+            
+                    </div>
+                             </div>
+                       </a>
+                   
 
-                        <button class="theme-toggle" id="themeToggle">
-                            <i class="fas fa-moon"></i>
-                        </button>
+                    
+                     <a href="https://adityamahekar.github.io/MyWeb/" class="project-link" target="_blank">
+                         <div class="project-card" data-type="mini">
+                   
+                        <div class="project-image">
+                            <img src="./c15.png" alt="EdTech Platform">
+                        </div>
+                        <div class="project-details">
+                            <h3>My Portfolio</h3>
+                            <p>Welcome to my portfolio! This is a collection of the projects I’ve worked on, reflecting my passion for building and creating. Each project represents a unique learning experience and showcases my interest in solving problems through practical applications.</p>
+                           
+                                View Details <i class="fas fa-arrow-right"></i>
+               
+                    </div>
+                              </div>
+                          </a>
+                   
 
-                        <script>
+                  
+                     <a href="https://adityamahekar.github.io/EdTechnew/" class="project-link" target="_blank">
+                           <div class="project-card" data-type="mini">
+                  
+                        <div class="project-image">
+                            <img src="./EdTech_img.png" alt="EdTech Platform">
+                        </div>
+                        <div class="project-details">
+                            <h3>EdTech Platform</h3>
+                            <p>An innovative educational technology platform designed to enhance learning experiences through interactive content and personalized learning paths. Combines modern web technologies with educational best practices to create an engaging learning environment.</p>
+                           
+                                View Details <i class="fas fa-arrow-right"></i>
+                    </div>
+                                 </div>
+                            </a>
+                  
+
+                    
+                          <a href="#" class="project-link">
+                              <div class="project-card" data-type="major">
+                 
+                        <div class="project-image">
+                            <img src="./Pick_and_Place_img.png" alt="Pick and Place Robot">
+                        </div>
+                        <div class="project-details">
+                            <h3>Pick and Place Robot</h3>
+                            <p>An automated robotic system capable of identifying, picking, and placing objects with precision. Combines mechanical engineering principles with software control systems to create an efficient automation solution for industrial applications.</p>
+                      
+                                View Details <i class="fas fa-arrow-right"></i>
+                     
+                    </div>
+                                    </div>
+
+                          </a>
+                  
+                
+        
+                     <a href="https://adityamahekar.github.io/Dice_Game/" class="project-link" target="_blank">
+                    <div class="project-card" data-type="micro">
+                   
+                        <div class="project-image">
+                            <img src="./DiceGame.png " alt="Dice Game">
+                        </div>
+                       <div class="project-details">
+
+                            <h3>Dice Game</h3>
+                            <p>Developed a two-player Dice Game using HTML, CSS, and JavaScript, where players roll dice alternately and the higher roll determines the winner in each round.</p>
+                           
+                                View Details <i class="fas fa-arrow-right"></i>
+                         
+                      
+                    </div>
+                          </div>
+                            </a>
+                  
+                    
+                    
+                    <a href="https://adityamahekar.github.io/Drum_Kit/" class="project-link" target="_blank">
+                        <div class="project-card" data-type="micro">
+                
+                        <div class="project-image">
+                            <img src="./DrumKit.png" alt="Drum Kit">
+                        </div>
+                        <div class="project-details">
+                            <h3>Drum Kit</h3>
+                            <p>Designed and developed an interactive DrumKit web application using HTML, CSS, and JavaScript, enabling users to play drum sounds through keypress and button clicks for an engaging musical experience.</p>
+                      
+                                View Details <i class="fas fa-arrow-right"></i>
+                          
+                       
+                    </div>
+                               </div>
+                          </a>
+                 
+
+                   
+                     <a href="https://adityamahekar.github.io/SimonGame/" class="project-link" target="_blank">
+                          <div class="project-card" data-type="micro">
+                  
+                        <div class="project-image">
+                            <img src="./simon_game.png" alt="Simon game">
+                        </div>
+                        <div class="project-details">
+                            <h3>Simon Game</h3>
+                            <p>Developed a Simon Game using HTML, CSS, and JavaScript that challenges players to remember and repeat an increasing sequence of colors and sounds, enhancing memory and concentration through interactive gameplay.</p>
+                      
+                                View Details <i class="fas fa-arrow-right"></i>
+                          
+                     
+                    </div>
+                                </div>
+                          </a>
+                  
+
+                            
+                        <a href="https://github.com/adityamahekar/Demo_web_with_header_Footer/" class="project-link" target="_blank">
+                           <div class="project-card" data-type="nano">
+                  
+                        <div class="project-image">
+                            <img src="./hf1.png" alt="Animated Header & Footer using EJS">
+                        </div>
+                        <div class="project-details">
+                            <h3>Animated Header & Footer using EJS</h3>
+                            <p>A simple demo website showcasing a reusable **header and footer** with smooth animations. Built using **EJS**, **CSS**, and **JavaScript**, powered by **Node.js & Express**.</p>
+                           
+                                View Details <i class="fas fa-arrow-right"></i>
+                    </div>
+                                 </div>
+                            </a>
+                    
+
+                    
+                   
+                    <a href="https://adityamahekar.github.io/QR_generator/" class="project-link" target="_blank">
+                         <div class="project-card" data-type="nano">
+                
+                        <div class="project-image">
+                            <img src="./qr_gen.png" alt="QR Code Generator">
+                        </div>
+                        <div class="project-details">
+                            <h3>QR Code Generator</h3>
+                            <p>This QR Code Generator uses HTML, CSS, and JavaScript with the QRCode.js library. It demonstrates frontend development skills including responsive design, DOM manipulation, and API integration. The project showcases UI/UX principles with clean visuals and user input validation.</p>
+                      
+                                View Details <i class="fas fa-arrow-right"></i>
+                    </div>
+                               </div>
+                          </a>
+
+
+                     <a href="https://github.com/adityamahekar/tiny_dog/" class="project-link" target="_blank">
+                           <div class="project-card" data-type="nano">
+                  
+                        <div class="project-image">
+                            <img src="./td1.png" alt="Tiny dog">
+                        </div>
+                        <div class="project-details">
+                            <h3>Tiny Dog</h3>
+                            <p>A simple and responsive TinyDog themed website built using only HTML and CSS. This project demonstrates clean UI design, responsive layouts, and fundamental web development skills without using JavaScript or external frameworks.</p>
+                           
+                                View Details <i class="fas fa-arrow-right"></i>
+                    </div>
+                                 </div>
+                            </a>
+
+
+
+                        <a href="https://github.com/adityamahekar/Recipe_page_using_JSON/" class="project-link" target="_blank">
+                           <div class="project-card" data-type="nano">
+                  
+                        <div class="project-image">
+                            <img src="./rc1.png" alt="Taco recipe using Json">
+                        </div>
+                        <div class="project-details">
+                            <h3>Recipe page using JSON</h3>
+                            <p>A simple website showcasing taco recipes dynamically using JSON data. Built with EJS, CSS, and Node.js + Express.</p>
+                           
+                                View Details <i class="fas fa-arrow-right"></i>
+                    </div>
+                                 </div>
+                            </a>
+
+
+            
+                </div>
+                    
+            </section>
+
+            <!-- Activities Section -->
+            <section id="activities">
+                <h2>My Activities</h2>
+                
+                <div class="activity-item">
+                    <h3>Rotarct Club Member(Vice-president) </h3>
+                    <p class="date">2022</p>
+                    <p>Active member contributing to community service initiatives and social welfare programs, participating in various community development activities and charity events.</p>
+                </div>
+                
+                <div class="activity-item">
+                    <h3>Hackathon Participant</h3>
+                    <p class="date">2025</p>
+                    <p>Participated in multiple hackathons, collaborating with teams to develop innovative solutions within constrained timeframes, enhancing problem-solving and teamwork skills.</p>
+                </div>
+
+                
+                <div class="activity-item">
+                    <h3>Ideathon Participant</h3>
+                    <p class="date">2025</p>
+                    <p>Participated in Ideathon 2025, collaborating with diverse minds to develop innovative solutions for real-world challenges.</p>
+                </div>
+              
+            </section>
+
+           <!-- Certifications Section -->
+<section id="certifications">
+
+   
+    <h2>My Certifications & Licenses</h2>
+    <div class="certification-grid">
+
+         <!-- Ideathon-->
+         <div class="certification-card">
+            <div class="certification-image" style="background-color: #fff; padding: 10px;">
+                <img src="./c19_cer.jpeg" alt="Ideathon">
+            </div>
+            <div class="certification-details">
+                <h3>UIUX Ideathon Certificate</h3>
+                <p>Awarded for active and significant participation in the IDEATHON UI/UX Design Competition held on 24th May 2025, organized by the Department of Computer Science, BMS Institute of Technology and Management, Yelahanka.</p>
+                <p class="date">Issued: May 2025</p>
+                <p>Skills: UIUX Designing </p>
+            </div>
+        </div>
+
+
+        
+        
+          <!-- Git GitHub -->
+         <div class="certification-card">
+            <div class="certification-image" style="background-color: #fff; padding: 10px;">
+                <img src="./C17_cer.jpeg" alt="Git GitHub">
+            </div>
+            <div class="certification-details">
+                <h3>Git & GitHub WorkShop</h3>
+                <p>Certificate of Participation for attending the Git & GitHub Workshop conducted by OS Code at BMSIT, gaining hands-on experience in version control and collaborative development.</p>
+                <p class="date">Issued: May 2025</p>
+                <p>Skills: Git & GitHub</p>
+            </div>
+        </div>
+        
+         <!-- MongoDB -->
+         <div class="certification-card">
+            <div class="certification-image" style="background-color: #fff; padding: 10px;">
+                <img src="./c14_cer.png" alt="MongoDB">
+            </div>
+            <div class="certification-details">
+                <h3>Introduction to MongoDB</h3>
+                <p>beginner-friendly overview of MongoDB fundamentals, including CRUD operations, data modeling, and using MongoDB Atlas for cloud-based database management.</p>
+                <p class="date">Issued: May 2025</p>
+                 <p>Skills: MongoDB</p>
+            </div>
+        </div>
+        
+        <!-- Accenture Job Simulation (Newest) -->
+        <div class="certification-card">
+            <div class="certification-image" style="background-color: #fff; padding: 10px;">
+                <img src="./c1_cer.jpg" alt="Accenture">
+            </div>
+            <div class="certification-details">
+                <h3>Accenture Nordics - Software Engineering Job Simulation</h3>
+                <p>Completed software engineering job simulation covering various aspects of professional software development.</p>
+                <p class="date">Issued: Apr 2025</p>
+                <p>Credential ID: CNrDZYKokzg27tCLJ</p>
+            </div>
+        </div>
+
+        <!-- Core Java Bootcamp -->
+        <div class="certification-card">
+            <div class="certification-image" style="background-color: #fff; padding: 10px;">
+                <img src="./c5_cer.jpg" alt="Udemy">
+            </div>
+            <div class="certification-details">
+                <h3>2025 Core JAVA Bootcamp zero to Hero</h3>
+                <p>Comprehensive Java programming course covering fundamentals to advanced concepts.</p>
+                <p class="date">Issued: Mar 2025</p>
+                <p>Skills: Java, Object-Oriented Programming (OOP)</p>
+            </div>
+        </div>
+
+        <!-- EA Job Simulation -->
+        <div class="certification-card">
+            <div class="certification-image" style="background-color: #fff; padding: 10px;">
+                <img src="./c2_cer.jpg" alt="EA">
+            </div>
+            <div class="certification-details">
+                <h3>Electronic Arts - Software Engineering Job Simulation</h3>
+                <p>Completed software engineering simulation focused on game development processes.</p>
+                <p class="date">Issued: Mar 2025</p>
+                <p>Credential ID: 3coYvP8gAFdbq2tvT</p>
+            </div>
+        </div>
+
+        <!-- Figma Training -->
+        <div class="certification-card">
+            <div class="certification-image" style="background-color: #fff; padding: 10px;">
+                <img src="./c13_cer.jpg" alt="Figma">
+            </div>
+            <div class="certification-details">
+                <h3>Figma Essential Training: The Basics</h3>
+                <p>Learned essential UI/UX design skills using Figma design tool.</p>
+                <p class="date">Issued: Mar 2025</p>
+                <p>Skills: UI/UX Design</p>
+            </div>
+        </div>
+
+        <!-- Python Programming -->
+        <div class="certification-card">
+            <div class="certification-image" style="background-color: #fff; padding: 10px;">
+                <img src="./c3_cer.jpg" alt="Udemy">
+            </div>
+            <div class="certification-details">
+                <h3>Learn the Python Programming Language</h3>
+                <p>Comprehensive Python programming course covering fundamentals to advanced concepts.</p>
+                <p class="date">Issued: Mar 2025</p>
+                <p>Skills: Python Programming</p>
+            </div>
+        </div>
+
+        <!-- Data Structures and Algorithms -->
+        <div class="certification-card">
+            <div class="certification-image" style="background-color: #fff; padding: 10px;">
+                <img src="./c8_cer.jpg" alt="Infosys">
+            </div>
+            <div class="certification-details">
+                <h3>Data Structures and Algorithms</h3>
+                <p>Learned fundamental data structures and algorithms using C programming language.</p>
+                <p class="date">Issued: Dec 2024</p>
+                <p>Skills: Data Structure and Algorithm (DSA), C Programming</p>
+            </div>
+        </div>
+
+        <!-- Data Visualization -->
+        <div class="certification-card">
+            <div class="certification-image" style="background-color: #fff; padding: 10px;">
+                <img src="./c10_cer.jpg" alt="IBM">
+            </div>
+            <div class="certification-details">
+                <h3>Data Visualization with Python</h3>
+                <p>Learned to create insightful visualizations using Matplotlib, Seaborn, and Folium.</p>
+                <p class="date">Issued: Dec 2024</p>
+                <p>Credential ID: 4f7de68ec33f4da2a649993c0051f89b</p>
+                <p>Skills: Data Visualization, Matplotlib, Python</p>
+            </div>
+        </div>
+
+        <!-- Java Programming -->
+        <div class="certification-card">
+            <div class="certification-image" style="background-color: #fff; padding: 10px;">
+                <img src="./c7_cer.jpg" alt="Infosys">
+            </div>
+            <div class="certification-details">
+                <h3>Java Programming Fundamentals</h3>
+                <p>Learned core Java programming concepts and object-oriented programming.</p>
+                <p class="date">Issued: Dec 2024</p>
+                <p>Skills: Java Programming</p>
+            </div>
+        </div>
+
+          <!-- Mercury Ship Repairs Internship -->
+        <div class="certification-card">
+            <div class="certification-image" style="background-color: var(--light-color); display: flex; justify-content: center; align-items: center;">
+                <img src="./c9_cer.jpg" alt="Internship">
+                
+            </div>
+            <div class="certification-details">
+                <h3>Internship (Mechanical)</h3>
+                <p>Completed mechanical engineering internship at Mercury Ship Repairs Pvt. Ltd.</p>
+                <p class="date">Issued: Apr 2024</p>
+                <p>Skills: Ship repair, Mechanical systems, Industrial operations</p>
+            </div>
+        </div>
+
+        <!-- Kirloskar Toyota Apprenticeship -->
+        <div class="certification-card">
+            <div class="certification-image" style="background-color: var(--light-color); display: flex; justify-content: center; align-items: center;">
+                <img src="./c6_cer.jpg" alt="Kirloskar Toyota Offer Letter">
+            </div>
+            <div class="certification-details">
+                <h3>Apprenticeship (Mechanical)</h3>
+                <p> apprenticeship offer letter from Kirloskar Toyota Textile Machinery Pvt. Ltd.</p>
+                <p class="date">Issued: Nov 2023</p>
+            </div>
+        </div>
+
+        <!-- PLC Training -->
+        <div class="certification-card">
+            <div class="certification-image" style="background-color: var(--light-color); display: flex; justify-content: center; align-items: center;">
+                <img src="./c11_cer.jpg" alt="GTTC">
+            </div>
+            <div class="certification-details">
+                <h3>Basics of PLC</h3>
+                <p>Gained hands-on experience in Programmable Logic Controllers and industrial automation.</p>
+                <p class="date">Issued: Aug 2023</p>
+                <p>Skills: Robotic Process Automation, PLC Programming, Robotic Simulation</p>
+            </div>
+        </div>
+
+        <!-- RPA Training -->
+        <div class="certification-card">
+            <div class="certification-image" style="background-color: #fff; padding: 10px;">
+                <img src="./c12_cer.jpg" alt="Infosys">
+            </div>
+            <div class="certification-details">
+                <h3>Introduction to Robotics Process Automation</h3>
+                <p>Learned fundamentals of robotic process automation and industrial robotics.</p>
+                <p class="date">Issued: Aug 2023</p>
+                <p>Skills: Automation and Robotics</p>
+            </div>
+        </div>
+
+        <!-- Nirakar Engineering Internship (Oldest) -->
+        <div class="certification-card">
+            <div class="certification-image" style="background-color: var(--light-color); display: flex; justify-content: center; align-items: center;">
+                <img src="./c4_cer.jpg" alt="NEPL">
+            </div>
+            <div class="certification-details">
+                <h3>Internship (Mechanical)</h3>
+                <p>Completed internship at Nirakar Engineering Private Limited (Jan 26, 2023 - Mar 28, 2023).</p>
+                <p>Gained practical experience in engineering processes and manufacturing operations.</p>
+                <p class="date">Issued: Mar 2023</p>
+            </div>
+        </div>
+
+<!-- Rotract Club-->
+         <div class="certification-card">
+            <div class="certification-image" style="background-color: #fff; padding: 10px;">
+                <img src="./C18_cer.jpeg" alt="Rotract Club Certificate">
+            </div>
+            <div class="certification-details">
+                <h3>Rotract Club Karwar Certificate</h3>
+                <p>"Successfully served as the Vice-President of the Rotaract Club, contributing to leadership and community service initiatives. Recognized for dedication, teamwork, and commitment to impactful social projects."</p>
+                <p class="date">Issued: Nov 2022</p>
+                <p>Skills: Leadership</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+            <!-- Connect Me Section -->
+<section id="connect">
+    <h2>Connect With Me</h2>
+    
+    <div class="contact-info">
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:mahekaraditya468@gmail.com">mahekaraditya468@gmail.com</a>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <a href="tel:9480100787">+91 9480100787</a>
+        </div>
+        <div class="contact-item">
+            <i class="fab fa-github"></i>
+            <a href="https://github.com/adityamahekar" target="_blank">GitHub Profile</a>
+        </div>
+        <div class="contact-item">
+            <i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/aditya-mahekar/" target="_blank">LinkedIn Profile</a>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-code"></i>
+            <a href="https://leetcode.com/u/aditya__mahekar/" target="_blank">LeetCode Profile</a>
+        </div>
+        <div class="contact-item">
+            <i class="fab fa-figma"></i>
+            <a href="https://www.figma.com/files/team/1519982424999534908/recents-and-sharing?fuid=1519982419772983298" target="_blank">Figma Drafts</a>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-laptop-code"></i>
+            <a href="https://www.hackerearth.com/@aditya__mahekar/" target="_blank">HackerEarth Profile</a>
+        </div>
+    </div>
+
+    <div class="message-form">
+        <h3>Send me a message</h3>
+        <form id="contactForm">
+            <div class="form-group">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="action-button">
+                <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+        </form>
+    </div>
+</section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Aditya Mahekar. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script>
         // Project filtering functionality
-                            function initProjectFilters() {
+function initProjectFilters() {
     const filterPills = document.querySelectorAll('.filter-pill');
-                            const projectCards = document.querySelectorAll('.project-card');
+    const projectCards = document.querySelectorAll('.project-card');
     
     filterPills.forEach(pill => {
-                                pill.addEventListener('click', () => {
-                                    // Remove active class from all pills
-                                    filterPills.forEach(p => p.classList.remove('active'));
-
-                                    // Add active class to clicked pill
-                                    pill.classList.add('active');
-
-                                    // Get filter value
-                                    const filterValue = pill.getAttribute('data-filter');
-
-                                    // Filter projects
-                                    projectCards.forEach(card => {
-                                        const projectType = card.getAttribute('data-type') || 'micro'; // Default to micro if no type specified
-
-                                        if (filterValue === 'all' || projectType === filterValue) {
-                                            card.style.display = 'block';
-                                            setTimeout(() => {
-                                                card.style.opacity = '1';
-                                                card.style.transform = 'translateY(0)';
-                                            }, 50);
-                                        } else {
-                                            card.style.opacity = '0';
-                                            card.style.transform = 'translateY(20px)';
-                                            setTimeout(() => {
-                                                card.style.display = 'none';
-                                            }, 300);
-                                        }
-                                    });
-                                });
+        pill.addEventListener('click', () => {
+            // Remove active class from all pills
+            filterPills.forEach(p => p.classList.remove('active'));
+            
+            // Add active class to clicked pill
+            pill.classList.add('active');
+            
+            // Get filter value
+            const filterValue = pill.getAttribute('data-filter');
+            
+            // Filter projects
+            projectCards.forEach(card => {
+                const projectType = card.getAttribute('data-type') || 'micro'; // Default to micro if no type specified
+                
+                if (filterValue === 'all' || projectType === filterValue) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
     });
 }
 
-                            // Contact form submission
-                            function handleContactForm() {
+// Contact form submission
+function handleContactForm() {
     const contactForm = document.getElementById('contactForm');
-
-                            if (contactForm) {
-                                contactForm.addEventListener('submit', function (e) {
-                                    e.preventDefault();
-
-                                    const name = document.getElementById('name').value;
-                                    const email = document.getElementById('email').value;
-                                    const message = document.getElementById('message').value;
-
-                                    // Simple form validation
-                                    if (!name || !email || !message) {
-                                        alert('Please fill in all fields');
-                                        return;
-                                    }
-
-                                    // Send email using FormSubmit (you'll need to replace with your actual email service)
-                                    const formData = new FormData();
-                                    formData.append('name', name);
-                                    formData.append('email', email);
-                                    formData.append('message', message);
-
-                                    // Using FormSubmit.co service (replace with your email in the action URL)
-                                    fetch('https://formsubmit.co/mahekaraditya468@gmail.com', {
-                                        method: 'POST',
-                                        body: formData
-                                    })
-                                        .then(response => {
-                                            if (response.ok) {
-                                                alert('Message sent successfully!');
-                                                contactForm.reset();
-                                            } else {
-                                                alert('There was an error sending your message. Please try again.');
-                                            }
-                                        })
-                                        .catch(error => {
-                                            console.error('Error:', error);
-                                            alert('There was an error sending your message. Please try again.');
-                                        });
-                                });
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple form validation
+            if (!name || !email || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Send email using FormSubmit (you'll need to replace with your actual email service)
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('message', message);
+            
+            // Using FormSubmit.co service (replace with your email in the action URL)
+            fetch('https://formsubmit.co/mahekaraditya468@gmail.com', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Message sent successfully!');
+                    contactForm.reset();
+                } else {
+                    alert('There was an error sending your message. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error sending your message. Please try again.');
+            });
+        });
     }
 }
 
-                            // Initialize these functions when DOM is loaded
-                            document.addEventListener('DOMContentLoaded', function() {
-                                initProjectFilters();
-                            handleContactForm();
+// Initialize these functions when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initProjectFilters();
+    handleContactForm();
 });
-                            function showSection(sectionId) {
-                                // Hide all sections
-                                document.querySelectorAll('section').forEach(section => {
-                                    section.classList.remove('active');
-                                });
-
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
             // Update active nav button
             document.querySelectorAll('.nav-button').forEach(button => {
-                                button.classList.remove('active');
+                button.classList.remove('active');
             });
-                            event.currentTarget.classList.add('active');
-
-                            // Show the selected section
-                            document.getElementById(sectionId).classList.add('active');
-
-                            // Scroll to top
-                            window.scrollTo({top: 0, behavior: 'smooth' });
+            event.currentTarget.classList.add('active');
+            
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-                            function downloadResume() {
+        function downloadResume() {
             // Replace this with your actual resume PDF URL
             const resumeUrl = 'https://docs.google.com/document/d/1_R-uNJbsfpI1cCQVQWQywgFeE-5IBDyx/edit?tab=t.0';
-
-                            // Create a temporary anchor element
-                            const link = document.createElement('a');
-                            link.href = resumeUrl;
-                            link.download = 'Aditya_Mahekar_Resume.pdf';
-                            document.body.appendChild(link);
-                            link.click();
-                            document.body.removeChild(link);
-
-                            // Fallback in case the above doesn't work
-                            window.open(resumeUrl, '_blank');
+            
+            // Create a temporary anchor element
+            const link = document.createElement('a');
+            link.href = resumeUrl;
+            link.download = 'Aditya_Mahekar_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Fallback in case the above doesn't work
+            window.open(resumeUrl, '_blank');
         }
 
-                            // Dark/Light Mode Toggle
-                            const themeToggle = document.getElementById('themeToggle');
-                            const icon = themeToggle.querySelector('i');
-
-                            // Check for saved theme preference or use preferred color scheme
-                            const savedTheme = localStorage.getItem('theme');
-                            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-                            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-                                document.body.classList.add('dark-mode');
-                            icon.classList.replace('fa-moon', 'fa-sun');
+        // Dark/Light Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const icon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or use preferred color scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            document.body.classList.add('dark-mode');
+            icon.classList.replace('fa-moon', 'fa-sun');
         }
         
         themeToggle.addEventListener('click', () => {
-                                document.body.classList.toggle('dark-mode');
-
-                            if (document.body.classList.contains('dark-mode')) {
-                                icon.classList.replace('fa-moon', 'fa-sun');
-                            localStorage.setItem('theme', 'dark');
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
             } else {
-                                icon.classList.replace('fa-sun', 'fa-moon');
-                            localStorage.setItem('theme', 'light');
+                icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
             }
         });
 
@@ -1876,16 +1872,36 @@
             
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
-                            const screenPosition = window.innerHeight / 1.3;
-
-                            if (elementPosition < screenPosition) {
-                                element.style.animation = 'fadeInUp 0.8s ease forwards';
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.animation = 'fadeInUp 0.8s ease forwards';
                 }
             });
         };
 
-                            window.addEventListener('scroll', animateOnScroll);
-                            window.addEventListener('load', animateOnScroll);
-                        </script>
-                    </body>
-                </html>
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
