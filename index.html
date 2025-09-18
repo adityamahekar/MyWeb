@@ -782,6 +782,108 @@
                 font-size: 1.6rem;
             }
         }
+        /* Project Filter Pills */
+.project-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-pill {
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.filter-pill::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50px;
+    padding: 2px;
+    background: var(--gradient);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+}
+
+.filter-pill:hover, .filter-pill.active {
+    background: var(--gradient);
+    color: var(--text-light);
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
+}
+
+/* Message Form Styles */
+.message-form {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.message-form h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid rgba(67, 97, 238, 0.2);
+    border-radius: 8px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Responsive adjustments for filters */
+@media (max-width: 576px) {
+    .project-filters {
+        gap: 0.5rem;
+    }
+    
+    .filter-pill {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -1086,6 +1188,7 @@
     <span class="filter-pill" data-filter="nano">Nano Projects</span>
 </div>
                 <div class="projects-grid">
+                    <div class="project-card" data-type="mini">
 
                     <a href="https://blood-donation-management-bht9.onrender.com/" class="project-link" target="_blank">
                      <div class="project-card">
@@ -1101,7 +1204,9 @@
                         </div>
                     </div>
                        </a>
+                    </div>
 
+                    <div class="project-card" data-type="mini">
                      <a href="https://adityamahekar.github.io/MyWeb/" class="project-link" target="_blank">
                       <div class="project-card">
                         <div class="project-image">
@@ -1115,7 +1220,9 @@
                         </div>
                     </div>
                           </a>
+                    </div>
 
+                    <div class="project-card" data-type="mini">
                      <a href="https://adityamahekar.github.io/EdTechnew/" class="project-link" target="_blank">
                     <div class="project-card">
                         <div class="project-image">
@@ -1130,7 +1237,9 @@
                         </div>
                     </div>
                             </a>
+                    </div>
 
+                    <div class="project-card" data-type="major">
                           <a href="#" class="project-link">
                     <div class="project-card">
                         <div class="project-image">
@@ -1145,9 +1254,10 @@
                         </div>
                     </div>
                           </a>
+                    </div>
 
                 
-                    
+                    <div class="project-card" data-type="micro">
                      <a href="https://adityamahekar.github.io/Dice_Game/" class="project-link" target="_blank">
                     <div class="project-card">
                         <div class="project-image">
@@ -1163,9 +1273,9 @@
                         </div>
                     </div>
                             </a>
-
+                    </div>
                     
-
+                    <div class="project-card" data-type="micro">
                     <a href="https://adityamahekar.github.io/Drum_Kit/" class="project-link" target="_blank">
                     <div class="project-card">
                         <div class="project-image">
@@ -1180,7 +1290,9 @@
                         </div>
                     </div>
                           </a>
+                    </div>
 
+                    <div class="project-card" data-type="micro">
                      <a href="https://adityamahekar.github.io/SimonGame/" class="project-link" target="_blank">
                     <div class="project-card">
                         <div class="project-image">
@@ -1195,6 +1307,9 @@
                         </div>
                     </div>
                           </a>
+                    </div>
+
+                    <div class="project-card" data-type="nano">
                     <a href="https://adityamahekar.github.io/QR_generator/" class="project-link" target="_blank">
                     <div class="project-card">
                         <div class="project-image">
@@ -1209,8 +1324,10 @@
                         </div>
                     </div>
                           </a>
+                    </div>
                               
                 </div>
+                    
             </section>
 
             <!-- Activities Section -->
@@ -1258,6 +1375,47 @@
             </div>
         </div>
 
+
+<!-- Example for Blood Donation Management System -->
+<div class="project-card" data-type="major">
+    <!-- existing content -->
+</div>
+
+<!-- Example for Portfolio -->
+<div class="project-card" data-type="major">
+    <!-- existing content -->
+</div>
+
+<!-- Example for EdTech Platform -->
+<div class="project-card" data-type="major">
+    <!-- existing content -->
+</div>
+
+<!-- Example for Pick and Place Robot -->
+<div class="project-card" data-type="major">
+    <!-- existing content -->
+</div>
+
+<!-- Example for Dice Game -->
+<div class="project-card" data-type="mini">
+    <!-- existing content -->
+</div>
+
+<!-- Example for Drum Kit -->
+<div class="project-card" data-type="micro">
+    <!-- existing content -->
+</div>
+
+<!-- Example for Simon Game -->
+<div class="project-card" data-type="micro">
+    <!-- existing content -->
+</div>
+
+<!-- Example for QR Code Generator -->
+<div class="project-card" data-type="nano">
+    <!-- existing content -->
+</div>
+        
         
           <!-- Git GitHub -->
          <div class="certification-card">
@@ -1535,6 +1693,94 @@
     </button>
 
     <script>
+        // Project filtering functionality
+function initProjectFilters() {
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            // Remove active class from all pills
+            filterPills.forEach(p => p.classList.remove('active'));
+            
+            // Add active class to clicked pill
+            pill.classList.add('active');
+            
+            // Get filter value
+            const filterValue = pill.getAttribute('data-filter');
+            
+            // Filter projects
+            projectCards.forEach(card => {
+                const projectType = card.getAttribute('data-type') || 'micro'; // Default to micro if no type specified
+                
+                if (filterValue === 'all' || projectType === filterValue) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+}
+
+// Contact form submission
+function handleContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple form validation
+            if (!name || !email || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Send email using FormSubmit (you'll need to replace with your actual email service)
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('message', message);
+            
+            // Using FormSubmit.co service (replace with your email in the action URL)
+            fetch('https://formsubmit.co/mahekaraditya468@gmail.com', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Message sent successfully!');
+                    contactForm.reset();
+                } else {
+                    alert('There was an error sending your message. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error sending your message. Please try again.');
+            });
+        });
+    }
+}
+
+// Initialize these functions when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initProjectFilters();
+    handleContactForm();
+});
         function showSection(sectionId) {
             // Hide all sections
             document.querySelectorAll('section').forEach(section => {
@@ -1614,6 +1860,7 @@
     </script>
 </body>
 </html>
+
 
 
 
