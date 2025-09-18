@@ -782,6 +782,88 @@
                 font-size: 1.6rem;
             }
         }
+
+        /* Filter Pills */
+.filter-pills {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-pill {
+    background-color: var(--card-bg);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-pill:hover, .filter-pill.active {
+    background: var(--gradient);
+    color: var(--text-light);
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(67, 97, 238, 0.3);
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid rgba(67, 97, 238, 0.2);
+    border-radius: 8px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+/* Responsive adjustments for filter pills */
+@media (max-width: 576px) {
+    .filter-pills {
+        gap: 0.5rem;
+    }
+    
+    .filter-pill {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}
+        
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -822,6 +904,70 @@
 
     typeEffect();
   })();
+    // Project filtering functionality
+function setupProjectFilters() {
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            // Remove active class from all pills
+            filterPills.forEach(p => p.classList.remove('active'));
+            
+            // Add active class to clicked pill
+            pill.classList.add('active');
+            
+            // Get filter value
+            const filterValue = pill.getAttribute('data-filter');
+            
+            // Filter projects
+            projectCards.forEach(card => {
+                if (filterValue === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    if (card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        });
+    });
+}
+
+// Contact form submission
+function setupContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
+        // Create mailto link
+        const subject = `Message from ${name} (Portfolio Contact)`;
+        const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+        
+        // Open email client
+        window.location.href = `mailto:mahekaraditya468@gmail.com?subject=${subject}&body=${body}`;
+        
+        // Reset form
+        contactForm.reset();
+        
+        // Show success message (optional)
+        alert('Thank you for your message! Your email client will open to send the message.');
+    });
+}
+
+// Initialize these functions when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+    setupProjectFilters();
+    setupContactForm();
+});
 </script>
 
 <style>
@@ -1078,6 +1224,14 @@
             <!-- Projects Section -->
             <section id="projects">
                 <h2>My Projects</h2>
+                
+                <div class="filter-pills">
+    <button class="filter-pill active" data-filter="all">All</button>
+    <button class="filter-pill" data-filter="major">Major Projects</button>
+    <button class="filter-pill" data-filter="mini">Mini Projects</button>
+    <button class="filter-pill" data-filter="micro">Micro Projects</button>
+    <button class="filter-pill" data-filter="nano">Nano Projects</button>
+</div>
                 <div class="projects-grid">
                 <!-- Major Projects -->
 <a href="https://blood-donation-management-bht9.onrender.com/" class="project-link" target="_blank" data-category="major">
@@ -1491,6 +1645,61 @@
             </div>
         </div>
     </div>
+
+    <!-- Connect Me Section -->
+<section id="connect">
+    <h2><a href="#" class="nav-button" onclick="showSection('connect')">Connect Me</a></h2>
+    
+    <div class="contact-info">
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:mahekaraditya468@gmail.com">mahekaraditya468@gmail.com</a>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <a href="tel:9480100787">+91 9480100787</a>
+        </div>
+        <div class="contact-item">
+            <i class="fab fa-github"></i>
+            <a href="https://github.com/adityamahekar" target="_blank">GitHub Profile</a>
+        </div>
+        <div class="contact-item">
+            <i class="fab fa-linkedin"></i>
+            <a href="https://www.linkedin.com/in/aditya-mahekar/" target="_blank">LinkedIn Profile</a>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-code"></i>
+            <a href="https://leetcode.com/u/aditya__mahekar/" target="_blank">LeetCode Profile</a>
+        </div>
+        <div class="contact-item">
+            <i class="fab fa-figma"></i>
+            <a href="https://www.figma.com/files/team/1519982424999534908/recents-and-sharing?fuid=1519982419772983298" target="_blank">Figma Drafts</a>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-laptop-code"></i>
+            <a href="https://www.hackerearth.com/@aditya__mahekar/" target="_blank">HackerEarth Profile</a>
+        </div>
+    </div>
+
+    <h2 style="margin-top: 3rem;">Send a Message</h2>
+    <form id="contact-form" class="contact-form">
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="action-button">
+            <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+    </form>
+</section>
 </section>
         </main>
 
@@ -1583,6 +1792,7 @@
     </script>
 </body>
 </html>
+
 
 
 
