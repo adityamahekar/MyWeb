@@ -1647,63 +1647,62 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
 
     <!-- Connect Me Section -->
-<section id="connect">
-    <h2><a href="#" class="nav-button" onclick="showSection('connect')">Connect Me</a></h2>
-    
-    <div class="contact-info">
-        <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <a href="mailto:mahekaraditya468@gmail.com">mahekaraditya468@gmail.com</a>
-        </div>
-        <div class="contact-item">
-            <i class="fas fa-phone-alt"></i>
-            <a href="tel:9480100787">+91 9480100787</a>
-        </div>
-        <div class="contact-item">
-            <i class="fab fa-github"></i>
-            <a href="https://github.com/adityamahekar" target="_blank">GitHub Profile</a>
-        </div>
-        <div class="contact-item">
-            <i class="fab fa-linkedin"></i>
-            <a href="https://www.linkedin.com/in/aditya-mahekar/" target="_blank">LinkedIn Profile</a>
-        </div>
-        <div class="contact-item">
-            <i class="fas fa-code"></i>
-            <a href="https://leetcode.com/u/aditya__mahekar/" target="_blank">LeetCode Profile</a>
-        </div>
-        <div class="contact-item">
-            <i class="fab fa-figma"></i>
-            <a href="https://www.figma.com/files/team/1519982424999534908/recents-and-sharing?fuid=1519982419772983298" target="_blank">Figma Drafts</a>
-        </div>
-        <div class="contact-item">
-            <i class="fas fa-laptop-code"></i>
-            <a href="https://www.hackerearth.com/@aditya__mahekar/" target="_blank">HackerEarth Profile</a>
-        </div>
-    </div>
+ <section id="connect">
+                <h2>Connect With Me</h2>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:mahekaraditya468@gmail.com">mahekaraditya468@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:9480100787">+91 9480100787</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/adityamahekar" target="_blank">GitHub Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/aditya-mahekar/" target="_blank">LinkedIn Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-code"></i>
+                        <a href="https://leetcode.com/u/aditya__mahekar/" target="_blank">LeetCode Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-figma"></i>
+                        <a href="https://www.figma.com/files/team/1519982424999534908/recents-and-sharing?fuid=1519982419772983298" target="_blank">Figma Drafts</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <a href="https://www.hackerearth.com/@aditya__mahekar/" target="_blank">HackerEarth Profile</a>
+                    </div>
+                </div>
 
-    <h2 style="margin-top: 3rem;">Send a Message</h2>
-    <form id="contact-form" class="contact-form">
-        <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
-        <button type="submit" class="action-button">
-            <i class="fas fa-paper-plane"></i> Send Message
-        </button>
-    </form>
-</section>
-</section>
+                <h2 style="margin-top: 3rem;">Send a Message</h2>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="action-button">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </section>
         </main>
 
-        <footer>
+               <footer>
             <p>&copy; 2024 Aditya Mahekar. All rights reserved.</p>
         </footer>
     </div>
@@ -1713,85 +1712,79 @@ document.addEventListener('DOMContentLoaded', function() {
     </button>
 
     <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.remove('active');
+        // Your existing JavaScript functions
+        
+        // Project filtering functionality
+        function setupProjectFilters() {
+            const filterPills = document.querySelectorAll('.filter-pill');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            filterPills.forEach(pill => {
+                pill.addEventListener('click', () => {
+                    // Remove active class from all pills
+                    filterPills.forEach(p => p.classList.remove('active'));
+                    
+                    // Add active class to clicked pill
+                    pill.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = pill.getAttribute('data-filter');
+                    
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        if (filterValue === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            if (card.getAttribute('data-category') === filterValue) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
             });
-            
-            // Update active nav button
-            document.querySelectorAll('.nav-button').forEach(button => {
-                button.classList.remove('active');
-            });
-            event.currentTarget.classList.add('active');
-            
-            // Show the selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function downloadResume() {
-            // Replace this with your actual resume PDF URL
-            const resumeUrl = 'https://docs.google.com/document/d/1_R-uNJbsfpI1cCQVQWQywgFeE-5IBDyx/edit?tab=t.0';
+        // Contact form submission
+        function setupContactForm() {
+            const contactForm = document.getElementById('contact-form');
             
-            // Create a temporary anchor element
-            const link = document.createElement('a');
-            link.href = resumeUrl;
-            link.download = 'Aditya_Mahekar_Resume.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Fallback in case the above doesn't work
-            window.open(resumeUrl, '_blank');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                // Create mailto link
+                const subject = `Message from ${name} (Portfolio Contact)`;
+                const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+                
+                // Open email client
+                window.location.href = `mailto:mahekaraditya468@gmail.com?subject=${subject}&body=${body}`;
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Show success message
+                alert('Thank you for your message! Your email client will open to send the message.');
+            });
         }
 
-        // Dark/Light Mode Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const icon = themeToggle.querySelector('i');
-        
-        // Check for saved theme preference or use preferred color scheme
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-            document.body.classList.add('dark-mode');
-            icon.classList.replace('fa-moon', 'fa-sun');
-        }
-        
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            
-            if (document.body.classList.contains('dark-mode')) {
-                icon.classList.replace('fa-moon', 'fa-sun');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-                localStorage.setItem('theme', 'light');
-            }
+        // Initialize these functions when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setupProjectFilters();
+            setupContactForm();
         });
 
-        // Add animation to elements when they come into view
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.education-item, .skill-pill, .project-card, .certification-card, .activity-item');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.animation = 'fadeInUp 0.8s ease forwards';
-                }
-            });
-        };
-
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
+        // Rest of your existing JavaScript functions
     </script>
+  
 </body>
 </html>
+
 
 
 
