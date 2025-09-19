@@ -1127,36 +1127,51 @@
                 </div>
                 
                 <h2>About Me</h2>
+<br>
+ <br>               
+            <!-- Glowing Colorful Background -->
+<div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: 0;">
+  <div style="position: absolute; border-radius: 50%; opacity: 0.7; filter: blur(100px); background-color: rgba(255, 0, 102, 0.85); width: 300px; height: 300px; top: 10%; left: 20%; animation: float 12s ease-in-out infinite alternate;"></div>
+  <div style="position: absolute; border-radius: 50%; opacity: 0.7; filter: blur(100px); background-color: rgba(0, 128, 255, 0.85); width: 350px; height: 350px; top: 40%; left: 60%; animation: float 12s ease-in-out infinite alternate 2s;"></div>
+  <div style="position: absolute; border-radius: 50%; opacity: 0.7; filter: blur(100px); background-color: rgba(0, 255, 204, 0.85); width: 250px; height: 250px; top: 70%; left: 30%; animation: float 12s ease-in-out infinite alternate 4s;"></div>
+  <div style="position: absolute; border-radius: 50%; opacity: 0.7; filter: blur(100px); background-color: rgba(255, 204, 0, 0.85); width: 280px; height: 280px; top: 20%; left: 75%; animation: float 12s ease-in-out infinite alternate 1s;"></div>
+</div>
 
-                <!-- Glowing Colorful Background -->
-  <div class="glow-blobs">
-    <div class="blob"></div>
-    <div class="blob"></div>
-    <div class="blob"></div>
-    <div class="blob"></div>
-  </div>
+<!-- Profile Card Section -->
+<div style="position: relative; width: 300px; height: 300px; margin: auto; top: 50vh; transform: translateY(-50%); z-index: 1; display: flex; justify-content: center; align-items: center;">
+  <div style="position: absolute; top: 50%; left: 50%; width: 320px; height: 320px; background: radial-gradient(circle, rgba(255,255,255,0.35), transparent 70%); border-radius: 50%; transform: translate(-50%, -50%); filter: blur(50px); animation: pulse 4s ease-in-out infinite;"></div>
 
-  <!-- Profile Card Section -->
-  <div class="profile-card-container">
-    <div class="glow-ring"></div>
+  <div id="profileCard" style="position: relative; width: 250px; height: 250px; transition: transform 0.3s ease; cursor: pointer;"
+       onmouseenter="this.style.transform='scale(1.02)'" 
+       onmouseleave="this.style.transform='scale(1)'">
+    <img src="https://picsum.photos/200/300" alt="Profile" 
+         style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 6px solid #fff; box-shadow: 0 10px 25px rgba(255,255,255,0.3);" />
 
-    <div class="profile-card" id="profileCard">
-      <img src="https://picsum.photos/200/300" alt="Profile" />
-
-      <div class="tech-badge ts">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TS" /> TypeScript
-      </div>
-      <div class="tech-badge react">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /> React
-      </div>
-      <div class="tech-badge js">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS" /> JavaScript
-      </div>
-      <div class="tech-badge next">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-line.svg" alt="Next.js" /> Next.js
-      </div>
+    <div style="position: absolute; top: -12px; left: -12px; background: rgba(255, 255, 255, 0.95); padding: 10px 14px; border-radius: 16px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; transition: transform 0.2s ease; cursor: pointer;"
+         onmouseenter="this.style.transform='translateY(-5px) scale(1.15)'" 
+         onmouseleave="this.style.transform='translateY(0) scale(1)'">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TS" style="width: 28px; height: 28px;" /> TypeScript
+    </div>
+    <div style="position: absolute; top: -12px; right: -12px; background: rgba(255, 255, 255, 0.95); padding: 10px 14px; border-radius: 16px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; transition: transform 0.2s ease; cursor: pointer;"
+         onmouseenter="this.style.transform='translateY(-5px) scale(1.15)'" 
+         onmouseleave="this.style.transform='translateY(0) scale(1)'">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" style="width: 28px; height: 28px;" /> React
+    </div>
+    <div style="position: absolute; bottom: -12px; left: -12px; background: rgba(255, 255, 255, 0.95); padding: 10px 14px; border-radius: 16px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; transition: transform 0.2s ease; cursor: pointer;"
+         onmouseenter="this.style.transform='translateY(-5px) scale(1.15)'" 
+         onmouseleave="this.style.transform='translateY(0) scale(1)'">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS" style="width: 28px; height: 28px;" /> JavaScript
+    </div>
+    <div style="position: absolute; bottom: -12px; right: -12px; background: rgba(255, 255, 255, 0.95); padding: 10px 14px; border-radius: 16px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; transition: transform 0.2s ease; cursor: pointer;"
+         onmouseenter="this.style.transform='translateY(-5px) scale(1.15)'" 
+         onmouseleave="this.style.transform='translateY(0) scale(1)'">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-line.svg" alt="Next.js" style="width: 28px; height: 28px;" /> Next.js
     </div>
   </div>
+</div>
+
+                <br>
+                <br>
                 <div class="about-content">
                     <p>Passionate Computer Science Engineering student at BMS Institute of Technology and Management, Bengaluru, with a strong foundation in Mechanical Engineering from Government Polytechnic Karwar.</p>
                     
@@ -2218,6 +2233,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
