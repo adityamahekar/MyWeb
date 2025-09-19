@@ -1775,95 +1775,55 @@ function initProjectFilters() {
 }
 
 // Contact form submission
- function handleContactForm() {
+ document.addEventListener('DOMContentLoaded', function() {
             const contactForm = document.getElementById('contactForm');
-            const statusMessage = document.getElementById('statusMessage');
             const submitButton = document.getElementById('submitButton');
+            const statusMessage = document.getElementById('statusMessage');
+            const successAlert = document.getElementById('successAlert');
             
-            if (contactForm) {
-                // Create a hidden iframe for form submission
-                const iframe = document.createElement('iframe');
-                iframe.name = 'formsubmit-iframe';
-                iframe.style.display = 'none';
-                document.body.appendChild(iframe);
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
                 
-                // Update form attributes for FormSubmit.co
-                contactForm.setAttribute('action', 'https://formsubmit.co/mahekaraditya468@gmail.com');
-                contactForm.setAttribute('method', 'POST');
-                contactForm.setAttribute('target', 'formsubmit-iframe');
+                // Show loading state
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                statusMessage.style.display = 'none';
                 
-                // Add hidden fields that FormSubmit.co expects
-                const hiddenFields = [
-                    { name: '_subject', value: 'New Contact Form Submission' },
-                    { name: '_template', value: 'table' },
-                    { name: '_captcha', value: 'false' },
-                    { name: '_blacklist', value: 'spammy pattern, bad word' }
-                ];
-                
-                hiddenFields.forEach(field => {
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = field.name;
-                    input.value = field.value;
-                    contactForm.appendChild(input);
-                });
-                
-                contactForm.addEventListener('submit', function(e) {
-                    // Client-side validation
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const message = document.getElementById('message').value;
+                // Simulate form submission (replace with actual form submission code)
+                setTimeout(function() {
+                    // Reset button state
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
                     
-                    if (!name || !email || !message) {
-                        e.preventDefault();
-                        showStatus('Please fill in all fields', 'error');
-                        return;
-                    }
+                    // Show success alert
+                    successAlert.classList.add('show');
                     
-                    // Email validation
-                    if (!isValidEmail(email)) {
-                        e.preventDefault();
-                        showStatus('Please enter a valid email address', 'error');
-                        return;
-                    }
+                    // Show success message
+                    showStatus('Message sent successfully!', 'success');
                     
-                    // Show loading state
-                    submitButton.disabled = true;
-                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                    statusMessage.style.display = 'none';
+                    // Reset the form
+                    contactForm.reset();
                     
-                    // Listen for the iframe load event to detect form submission completion
-                    iframe.onload = function() {
-                        submitButton.disabled = false;
-                        submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                        
-                        try {
-                            // This might not work due to cross-origin restrictions
-                            // but FormSubmit.co will redirect to a success page
-                            showStatus('Message sent successfully!', 'success');
-                            contactForm.reset();
-                        } catch (error) {
-                            // If we can't access iframe content due to CORS, assume success
-                            showStatus('Message sent successfully!', 'success');
-                            contactForm.reset();
-                        }
-                    };
-                });
-            }
+                    // Hide alert after 3 seconds
+                    setTimeout(function() {
+                        successAlert.classList.remove('show');
+                    }, 3000);
+                    
+                }, 2000); // Simulate 2 second delay for form submission
+            });
             
             function showStatus(message, type) {
                 statusMessage.textContent = message;
                 statusMessage.className = 'status-message ' + type;
                 statusMessage.style.display = 'block';
+                
+                // Add fade-in effect
+                statusMessage.classList.add('fade-in');
+                setTimeout(() => {
+                    statusMessage.classList.remove('fade-in');
+                }, 500);
             }
-            
-            function isValidEmail(email) {
-                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return re.test(email);
-            }
-        }
-         // Initialize the form handler when the page loads
-        document.addEventListener('DOMContentLoaded', handleContactForm);
+        });
 
         // View counter functionality
 function updateViewCount() {
@@ -2003,6 +1963,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
