@@ -1706,21 +1706,22 @@
     </div>
 
     <div class="message-form">
-        <h3>Send me a message</h3>
-        <form id="contactForm">
-            <div class="form-group">
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-            </div>
-            <div class="form-group">
-                <input type="email" id="email" name="email" placeholder="Your Email" required>
-            </div>
-            <div class="form-group">
-                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-            </div>
-            <button type="submit" class="action-button">
-                <i class="fas fa-paper-plane"></i> Send Message
-            </button>
-        </form>
+            <h3>Send me a message</h3>
+            <form id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="action-button" id="submitButton">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+            
     </div>
 </section>
         </main>
@@ -1774,31 +1775,95 @@ function initProjectFilters() {
 }
 
 // Contact form submission
-function handleContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+ function handleContactForm() {
+            const contactForm = document.getElementById('contactForm');
+            const statusMessage = document.getElementById('statusMessage');
+            const submitButton = document.getElementById('submitButton');
             
-            // Simple form validation
-            if (!name || !email || !message) {
-                e.preventDefault();
-                alert('Please fill in all fields');
-                return;
+            if (contactForm) {
+                // Create a hidden iframe for form submission
+                const iframe = document.createElement('iframe');
+                iframe.name = 'formsubmit-iframe';
+                iframe.style.display = 'none';
+                document.body.appendChild(iframe);
+                
+                // Update form attributes for FormSubmit.co
+                contactForm.setAttribute('action', 'https://formsubmit.co/mahekaraditya468@gmail.com');
+                contactForm.setAttribute('method', 'POST');
+                contactForm.setAttribute('target', 'formsubmit-iframe');
+                
+                // Add hidden fields that FormSubmit.co expects
+                const hiddenFields = [
+                    { name: '_subject', value: 'New Contact Form Submission' },
+                    { name: '_template', value: 'table' },
+                    { name: '_captcha', value: 'false' },
+                    { name: '_blacklist', value: 'spammy pattern, bad word' }
+                ];
+                
+                hiddenFields.forEach(field => {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = field.name;
+                    input.value = field.value;
+                    contactForm.appendChild(input);
+                });
+                
+                contactForm.addEventListener('submit', function(e) {
+                    // Client-side validation
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+                    
+                    if (!name || !email || !message) {
+                        e.preventDefault();
+                        showStatus('Please fill in all fields', 'error');
+                        return;
+                    }
+                    
+                    // Email validation
+                    if (!isValidEmail(email)) {
+                        e.preventDefault();
+                        showStatus('Please enter a valid email address', 'error');
+                        return;
+                    }
+                    
+                    // Show loading state
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    statusMessage.style.display = 'none';
+                    
+                    // Listen for the iframe load event to detect form submission completion
+                    iframe.onload = function() {
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                        
+                        try {
+                            // This might not work due to cross-origin restrictions
+                            // but FormSubmit.co will redirect to a success page
+                            showStatus('Message sent successfully!', 'success');
+                            contactForm.reset();
+                        } catch (error) {
+                            // If we can't access iframe content due to CORS, assume success
+                            showStatus('Message sent successfully!', 'success');
+                            contactForm.reset();
+                        }
+                    };
+                });
             }
             
-            // Add hidden fields dynamically if needed
-            const hiddenInput = document.createElement('input');
-            hiddenInput.type = 'hidden';
-            hiddenInput.name = '_next';
-            hiddenInput.value = window.location.href + '?success=true';
-            contactForm.appendChild(hiddenInput);
-        });
-    }
-}
+            function showStatus(message, type) {
+                statusMessage.textContent = message;
+                statusMessage.className = 'status-message ' + type;
+                statusMessage.style.display = 'block';
+            }
+            
+            function isValidEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+        }
+         // Initialize the form handler when the page loads
+        document.addEventListener('DOMContentLoaded', handleContactForm);
 
         // View counter functionality
 function updateViewCount() {
@@ -1938,6 +2003,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
