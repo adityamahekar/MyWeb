@@ -1779,41 +1779,23 @@ function handleContactForm() {
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
             
             // Simple form validation
             if (!name || !email || !message) {
+                e.preventDefault();
                 alert('Please fill in all fields');
                 return;
             }
             
-            // Send email using FormSubmit (you'll need to replace with your actual email service)
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('email', email);
-            formData.append('message', message);
-            
-            // Using FormSubmit.co service (replace with your email in the action URL)
-            fetch('https://formsubmit.co/mahekaraditya468@gmail.com', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Message sent successfully!');
-                    contactForm.reset();
-                } else {
-                    alert('There was an error sending your message. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an error sending your message. Please try again.');
-            });
+            // Add hidden fields dynamically if needed
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = '_next';
+            hiddenInput.value = window.location.href + '?success=true';
+            contactForm.appendChild(hiddenInput);
         });
     }
 }
@@ -1854,18 +1836,18 @@ function sharePortfolio() {
     }
 }
 
-// Fallback for browsers that don't support Web Share API
-function fallbackShare(url, text) {
-    // Copy to clipboard as fallback
-    navigator.clipboard.writeText(`${text}: ${url}`)
-        .then(() => {
-            alert('Portfolio link copied to clipboard!');
-        })
-        .catch(err => {
-            // Final fallback - open in new window
-            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
-        });
-}
+// // Fallback for browsers that don't support Web Share API
+// function fallbackShare(url, text) {
+//     // Copy to clipboard as fallback
+//     navigator.clipboard.writeText(`${text}: ${url}`)
+//         .then(() => {
+//             alert('Portfolio link copied to clipboard!');
+//         })
+//         .catch(err => {
+//             // Final fallback - open in new window
+//             window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+//         });
+// }
 
 // Initialize view counter when page loads
 document.addEventListener('DOMContentLoaded', function() {
@@ -1956,6 +1938,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
