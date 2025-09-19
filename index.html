@@ -1779,41 +1779,29 @@ function handleContactForm() {
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
+            // Basic validation before allowing form submission
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
             
-            // Simple form validation
             if (!name || !email || !message) {
+                e.preventDefault();
                 alert('Please fill in all fields');
                 return;
             }
             
-            // Send email using FormSubmit (you'll need to replace with your actual email service)
-            const formData = new FormData();
-            formData.append('name', name);
-            formData.append('email', email);
-            formData.append('message', message);
+            // Show loading state
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitButton.disabled = true;
             
-            // Using FormSubmit.co service (replace with your email in the action URL)
-            fetch('https://formsubmit.co/mahekaraditya468@gmail.com', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (response.ok) {
-                    alert('Message sent successfully!');
-                    contactForm.reset();
-                } else {
-                    alert('There was an error sending your message. Please try again.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an error sending your message. Please try again.');
-            });
+            // Form will submit normally to FormSubmit.co
+            // You could add a timeout to reset the button if the page doesn't redirect
+            setTimeout(() => {
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            }, 5000);
         });
     }
 }
@@ -1956,6 +1944,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
