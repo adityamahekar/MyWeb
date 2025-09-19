@@ -1706,23 +1706,42 @@
         </div>
     </div>
 
-    <div class="message-form">
-        <h3>Send me a message</h3>
-        <form id="contactForm">
-            <div class="form-group">
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
+     <div class="message-form">
+                <h3>Send me a message</h3>
+                
+                <!-- Success and error messages -->
+                <div class="form-success" id="formSuccess">
+                    <i class="fas fa-check-circle"></i> Your message has been sent successfully!
+                </div>
+                
+                <div class="form-error" id="formError">
+                    <i class="fas fa-exclamation-circle"></i> <span id="errorMessage">There was an error sending your message. Please try again.</span>
+                </div>
+                
+                <!-- Updated form with proper FormSubmit attributes -->
+                <form id="contactForm" action="https://formsubmit.co/mahekaraditya468@gmail.com" method="POST">
+                    <!-- FormSubmit hidden fields -->
+                    <input type="hidden" name="_next" value="https://adityamahekar.github.io/MyWeb/?message=success">
+                    <input type="hidden" name="_subject" value="New message from your portfolio">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="_honey" style="display:none">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_autoresponse" value="Thank you for your message. I'll get back to you soon!">
+                    
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="action-button">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
             </div>
-            <div class="form-group">
-                <input type="email" id="email" name="email" placeholder="Your Email" required>
-            </div>
-            <div class="form-group">
-                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-            </div>
-            <button type="submit" class="action-button">
-                <i class="fas fa-paper-plane"></i> Send Message
-            </button>
-        </form>
-    </div>
 </section>
         </main>
 
@@ -1966,6 +1985,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
