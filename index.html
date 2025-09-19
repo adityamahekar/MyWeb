@@ -884,6 +884,28 @@
         font-size: 0.8rem;
     }
 }
+        .view-counter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .view-counter i {
+            color: var(--accent-color);
+        }
+        
+        .counter-number {
+            font-weight: 600;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 0 0.2rem;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -1010,6 +1032,7 @@
                         <i class="fas fa-download"></i> Download Resume
                     </a>
                 </div>
+                
             </section>
 
             <!-- Resume Section -->
@@ -1711,12 +1734,17 @@
 
         <footer>
             <p>&copy; 2024 Aditya Mahekar. All rights reserved.</p>
+            <div class="view-counter">
+                <i class="fas fa-eye"></i>
+                <span>This portfolio has been viewed <span class="counter-number" id="viewCount">0</span> times</span>
+            </div>
         </footer>
     </div>
 
     <button class="theme-toggle" id="themeToggle">
         <i class="fas fa-moon"></i>
     </button>
+
 
     <script>
         // Project filtering functionality
@@ -1883,9 +1911,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
+
+        // View counter functionality
+        function updateViewCounter() {
+            // Check if we've already counted this view in the current session
+            if (!sessionStorage.getItem('viewCounted')) {
+                let currentViews = localStorage.getItem('portfolioViews') || 0;
+                currentViews = parseInt(currentViews) + 1;
+                localStorage.setItem('portfolioViews', currentViews);
+                sessionStorage.setItem('viewCounted', 'true');
+                
+                // Update the display
+                document.getElementById('viewCount').textContent = currentViews.toLocaleString();
+            } else {
+                // Just display the current count without incrementing
+                let currentViews = localStorage.getItem('portfolioViews') || 0;
+                document.getElementById('viewCount').textContent = parseInt(currentViews).toLocaleString();
+            }
+        }
+        
+        // Initialize the view counter when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            updateViewCounter();
+            
+            // Your existing JavaScript code
+            // ... (all your existing JavaScript code) ...
+        });
     </script>
 </body>
 </html>
+
 
 
 
