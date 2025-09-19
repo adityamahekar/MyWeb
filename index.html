@@ -886,7 +886,6 @@
 }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -1706,42 +1705,23 @@
         </div>
     </div>
 
-     <div class="message-form">
-                <h3>Send me a message</h3>
-                
-                <!-- Success and error messages -->
-                <div class="form-success" id="formSuccess">
-                    <i class="fas fa-check-circle"></i> Your message has been sent successfully!
-                </div>
-                
-                <div class="form-error" id="formError">
-                    <i class="fas fa-exclamation-circle"></i> <span id="errorMessage">There was an error sending your message. Please try again.</span>
-                </div>
-                
-                <!-- Updated form with proper FormSubmit attributes -->
-                <form id="contactForm" action="https://formsubmit.co/mahekaraditya468@gmail.com" method="POST">
-                    <!-- FormSubmit hidden fields -->
-                    <input type="hidden" name="_next" value="https://adityamahekar.github.io/MyWeb/?message=success">
-                    <input type="hidden" name="_subject" value="New message from your portfolio">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="text" name="_honey" style="display:none">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_autoresponse" value="Thank you for your message. I'll get back to you soon!">
-                    
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="action-button">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
+    <div class="message-form">
+        <h3>Send me a message</h3>
+        <form id="contactForm">
+            <div class="form-group">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
             </div>
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="action-button">
+                <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+        </form>
+    </div>
 </section>
         </main>
 
@@ -1794,59 +1774,50 @@ function initProjectFilters() {
 }
 
 // Contact form submission
- // Contact form handling
-        function handleContactForm() {
-            const contactForm = document.getElementById('contactForm');
-            const formSuccess = document.getElementById('formSuccess');
-            const formError = document.getElementById('formError');
-            const errorMessage = document.getElementById('errorMessage');
+function handleContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            if (contactForm) {
-                // Check if we have a success message in the URL
-                const urlParams = new URLSearchParams(window.location.search);
-                if (urlParams.get('message') === 'success') {
-                    formSuccess.style.display = 'block';
-                    // Clear the URL parameter
-                    window.history.replaceState({}, document.title, window.location.pathname);
-                }
-                
-                contactForm.addEventListener('submit', function(e) {
-                    // Basic validation
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const message = document.getElementById('message').value;
-                    
-                    if (!name || !email || !message) {
-                        e.preventDefault();
-                        errorMessage.textContent = 'Please fill in all fields';
-                        formError.style.display = 'block';
-                        formSuccess.style.display = 'none';
-                        return;
-                    }
-                    
-                    // Hide any previous messages
-                    formError.style.display = 'none';
-                    formSuccess.style.display = 'none';
-                    
-                    // Show loading state
-                    const submitButton = contactForm.querySelector('button[type="submit"]');
-                    const originalText = submitButton.innerHTML;
-                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                    submitButton.disabled = true;
-                    
-                    // Allow the form to submit normally to FormSubmit.co
-                    // The _next parameter will handle redirection back to your site
-                });
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple form validation
+            if (!name || !email || !message) {
+                alert('Please fill in all fields');
+                return;
             }
-        }
-        
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            handleContactForm();
             
-            // Your other initialization code
-            // ...
+            // Send email using FormSubmit (you'll need to replace with your actual email service)
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('message', message);
+            
+            // Using FormSubmit.co service (replace with your email in the action URL)
+            fetch('https://formsubmit.co/mahekaraditya468@gmail.com', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Message sent successfully!');
+                    contactForm.reset();
+                } else {
+                    alert('There was an error sending your message. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was an error sending your message. Please try again.');
+            });
         });
+    }
+}
+
         // View counter functionality
 function updateViewCount() {
     // Get current count from localStorage or initialize to 0
@@ -1985,11 +1956,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
-
-
-
-
-
 
 
 
