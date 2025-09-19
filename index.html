@@ -959,7 +959,7 @@
                     <p>Fluent in multiple languages, I thrive in diverse teams and am eager to contribute to innovative projects that make an impact.</p>
                 </div>
 
-               /* <div class="button-container">
+<!--                 <div class="button-container">
                     <a href="#" class="action-button" onclick="showSection('resume')">
                         <i class="fas fa-file-alt"></i> View Resume
                     </a>
@@ -1003,13 +1003,29 @@
                     <i class="fas fa-laptop-code"></i>
                     <a href="https://www.hackerearth.com/@aditya__mahekar/" target="_blank">HackerEarth Profile</a>
                     </div>
-                </div>*/
+                </div> -->
 
-                <div style="text-align: center; margin-top: 2rem;">
-                    <a href="https://docs.google.com/document/d/1_R-uNJbsfpI1cCQVQWQywgFeE-5IBDyx/edit?tab=t.0" class="download-button" onclick="downloadResume()">
-                        <i class="fas fa-download"></i> Download Resume
-                    </a>
-                </div>
+                
+               
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="https://docs.google.com/document/d/1_R-uNJbsfpI1cCQVQWQywgFeE-5IBDyx/edit?tab=t.0" class="download-button" onclick="downloadResume()">
+            <i class="fas fa-download"></i> Download Resume
+        </a>
+    </div>
+    
+    <!-- ADDED: View counter and share button -->
+    <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+        <!-- View Counter -->
+        <div class="contact-item" style="margin: 0; background: rgba(67, 97, 238, 0.15);">
+            <i class="fas fa-eye"></i>
+            <span id="viewCount">0</span> Views
+        </div>
+        
+        <!-- Share Button -->
+        <button class="action-button" onclick="sharePortfolio()" style="padding: 0.8rem 1.5rem; min-width: auto;">
+            <i class="fas fa-share-alt"></i> Share Portfolio
+        </button>
+    </div>
             </section>
 
             <!-- Resume Section -->
@@ -1802,6 +1818,60 @@ function handleContactForm() {
     }
 }
 
+        // View counter functionality
+function updateViewCount() {
+    // Get current count from localStorage or initialize to 0
+    let count = localStorage.getItem('portfolioViews') || 0;
+    
+    // Increment count
+    count = parseInt(count) + 1;
+    
+    // Save updated count
+    localStorage.setItem('portfolioViews', count);
+    
+    // Update display
+    document.getElementById('viewCount').textContent = count.toLocaleString();
+}
+
+// Share portfolio function
+function sharePortfolio() {
+    const portfolioUrl = 'https://adityamahekar.github.io/MyWeb/';
+    const shareText = 'Check out Aditya Mahekar\'s portfolio - Computer Science Engineer and Developer';
+    
+    // Check if Web Share API is supported
+    if (navigator.share) {
+        navigator.share({
+            title: 'Aditya Mahekar Portfolio',
+            text: shareText,
+            url: portfolioUrl
+        })
+        .catch(error => {
+            console.log('Error sharing:', error);
+            fallbackShare(portfolioUrl, shareText);
+        });
+    } else {
+        fallbackShare(portfolioUrl, shareText);
+    }
+}
+
+// Fallback for browsers that don't support Web Share API
+function fallbackShare(url, text) {
+    // Copy to clipboard as fallback
+    navigator.clipboard.writeText(`${text}: ${url}`)
+        .then(() => {
+            alert('Portfolio link copied to clipboard!');
+        })
+        .catch(err => {
+            // Final fallback - open in new window
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+        });
+}
+
+// Initialize view counter when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    updateViewCount();
+});
+
 // Initialize these functions when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initProjectFilters();
@@ -1886,6 +1956,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
