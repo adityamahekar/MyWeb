@@ -1775,54 +1775,59 @@ function initProjectFilters() {
 }
 
 // Contact form submission
-// Initialize EmailJS with your user ID
-(function() {
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
-})();
-
-function handleContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+ // Contact form handling
+        function handleContactForm() {
+            const contactForm = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+            const formError = document.getElementById('formError');
+            const errorMessage = document.getElementById('errorMessage');
             
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Simple form validation
-            if (!name || !email || !message) {
-                alert('Please fill in all fields');
-                return;
+            if (contactForm) {
+                // Check if we have a success message in the URL
+                const urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.get('message') === 'success') {
+                    formSuccess.style.display = 'block';
+                    // Clear the URL parameter
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+                
+                contactForm.addEventListener('submit', function(e) {
+                    // Basic validation
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+                    
+                    if (!name || !email || !message) {
+                        e.preventDefault();
+                        errorMessage.textContent = 'Please fill in all fields';
+                        formError.style.display = 'block';
+                        formSuccess.style.display = 'none';
+                        return;
+                    }
+                    
+                    // Hide any previous messages
+                    formError.style.display = 'none';
+                    formSuccess.style.display = 'none';
+                    
+                    // Show loading state
+                    const submitButton = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitButton.innerHTML;
+                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                    submitButton.disabled = true;
+                    
+                    // Allow the form to submit normally to FormSubmit.co
+                    // The _next parameter will handle redirection back to your site
+                });
             }
+        }
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            handleContactForm();
             
-            // Show loading state
-            const submitButton = contactForm.querySelector('button[type="submit"]');
-            const originalText = submitButton.innerHTML;
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitButton.disabled = true;
-            
-            // Send email using EmailJS
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
-                from_name: name,
-                from_email: email,
-                message: message
-            })
-            .then(function(response) {
-                alert('Message sent successfully!');
-                contactForm.reset();
-                submitButton.innerHTML = originalText;
-                submitButton.disabled = false;
-            }, function(error) {
-                alert('There was an error sending your message. Please try again.');
-                console.error('EmailJS error:', error);
-                submitButton.innerHTML = originalText;
-                submitButton.disabled = false;
-            });
+            // Your other initialization code
+            // ...
         });
-    }
-}
         // View counter functionality
 function updateViewCount() {
     // Get current count from localStorage or initialize to 0
@@ -1961,6 +1966,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
