@@ -884,28 +884,6 @@
         font-size: 0.8rem;
     }
 }
-        .view-counter {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        .view-counter i {
-            color: var(--accent-color);
-        }
-        
-        .counter-number {
-            font-weight: 600;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            padding: 0 0.2rem;
-        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -981,33 +959,57 @@
                     <p>Fluent in multiple languages, I thrive in diverse teams and am eager to contribute to innovative projects that make an impact.</p>
                 </div>
 
-               
+               /* <div class="button-container">
+                    <a href="#" class="action-button" onclick="showSection('resume')">
+                        <i class="fas fa-file-alt"></i> View Resume
+                    </a>
+                    <a href="#" class="action-button" onclick="showSection('projects')">
+                        <i class="fas fa-project-diagram"></i> View Projects
+                    </a>
+                    <a href="#" class="action-button" onclick="showSection('activities')">
+                        <i class="fas fa-running"></i> View Activities
+                    </a>
+                    <a href="#" class="action-button" onclick="showSection('certifications')">
+                        <i class="fas fa-certificate"></i> View Certifications
+                    </a>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:mahekaraditya468@gmail.com">mahekaraditya468@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:9480100787">+91 9480100787</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/adityamahekar" target="_blank">GitHub Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/aditya-mahekar/" target="_blank">LinkedIn Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-code"></i>
+                        <a href="https://leetcode.com/u/aditya__mahekar/" target="_blank">LeetCode Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-figma"></i>
+                        <a href="https://www.figma.com/files/team/1519982424999534908/recents-and-sharing?fuid=1519982419772983298" target="_blank">Figma Drafts</a>
+                    </div>
+                    <div class="contact-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <a href="https://www.hackerearth.com/@aditya__mahekar/" target="_blank">HackerEarth Profile</a>
+                    </div>
+                </div>*/
+
                 <div style="text-align: center; margin-top: 2rem;">
                     <a href="https://docs.google.com/document/d/1_R-uNJbsfpI1cCQVQWQywgFeE-5IBDyx/edit?tab=t.0" class="download-button" onclick="downloadResume()">
                         <i class="fas fa-download"></i> Download Resume
                     </a>
                 </div>
-                
-                               
-                <div class="view-counter" style="
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--gradient);
-    padding: 8px 16px;
-    border-radius: 50px;
-    color: white;
-    font-size: 14px;
-    font-weight: 500;
-    box-shadow: var(--shadow);
-    margin-top: 15px;
-">
-    <i class="fas fa-eye" style="font-size: 16px;"></i>
-    <span>Views: <span class="counter-number" id="viewCount" style="font-weight: 700;">0</span></span>
-</div>
-             
-</div>
-                
             </section>
 
             <!-- Resume Section -->
@@ -1709,14 +1711,12 @@
 
         <footer>
             <p>&copy; 2024 Aditya Mahekar. All rights reserved.</p>
-           
         </footer>
     </div>
 
     <button class="theme-toggle" id="themeToggle">
         <i class="fas fa-moon"></i>
     </button>
-
 
     <script>
         // Project filtering functionality
@@ -1883,57 +1883,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
-
-        // View counter functionality
-        function updateViewCounter() {
-            // Check if we've already counted this view in the current session
-            if (!sessionStorage.getItem('viewCounted')) {
-                let currentViews = localStorage.getItem('portfolioViews') || 0;
-                currentViews = parseInt(currentViews) + 1;
-                localStorage.setItem('portfolioViews', currentViews);
-                sessionStorage.setItem('viewCounted', 'true');
-                
-                // Update the display
-                document.getElementById('viewCount').textContent = currentViews.toLocaleString();
-            } else {
-                // Just display the current count without incrementing
-                let currentViews = localStorage.getItem('portfolioViews') || 0;
-                document.getElementById('viewCount').textContent = parseInt(currentViews).toLocaleString();
-            }
-        }
-        
-        // Initialize the view counter when the page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            updateViewCounter();
-            
-            // Your existing JavaScript code
-            // ... (all your existing JavaScript code) ...
-        });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
