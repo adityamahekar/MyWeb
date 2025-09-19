@@ -886,6 +886,7 @@
 }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -1774,18 +1775,24 @@ function initProjectFilters() {
 }
 
 // Contact form submission
+// Initialize EmailJS with your user ID
+(function() {
+    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+})();
+
 function handleContactForm() {
     const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            // Basic validation before allowing form submission
+            e.preventDefault();
+            
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
             
+            // Simple form validation
             if (!name || !email || !message) {
-                e.preventDefault();
                 alert('Please fill in all fields');
                 return;
             }
@@ -1796,16 +1803,26 @@ function handleContactForm() {
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitButton.disabled = true;
             
-            // Form will submit normally to FormSubmit.co
-            // You could add a timeout to reset the button if the page doesn't redirect
-            setTimeout(() => {
+            // Send email using EmailJS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+                from_name: name,
+                from_email: email,
+                message: message
+            })
+            .then(function(response) {
+                alert('Message sent successfully!');
+                contactForm.reset();
                 submitButton.innerHTML = originalText;
                 submitButton.disabled = false;
-            }, 5000);
+            }, function(error) {
+                alert('There was an error sending your message. Please try again.');
+                console.error('EmailJS error:', error);
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            });
         });
     }
 }
-
         // View counter functionality
 function updateViewCount() {
     // Get current count from localStorage or initialize to 0
@@ -1944,6 +1961,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
