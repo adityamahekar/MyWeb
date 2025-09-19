@@ -1775,7 +1775,7 @@ function initProjectFilters() {
 }
 
 // Contact form submission
- document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             const contactForm = document.getElementById('contactForm');
             const submitButton = document.getElementById('submitButton');
             const statusMessage = document.getElementById('statusMessage');
@@ -1791,7 +1791,7 @@ function initProjectFilters() {
                 
                 // Simulate form submission (replace with actual form submission code)
                 setTimeout(function() {
-                    // Reset button state
+                    // Reset button state only after submission is complete
                     submitButton.disabled = false;
                     submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
                     
@@ -1824,7 +1824,6 @@ function initProjectFilters() {
                 }, 500);
             }
         });
-
         // View counter functionality
 function updateViewCount() {
     // Get current count from localStorage or initialize to 0
@@ -1963,6 +1962,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
