@@ -829,35 +829,3 @@ footer p {
         font-size: 0.8rem;
     }
 }
-
-/* new */
-/* Nano Projects & Major Projects Flexbox Layout */
-.nano-projects, .major-projects {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem; /* space between cards */
-  justify-content: flex-start; 
-}
-
-.nano-projects .project-card,
-.major-projects .project-card {
-  flex: 1 1 calc(50% - 2rem); /* 2 cards per row with gap accounted */
-  max-width: calc(50% - 2rem);
-  box-sizing: border-box; /* ensure padding/margin don’t break layout */
-}
-
-@media (max-width: 992px) {
-  .nano-projects .project-card,
-  .major-projects .project-card {
-    flex: 1 1 calc(50% - 1rem); /* slightly smaller gap for medium screens */
-    max-width: calc(50% - 1rem);
-  }
-}
-
-@media (max-width: 768px) {
-  .nano-projects .project-card,
-  .major-projects .project-card {
-    flex: 1 1 100%; /* full width on small screens */
-    max-width: 100%;
-  }
-}
