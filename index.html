@@ -1721,7 +1721,12 @@
                     <i class="fas fa-paper-plane"></i> Send Message
                 </button>
             </form>
+         <div id="statusMessage" class="status-message"></div>
             
+    </div>
+     <div id="successAlert" class="alert">
+        <i class="fas fa-check-circle"></i>
+        <span>Your message has been sent successfully!</span>
     </div>
 </section>
         </main>
@@ -1774,8 +1779,7 @@ function initProjectFilters() {
     });
 }
 
-// Contact form submission
-        document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
             const contactForm = document.getElementById('contactForm');
             const submitButton = document.getElementById('submitButton');
             const statusMessage = document.getElementById('statusMessage');
@@ -1799,9 +1803,9 @@ function initProjectFilters() {
                     successAlert.classList.add('show');
                     
                     // Show success message
-                    showStatus('Message sent successfully!', 'success');
+                    showStatus('Message sent successfully! Form has been reset.', 'success');
                     
-                    // Reset the form
+                    // Reset the form - This is the key line that resets all form fields
                     contactForm.reset();
                     
                     // Hide alert after 3 seconds
@@ -1962,6 +1966,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
