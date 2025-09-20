@@ -1,938 +1,17 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Mahekar - Portfolio</title>
-    <style>
-        :root {
-            --primary-color: #4361ee;
-            --secondary-color: #3a0ca3;
-            --accent-color: #f72585;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --text-color: #2b2d42;
-            --text-light: #ffffff;
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-            --nav-bg: #ffffff;
-            --gradient: linear-gradient(135deg, #4361ee 0%, #3a0ca3 50%, #7209b7 100%);
-            --shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-            --hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-        }
-
-        .dark-mode {
-            --primary-color: #4895ef;
-            --secondary-color: #560bad;
-            --accent-color: #f72585;
-            --light-color: #121212;
-            --dark-color: #f8f9fa;
-            --text-color: #e0e0e0;
-            --text-light: #ffffff;
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --nav-bg: #1e1e1e;
-            --gradient: linear-gradient(135deg, #4895ef 0%, #560bad 50%, #7209b7 100%);
-            --shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-            --hover-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            transition: background-color 0.5s ease, color 0.3s ease;
-        }
-
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            transition: background-color 0.5s ease;
-        }
-        
-        .container {
-            width: 100%;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            background: var(--gradient);
-            color: var(--text-light);
-            padding: 2rem 1.5rem;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-            transform: rotate(30deg);
-            z-index: 1;
-            animation: rotateBackground 20s linear infinite;
-        }
-
-        @keyframes rotateBackground {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 2;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            animation: fadeInDown 1s ease;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        nav {
-            background-color: var(--nav-bg);
-            padding: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-button {
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient);
-            transition: all 0.4s ease;
-            z-index: -1;
-        }
-
-        .nav-button:hover {
-            color: var(--text-light);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(67, 97, 238, 0.3);
-            border-color: transparent;
-        }
-
-        .nav-button:hover::before {
-            left: 0;
-        }
-
-        .nav-button.active {
-            background: var(--gradient);
-            color: var(--text-light);
-            border-color: transparent;
-            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
-        }
-
-        main {
-            flex: 1;
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        section {
-            margin-bottom: 3rem;
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            animation: fadeIn 0.8s ease;
-        }
-
-        section:hover {
-            box-shadow: var(--hover-shadow);
-            transform: translateY(-5px);
-        }
-
-        h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 3px solid var(--accent-color);
-            font-size: 1.8rem;
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 100px;
-            height: 3px;
-            background: var(--gradient);
-            animation: expandLine 1.5s ease;
-        }
-
-        @keyframes expandLine {
-            0% { width: 0; }
-            100% { width: 100px; }
-        }
-
-        .current-position {
-            background-color: rgba(67, 97, 238, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            text-align: center;
-            font-weight: 500;
-            color: var(--primary-color);
-            border-left: 4px solid var(--accent-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
-
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .about-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .action-button {
-            background: var(--gradient);
-            color: var(--text-light);
-            border: none;
-            padding: 1.2rem 2.5rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            min-width: 220px;
-            box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            animation: fadeInUp 1s ease;
-        }
-
-        .action-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #f72585 0%, #b5179e 50%, #7209b7 100%);
-            transition: all 0.4s ease;
-            z-index: -1;
-        }
-
-        .action-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(67, 97, 238, 0.4);
-        }
-
-        .action-button:hover::before {
-            left: 0;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            color: var(--primary-color);
-            background-color: rgba(67, 97, 238, 0.1);
-            padding: 1rem 1.5rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            animation: fadeIn 1s ease;
-        }
-
-        .contact-item:hover {
-            background-color: rgba(67, 97, 238, 0.2);
-            transform: translateY(-5px) scale(1.05);
-        }
-
-        .contact-item a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: var(--accent-color);
-        }
-
-        .contact-item i {
-            font-size: 1.2rem;
-        }
-
-        .education-item, .language-item, .skill-item, .volunteer-item, .activity-item, .experience-item {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-            border-left: 3px solid var(--accent-color);
-            animation: fadeInLeft 0.8s ease;
-        }
-
-        .education-item h3, .volunteer-item h3, .activity-item h3, .experience-item h3 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .education-item p, .volunteer-item p, .activity-item p, .experience-item p {
-            font-style: italic;
-            color: var(--text-color);
-            opacity: 0.9;
-            margin-bottom: 0.3rem;
-        }
-
-        .education-item .date, .activity-item .date, .experience-item .date {
-            color: var(--accent-color);
-            font-weight: 500;
-        }
-
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-.skill-pill {
-  /* Solid white background */
-  background: white;
-  
-  /* Internal gradient border effect */
-  padding: 0.6rem 1.2rem;
-  border-radius: 50px;
-  position: relative;
-  font-size: 0.9rem;
-  font-weight: 600;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  
-  /* Thicker gradient border INSIDE the pill */
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 50px;
-    padding: 4px; /* Increased from 3px to 4px */
-    background: linear-gradient(
-      to right, 
-      var(--primary-color), 
-      var(--secondary-color)
-    );
-    -webkit-mask: 
-      linear-gradient(#fff 0 0) content-box, 
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    z-index: -1;
-  }
-  
-  /* Solid text color */
-  color: var(--primary-color);
-}
-
-.skill-pill:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.skill-pill:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Hover effect */
-.skill-pill:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-/* Hover effect */
-.skill-pill:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
-
-        .skill-pill:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-
-        .projects-grid, .certification-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .project-card, .certification-card {
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-            background: var(--card-bg);
-            position: relative;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .project-card::before, .certification-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient);
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 1;
-        }
-
-        .project-card:hover, .certification-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--hover-shadow);
-        }
-
-        .project-card:hover::before, .certification-card:hover::before {
-            opacity: 0.05;
-        }
-
-        .project-image, .certification-image {
-            height: 220px;
-            background-color: var(--light-color);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-image img, .certification-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .project-card:hover .project-image img, .certification-card:hover .certification-image img {
-            transform: scale(1.1);
-        }
-
-        .project-image::before, .certification-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(67, 97, 238, 0.1) 0%, rgba(114, 9, 183, 0.1) 100%);
-        }
-
-        .project-details, .certification-details {
-            padding: 1.8rem;
-        }
-
-        .project-details h3, .certification-details h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.8rem;
-            font-size: 1.4rem;
-        }
-
-        .project-details p, .certification-details p {
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-            opacity: 0.9;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .project-link:hover {
-            color: var(--secondary-color);
-            transform: translateX(8px);
-        }
-
-        .project-link i {
-            transition: all 0.3s ease;
-        }
-
-        .project-link:hover i {
-            transform: translateX(5px);
-        }
-
-        .profile-summary {
-            background: linear-gradient(135deg, rgba(67, 97, 238, 0.05) 0%, rgba(114, 9, 183, 0.05) 100%);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 3rem;
-            border-left: 4px solid var(--accent-color);
-            position: relative;
-            overflow: hidden;
-            animation: fadeIn 0.8s ease;
-        }
-
-        .profile-summary::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(247, 37, 133, 0.1) 0%, rgba(247, 37, 133, 0) 70%);
-            z-index: 0;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            50% { transform: translate(-20px, 20px); }
-            100% { transform: translate(0, 0); }
-        }
-
-        .profile-summary h2 {
-            position: relative;
-            z-index: 1;
-        }
-
-        .profile-summary p {
-            position: relative;
-            z-index: 1;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        footer {
-            background: var(--gradient);
-            color: var(--text-light);
-            text-align: center;
-            padding: 2rem 1.5rem;
-            margin-top: auto;
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' opacity='0.1'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            animation: patternMove 20s linear infinite;
-        }
-
-        @keyframes patternMove {
-            0% { background-position: 0 0; }
-            100% { background-position: 60px 60px; }
-        }
-
-        footer p {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Hide all sections initially */
-        section {
-            display: none;
-        }
-
-        /* Show only the active section */
-        section.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInLeft {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        /* Download Button Styles */
-        .download-button {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            box-shadow: 0 4px 8px rgba(247, 37, 133, 0.3);
-            margin-top: 1rem;
-            animation: pulse 2s infinite;
-        }
-
-        .download-button:hover {
-            background: #d11674;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(247, 37, 133, 0.4);
-            animation: none;
-        }
-
-        .download-button i {
-            font-size: 0.9rem;
-        }
-
-        /* Dark Mode Toggle */
-        .theme-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--gradient);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-            transition: all 0.3s ease;
-            border: none;
-            font-size: 1.5rem;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1) rotate(30deg);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 992px) {
-            .projects-grid, .certification-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            header p {
-                font-size: 1rem;
-            }
-
-            .button-container {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .action-button {
-                width: 100%;
-            }
-
-            main {
-                padding: 1.5rem;
-            }
-
-            section {
-                padding: 2rem;
-            }
-
-            .project-image, .certification-image {
-                height: 180px;
-            }
-
-            .theme-toggle {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
-
-            nav {
-                gap: 0.8rem;
-                flex-wrap: wrap;
-            }
-
-            .nav-button {
-                padding: 0.7rem 1.2rem;
-                font-size: 0.9rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .contact-item {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .projects-grid, .certification-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 1.5rem;
-            }
-
-            h2 {
-                font-size: 1.6rem;
-            }
-        }
-        /* Project Filter Pills */
-.project-filters {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2.5rem;
-    flex-wrap: wrap;
-}
-
-.filter-pill {
-    background-color: var(--card-bg);
-    color: var(--primary-color);
-    padding: 0.6rem 1.2rem;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow);
-    position: relative;
-    border: 2px solid transparent;
-}
-
-.filter-pill::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 50px;
-    padding: 2px;
-    background: var(--gradient);
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) content-box, 
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    z-index: -1;
-}
-
-.filter-pill:hover, .filter-pill.active {
-    background: var(--gradient);
-    color: var(--text-light);
-    transform: translateY(-2px);
-    box-shadow: var(--hover-shadow);
-}
-
-/* Message Form Styles */
-.message-form {
-    background-color: var(--card-bg);
-    padding: 2rem;
-    border-radius: 12px;
-    margin-top: 2rem;
-    box-shadow: var(--shadow);
-}
-
-.message-form h3 {
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 1rem;
-    border: 2px solid rgba(67, 97, 238, 0.2);
-    border-radius: 8px;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-/* Responsive adjustments for filters */
-@media (max-width: 576px) {
-    .project-filters {
-        gap: 0.5rem;
-    }
-    
-    .filter-pill {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
-    }
-}
-    </style>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <header>
             <h1>Aditya Mahekar</h1>
-         <p id="typing" style="font-family: monospace; display: inline;"></p><span id="cursor" style="font-family: monospace; display: inline; animation: blink 0.5s step-end infinite;">|</span>
-
-<script>
-  (function() {
-    const titles = [
-      " Computer Science Engineer ",
-      " Developer ",
-      " UI/UX Enthusiast ",
-      " Aspiring Full-Stack Developer ",
-      " Problem Solver "
-    ];
-    const typingElement = document.getElementById("typing");
-    let currentTitle = 0, charIndex = 0, isDeleting = false;
-
-    function typeEffect() {
-      const currentText = titles[currentTitle];
-      typingElement.textContent = isDeleting
-        ? currentText.substring(0, charIndex--)
-        : currentText.substring(0, charIndex++);
-
-      if (!isDeleting && charIndex === currentText.length) {
-        setTimeout(() => { isDeleting = true; typeEffect(); }, 1000);
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        currentTitle = (currentTitle + 1) % titles.length;
-        setTimeout(typeEffect, 500);
-      } else {
-        setTimeout(typeEffect, isDeleting ? 50 : 100);
-      }
-    }
-
-    typeEffect();
-  })();
-</script>
-
-<style>
-  @keyframes blink {
-    50% { opacity: 0; }
-  }
-</style>
-
+            <p id="typing" style="font-family: monospace; display: inline;"></p><span id="cursor" style="font-family: monospace; display: inline; animation: blink 0.5s step-end infinite;">|</span>
         </header>
 
         <nav>
@@ -959,74 +38,23 @@
                     
                     <p>Fluent in multiple languages, I thrive in diverse teams and am eager to contribute to innovative projects that make an impact.</p>
                 </div>
-
-<!--                 <div class="button-container">
-                    <a href="#" class="action-button" onclick="showSection('resume')">
-                        <i class="fas fa-file-alt"></i> View Resume
-                    </a>
-                    <a href="#" class="action-button" onclick="showSection('projects')">
-                        <i class="fas fa-project-diagram"></i> View Projects
-                    </a>
-                    <a href="#" class="action-button" onclick="showSection('activities')">
-                        <i class="fas fa-running"></i> View Activities
-                    </a>
-                    <a href="#" class="action-button" onclick="showSection('certifications')">
-                        <i class="fas fa-certificate"></i> View Certifications
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="https://docs.google.com/document/d/1_R-uNJbsfpI1cCQVQWQywgFeE-5IBDyx/edit?tab=t.0" class="download-button" onclick="downloadResume()">
+                        <i class="fas fa-download"></i> Download Resume
                     </a>
                 </div>
-
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:mahekaraditya468@gmail.com">mahekaraditya468@gmail.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <a href="tel:9480100787">+91 9480100787</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <a href="https://github.com/adityamahekar" target="_blank">GitHub Profile</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <a href="https://www.linkedin.com/in/aditya-mahekar/" target="_blank">LinkedIn Profile</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-code"></i>
-                        <a href="https://leetcode.com/u/aditya__mahekar/" target="_blank">LeetCode Profile</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-figma"></i>
-                        <a href="https://www.figma.com/files/team/1519982424999534908/recents-and-sharing?fuid=1519982419772983298" target="_blank">Figma Drafts</a>
-                    </div>
-                    <div class="contact-item">
-                    <i class="fas fa-laptop-code"></i>
-                    <a href="https://www.hackerearth.com/@aditya__mahekar/" target="_blank">HackerEarth Profile</a>
-                    </div>
-                </div> -->
-
                 
-               
-    <div style="text-align: center; margin-top: 2rem;">
-        <a href="https://docs.google.com/document/d/1_R-uNJbsfpI1cCQVQWQywgFeE-5IBDyx/edit?tab=t.0" class="download-button" onclick="downloadResume()">
-            <i class="fas fa-download"></i> Download Resume
-        </a>
-    </div>
-    
-    <!-- ADDED: View counter and share button -->
-    <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
-        <!-- View Counter -->
-        <div class="contact-item" style="margin: 0; background: rgba(67, 97, 238, 0.15);">
-            <i class="fas fa-eye"></i>
-            <span id="viewCount">0</span> Views
-        </div>
-        
-        <!-- Share Button -->
-        <button class="action-button" onclick="sharePortfolio()" style="padding: 0.8rem 1.5rem; min-width: auto;">
-            <i class="fas fa-share-alt"></i> Share Portfolio
-        </button>
-    </div>
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+                    <div class="contact-item" style="margin: 0; background: rgba(67, 97, 238, 0.15);">
+                        <i class="fas fa-eye"></i>
+                        <span id="viewCount">0</span> Views
+                    </div>
+                    
+                    <button class="action-button" onclick="sharePortfolio()" style="padding: 0.8rem 1.5rem; min-width: auto;">
+                        <i class="fas fa-share-alt"></i> Share Portfolio
+                    </button>
+                </div>
             </section>
 
             <!-- Resume Section -->
@@ -1069,10 +97,10 @@
                     <p class="date">Jul 2011 - May 2017</p>
                 </div>
 
-               <h2>Skills</h2>
-<div class="skills-container" style="display: flex; flex-wrap: wrap; gap: 8px;">
-
-<strong style="width: 100%; color:#560bad;">Programming Languages:</strong>
+                <h2>Skills</h2>
+                <div class="skills-container" style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <!-- Skills content remains the same as in the original -->
+                     <strong style="width: 100%; color:#560bad;">Programming Languages:</strong>
 <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Java</span>
 <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> C</span>
 <span class="skill-pill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" style="height: 14px; width: 14px; margin-right: 4px;" /> Python</span>
@@ -1172,8 +200,7 @@
 <span class="skill-pill">Keil uVision</span>
 <span class="skill-pill">Jupyter</span>
 <span class="skill-pill">Eclipse</span>
-</div>
-
+                </div>
                 
                 <h2>Languages</h2>
                 <div class="language-item">
@@ -1184,9 +211,8 @@
                           <li><span style="color: red;">•</span> Kannada </li>
                          <li><span style="color: red;">•</span> Konkani </li>
                          <li><span style="color: red;">•</span> Marathi </li>
-                            
                         </ul>
-                </p> 
+                    </p> 
                 </div>
                 
                 <h2>Volunteer Experience</h2>
@@ -1200,17 +226,16 @@
             <section id="projects">
                 <h2>My Projects</h2>
                 <div class="project-filters">
-    <span class="filter-pill active" data-filter="all">All</span>
-    <span class="filter-pill" data-filter="major">Major Projects</span>
-    <span class="filter-pill" data-filter="mini">Mini Projects</span>
-    <span class="filter-pill" data-filter="micro">Micro Projects</span>
-    <span class="filter-pill" data-filter="nano">Nano Projects</span>
-</div>
-
+                    <span class="filter-pill active" data-filter="all">All</span>
+                    <span class="filter-pill" data-filter="major">Major Projects</span>
+                    <span class="filter-pill" data-filter="mini">Mini Projects</span>
+                    <span class="filter-pill" data-filter="micro">Micro Projects</span>
+                    <span class="filter-pill" data-filter="nano">Nano Projects</span>
+                </div>
                 
                 <div class="projects-grid">
-                    
-                    <a href="https://blood-donation-management-bht9.onrender.com/" class="project-link" target="_blank">
+                    <!-- Projects content remains the same as in the original -->
+                      <a href="https://blood-donation-management-bht9.onrender.com/" class="project-link" target="_blank">
                         <div class="project-card" data-type="mini">
                
                         <div class="project-image">
@@ -1407,9 +432,7 @@
                             </a>
 
 
-            
                 </div>
-                    
             </section>
 
             <!-- Activities Section -->
@@ -1428,23 +451,19 @@
                     <p>Participated in multiple hackathons, collaborating with teams to develop innovative solutions within constrained timeframes, enhancing problem-solving and teamwork skills.</p>
                 </div>
 
-                
                 <div class="activity-item">
                     <h3>Ideathon Participant</h3>
                     <p class="date">2025</p>
                     <p>Participated in Ideathon 2025, collaborating with diverse minds to develop innovative solutions for real-world challenges.</p>
                 </div>
-              
             </section>
 
-           <!-- Certifications Section -->
-<section id="certifications">
-
-   
-    <h2>My Certifications & Licenses</h2>
-    <div class="certification-grid">
-
-         <!-- Ideathon-->
+            <!-- Certifications Section -->
+            <section id="certifications">
+                <h2>My Certifications & Licenses</h2>
+                <div class="certification-grid">
+                    <!-- Certifications content remains the same as in the original -->
+                      <!-- Ideathon-->
          <div class="certification-card">
             <div class="certification-image" style="background-color: #fff; padding: 10px;">
                 <img src="./c19_cer.jpeg" alt="Ideathon">
@@ -1668,63 +687,62 @@
                 <p>Skills: Leadership</p>
             </div>
         </div>
-    </div>
-</section>
+                </div>
+            </section>
 
             <!-- Connect Me Section -->
-<section id="connect">
-    <h2>Connect With Me</h2>
-    
-    <div class="contact-info">
-        <div class="contact-item">
-            <i class="fas fa-envelope"></i>
-            <a href="mailto:mahekaraditya468@gmail.com">mahekaraditya468@gmail.com</a>
-        </div>
-        <div class="contact-item">
-            <i class="fas fa-phone-alt"></i>
-            <a href="tel:9480100787">+91 9480100787</a>
-        </div>
-        <div class="contact-item">
-            <i class="fab fa-github"></i>
-            <a href="https://github.com/adityamahekar" target="_blank">GitHub Profile</a>
-        </div>
-        <div class="contact-item">
-            <i class="fab fa-linkedin"></i>
-            <a href="https://www.linkedin.com/in/aditya-mahekar/" target="_blank">LinkedIn Profile</a>
-        </div>
-        <div class="contact-item">
-            <i class="fas fa-code"></i>
-            <a href="https://leetcode.com/u/aditya__mahekar/" target="_blank">LeetCode Profile</a>
-        </div>
-        <div class="contact-item">
-            <i class="fab fa-figma"></i>
-            <a href="https://www.figma.com/files/team/1519982424999534908/recents-and-sharing?fuid=1519982419772983298" target="_blank">Figma Drafts</a>
-        </div>
-        <div class="contact-item">
-            <i class="fas fa-laptop-code"></i>
-            <a href="https://www.hackerearth.com/@aditya__mahekar/" target="_blank">HackerEarth Profile</a>
-        </div>
-    </div>
+            <section id="connect">
+                <h2>Connect With Me</h2>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:mahekaraditya468@gmail.com">mahekaraditya468@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:9480100787">+91 9480100787</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/adityamahekar" target="_blank">GitHub Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/aditya-mahekar/" target="_blank">LinkedIn Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-code"></i>
+                        <a href="https://leetcode.com/u/aditya__mahekar/" target="_blank">LeetCode Profile</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-figma"></i>
+                        <a href="https://www.figma.com/files/team/1519982424999534908/recents-and-sharing?fuid=1519982419772983298" target="_blank">Figma Drafts</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <a href="https://www.hackerearth.com/@aditya__mahekar/" target="_blank">HackerEarth Profile</a>
+                    </div>
+                </div>
 
-    <div class="message-form">
-            <h3>Send me a message</h3>
-            <form id="contactForm">
-                <div class="form-group">
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <div class="message-form">
+                    <h3>Send me a message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="action-button" id="submitButton">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-                </div>
-                <button type="submit" class="action-button" id="submitButton">
-                    <i class="fas fa-paper-plane"></i> Send Message
-                </button>
-            </form>
-            
-    </div>
-</section>
+            </section>
         </main>
 
         <footer>
@@ -1736,275 +754,6 @@
         <i class="fas fa-moon"></i>
     </button>
 
-    <script>
-        // Project filtering functionality
-function initProjectFilters() {
-    const filterPills = document.querySelectorAll('.filter-pill');
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    filterPills.forEach(pill => {
-        pill.addEventListener('click', () => {
-            // Remove active class from all pills
-            filterPills.forEach(p => p.classList.remove('active'));
-            
-            // Add active class to clicked pill
-            pill.classList.add('active');
-            
-            // Get filter value
-            const filterValue = pill.getAttribute('data-filter');
-            
-            // Filter projects
-            projectCards.forEach(card => {
-                const projectType = card.getAttribute('data-type') || 'micro'; // Default to micro if no type specified
-                
-                if (filterValue === 'all' || projectType === filterValue) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 50);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
-    });
-}
-
-// Contact form submission
- function handleContactForm() {
-            const contactForm = document.getElementById('contactForm');
-            const statusMessage = document.getElementById('statusMessage');
-            const submitButton = document.getElementById('submitButton');
-            
-            if (contactForm) {
-                // Create a hidden iframe for form submission
-                const iframe = document.createElement('iframe');
-                iframe.name = 'formsubmit-iframe';
-                iframe.style.display = 'none';
-                document.body.appendChild(iframe);
-                
-                // Update form attributes for FormSubmit.co
-                contactForm.setAttribute('action', 'https://formsubmit.co/mahekaraditya468@gmail.com');
-                contactForm.setAttribute('method', 'POST');
-                contactForm.setAttribute('target', 'formsubmit-iframe');
-                
-                // Add hidden fields that FormSubmit.co expects
-                const hiddenFields = [
-                    { name: '_subject', value: 'New Contact Form Submission' },
-                    { name: '_template', value: 'table' },
-                    { name: '_captcha', value: 'false' },
-                    { name: '_blacklist', value: 'spammy pattern, bad word' }
-                ];
-                
-                hiddenFields.forEach(field => {
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = field.name;
-                    input.value = field.value;
-                    contactForm.appendChild(input);
-                });
-                
-                contactForm.addEventListener('submit', function(e) {
-                    // Client-side validation
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const message = document.getElementById('message').value;
-                    
-                    if (!name || !email || !message) {
-                        e.preventDefault();
-                        showStatus('Please fill in all fields', 'error');
-                        return;
-                    }
-                    
-                    // Email validation
-                    if (!isValidEmail(email)) {
-                        e.preventDefault();
-                        showStatus('Please enter a valid email address', 'error');
-                        return;
-                    }
-                    
-                    // Show loading state
-                    submitButton.disabled = true;
-                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                    statusMessage.style.display = 'none';
-                    
-                    // Listen for the iframe load event to detect form submission completion
-                    iframe.onload = function() {
-                        submitButton.disabled = false;
-                        submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                        
-                        try {
-                            // This might not work due to cross-origin restrictions
-                            // but FormSubmit.co will redirect to a success page
-                            showStatus('Message sent successfully!', 'success');
-                            contactForm.reset();
-                        } catch (error) {
-                            // If we can't access iframe content due to CORS, assume success
-                            showStatus('Message sent successfully!', 'success');
-                            contactForm.reset();
-                        }
-                    };
-                });
-            }
-            
-            function showStatus(message, type) {
-                statusMessage.textContent = message;
-                statusMessage.className = 'status-message ' + type;
-                statusMessage.style.display = 'block';
-            }
-            
-            function isValidEmail(email) {
-                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return re.test(email);
-            }
-        }
-         // Initialize the form handler when the page loads
-        document.addEventListener('DOMContentLoaded', handleContactForm);
-
-        // View counter functionality
-function updateViewCount() {
-    // Get current count from localStorage or initialize to 0
-    let count = localStorage.getItem('portfolioViews') || 0;
-    
-    // Increment count
-    count = parseInt(count) + 1;
-    
-    // Save updated count
-    localStorage.setItem('portfolioViews', count);
-    
-    // Update display
-    document.getElementById('viewCount').textContent = count.toLocaleString();
-}
-
-// Share portfolio function
-function sharePortfolio() {
-    const portfolioUrl = 'https://adityamahekar.github.io/MyWeb/';
-    const shareText = 'Check out Aditya Mahekar\'s portfolio - Computer Science Engineer and Developer';
-    
-    // Check if Web Share API is supported
-    if (navigator.share) {
-        navigator.share({
-            title: 'Aditya Mahekar Portfolio',
-            text: shareText,
-            url: portfolioUrl
-        })
-        .catch(error => {
-            console.log('Error sharing:', error);
-            fallbackShare(portfolioUrl, shareText);
-        });
-    } else {
-        fallbackShare(portfolioUrl, shareText);
-    }
-}
-
-// // Fallback for browsers that don't support Web Share API
-// function fallbackShare(url, text) {
-//     // Copy to clipboard as fallback
-//     navigator.clipboard.writeText(`${text}: ${url}`)
-//         .then(() => {
-//             alert('Portfolio link copied to clipboard!');
-//         })
-//         .catch(err => {
-//             // Final fallback - open in new window
-//             window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
-//         });
-// }
-
-// Initialize view counter when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    updateViewCount();
-});
-
-// Initialize these functions when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    initProjectFilters();
-    handleContactForm();
-});
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Update active nav button
-            document.querySelectorAll('.nav-button').forEach(button => {
-                button.classList.remove('active');
-            });
-            event.currentTarget.classList.add('active');
-            
-            // Show the selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function downloadResume() {
-            // Replace this with your actual resume PDF URL
-            const resumeUrl = 'https://docs.google.com/document/d/1_R-uNJbsfpI1cCQVQWQywgFeE-5IBDyx/edit?tab=t.0';
-            
-            // Create a temporary anchor element
-            const link = document.createElement('a');
-            link.href = resumeUrl;
-            link.download = 'Aditya_Mahekar_Resume.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Fallback in case the above doesn't work
-            window.open(resumeUrl, '_blank');
-        }
-
-        // Dark/Light Mode Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const icon = themeToggle.querySelector('i');
-        
-        // Check for saved theme preference or use preferred color scheme
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-            document.body.classList.add('dark-mode');
-            icon.classList.replace('fa-moon', 'fa-sun');
-        }
-        
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            
-            if (document.body.classList.contains('dark-mode')) {
-                icon.classList.replace('fa-moon', 'fa-sun');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-                localStorage.setItem('theme', 'light');
-            }
-        });
-
-        // Add animation to elements when they come into view
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.education-item, .skill-pill, .project-card, .certification-card, .activity-item');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.animation = 'fadeInUp 0.8s ease forwards';
-                }
-            });
-        };
-
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
