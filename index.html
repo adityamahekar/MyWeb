@@ -1758,16 +1758,15 @@ function initProjectFilters() {
          const filterValue = pill.getAttribute('data-filter');
          
          // Filter projects
-         projectCards.forEach(card => {
-             const projectType = card.getAttribute('data-type') || 'micro';
-             
-             if (filterValue === 'all' || projectType === filterValue) {
-                 card.style.display = 'block';
-             } else {
-                 card.style.display = 'none';
-             }
-         });
+            projectAnchors.forEach(anchor => {
+         const projectType = anchor.getAttribute('data-type');
+         if (filterValue === 'all' || projectType === filterValue) {
+             anchor.style.display = 'block';
+         } else {
+             anchor.style.display = 'none';
+         }
      });
+ });
  });
 }
 
@@ -1983,6 +1982,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
