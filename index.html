@@ -1778,44 +1778,61 @@ function initProjectFilters() {
         });
     });
 }
-
+//contaact form
  document.addEventListener('DOMContentLoaded', function() {
             const contactForm = document.getElementById('contactForm');
             const submitButton = document.getElementById('submitButton');
             const statusMessage = document.getElementById('statusMessage');
             const successAlert = document.getElementById('successAlert');
             
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Show loading state
-                submitButton.disabled = true;
-                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                statusMessage.style.display = 'none';
-                
-                // Simulate form submission (replace with actual form submission code)
-                setTimeout(function() {
-                    // Reset button state only after submission is complete
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                    
-                    // Show success alert
-                    successAlert.classList.add('show');
-                    
-                    // Show success message
-                    showStatus('Message sent successfully! Form has been reset.', 'success');
-                    
-                    // Reset the form - This is the key line that resets all form fields
-                    contactForm.reset();
-                    
-                    // Hide alert after 3 seconds
-                    setTimeout(function() {
-                        successAlert.classList.remove('show');
-                    }, 3000);
-                    
-                }, 2000); // Simulate 2 second delay for form submission
-            });
+           contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Show loading state
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    statusMessage.style.display = 'none';
+    
+    // Get form data
+    const formData = new FormData(contactForm);
+    
+    // Replace with your Formspree endpoint
+    fetch('https://formspree.io/f/your-form-id', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Show success alert
+            successAlert.classList.add('show');
             
+            // Show success message
+            showStatus('Message sent successfully!', 'success');
+            
+            // Reset the form
+            contactForm.reset();
+        } else {
+            throw new Error('Form submission failed');
+        }
+    })
+    .catch(error => {
+        showStatus('Sorry, there was an error sending your message. Please try again.', 'error');
+    })
+    .finally(() => {
+        submitButton.disabled = false;
+        submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+        
+        // Hide alert after 3 seconds only if it was successful
+        if (successAlert.classList.contains('show')) {
+            setTimeout(function() {
+                successAlert.classList.remove('show');
+            }, 3000);
+        }
+    });
+});
             function showStatus(message, type) {
                 statusMessage.textContent = message;
                 statusMessage.className = 'status-message ' + type;
@@ -1966,6 +1983,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
