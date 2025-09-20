@@ -248,17 +248,17 @@ function sharePortfolio() {
 }
 
 // Fallback for browsers that don't support Web Share API
-function fallbackShare(url, text) {
-    // Copy to clipboard as fallback
-    navigator.clipboard.writeText(`${text}: ${url}`)
-        .then(() => {
-            alert('Portfolio link copied to clipboard!');
-        })
-        .catch(err => {
-            // Final fallback - open in new window
-            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
-        });
-}
+// function fallbackShare(url, text) {
+//     // Copy to clipboard as fallback
+//     navigator.clipboard.writeText(`${text}: ${url}`)
+//         .then(() => {
+//             alert('Portfolio link copied to clipboard!');
+//         })
+//         .catch(err => {
+//             // Final fallback - open in new window
+//             window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+//         });
+// }
 
 // Add animation to elements when they come into view
 const animateOnScroll = () => {
