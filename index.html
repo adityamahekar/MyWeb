@@ -770,8 +770,10 @@
                 justify-content: center;
             }
 
-            .projects-grid, .certification-grid {
-                grid-template-columns: 1fr;
+           .projects-grid, .certification-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                gap: 2.5rem;
             }
 
             section {
@@ -884,6 +886,11 @@
         font-size: 0.8rem;
     }
 }
+.hidden {
+  display: none !important;
+}
+
+        
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -1747,28 +1754,25 @@ function initProjectFilters() {
     const projectCards = document.querySelectorAll('.project-card');
     
     filterPills.forEach(pill => {
-     pill.addEventListener('click', () => {
-         // Remove active class from all pills
-         filterPills.forEach(p => p.classList.remove('active'));
-         
-         // Add active class to clicked pill
-         pill.classList.add('active');
-         
-         // Get filter value
-         const filterValue = pill.getAttribute('data-filter');
-         
-         // Filter projects
-            projectAnchors.forEach(anchor => {
-         const projectType = anchor.getAttribute('data-type');
-         if (filterValue === 'all' || projectType === filterValue) {
-             anchor.style.display = 'block';
-         } else {
-             anchor.style.display = 'none';
-         }
-     });
- });
- });
+        pill.addEventListener('click', () => {
+            filterPills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            
+            const filterValue = pill.getAttribute('data-filter');
+            
+        projectCards.forEach(card => {
+            const projectType = card.getAttribute('data-type');
+            if (filterValue === 'all' || projectType === filterValue) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        });
+    });
 }
+
 
         
 //contact form
@@ -1982,6 +1986,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
+
 
 
 
