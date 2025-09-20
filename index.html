@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,181 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aditya Mahekar - Portfolio</title>
     <style>
-         * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: #f0f0f5; /* ← Darker background */
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-    }
-
-    /* Glowing blobs */
-    .glow-blobs {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
-    }
-
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.4;
-      filter: blur(80px);
-      animation: float 12s ease-in-out infinite alternate;
-    }
-
-    .blob:nth-child(1) {
-      background-color: rgba(255, 0, 102, 0.3);
-      width: 300px;
-      height: 300px;
-      top: 10%;
-      left: 20%;
-      animation-delay: 0s;
-    }
-
-    .blob:nth-child(2) {
-      background-color: rgba(3, 117, 232, 0.25);
-      width: 350px;
-      height: 350px;
-      top: 40%;
-      left: 60%;
-      animation-delay: 2s;
-    }
-
-    .blob:nth-child(3) {
-      background-color: rgba(12, 222, 180, 0.25);
-      width: 250px;
-      height: 250px;
-      top: 70%;
-      left: 30%;
-      animation-delay: 4s;
-    }
-
-    .blob:nth-child(4) {
-      background-color: rgba(199, 162, 13, 0.2);
-      width: 280px;
-      height: 280px;
-      top: 20%;
-      left: 75%;
-      animation-delay: 1s;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 0.8;
-      }
-      50% {
-        transform: translate(30px, -20px) scale(1.1);
-        opacity: 0.8;
-      }
-      100% {
-        transform: translate(-20px, 30px) scale(1);
-        opacity: 0.8;
-      }
-    }
-
-    .profile-card-container {
-      position: relative;
-      width: 300px;
-      height: 300px;
-      z-index: 1;
-    }
-
-    .glow-ring {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 320px;
-      height: 320px;
-      background: radial-gradient(circle, rgba(190, 190, 190, 0.8), transparent 10%);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      animation: pulse 4s ease-in-out infinite;
-      filter: blur(30px);
-      z-index: 0;
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.5;
-      }
-      50% {
-        transform: translate(-50%, -50%) scale(1.05);
-        opacity: 0.8;
-      }
-    }
-
-    .profile-card {
-      position: relative;
-      width: 250px;
-      height: 250px;
-      transition: transform 0.3s ease;
-    }
-
-    .profile-card:hover,
-    .profile-card:active,
-    .profile-card.zoomed {
-      transform: scale(1.03);
-    }
-
-    .profile-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 6px solid #fff;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    .tech-badge {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 10px 14px;
-      border-radius: 16px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 16px;
-      font-weight: 600;
-      transition: transform 0.2s ease;
-    }
-
-    .tech-badge img {
-      width: 28px;
-      height: 28px;
-    }
-
-    .tech-badge:hover {
-      transform: translateY(-5px);
-    }
-
-    .ts { top: -12px; left: -12px; }
-    .react { top: -12px; right: -12px; }
-    .js { bottom: -12px; left: -12px; }
-    .next { bottom: -12px; right: -12px; }
-
-    @media (max-width: 400px) {
-      .profile-card-container {
-        transform: scale(0.85);
-      }
-    }
-        
         :root {
             --primary-color: #4361ee;
             --secondary-color: #3a0ca3;
@@ -1127,51 +951,6 @@
                 </div>
                 
                 <h2>About Me</h2>
-<br>
- <br>               
-            <!-- Glowing Colorful Background -->
-<div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; overflow: hidden; z-index: 0;">
-  <div style="position: absolute; border-radius: 50%; opacity: 0.7; filter: blur(100px); background-color: rgba(255, 0, 102, 0.85); width: 300px; height: 300px; top: 10%; left: 20%; animation: float 12s ease-in-out infinite alternate;"></div>
-  <div style="position: absolute; border-radius: 50%; opacity: 0.7; filter: blur(100px); background-color: rgba(0, 128, 255, 0.85); width: 350px; height: 350px; top: 40%; left: 60%; animation: float 12s ease-in-out infinite alternate 2s;"></div>
-  <div style="position: absolute; border-radius: 50%; opacity: 0.7; filter: blur(100px); background-color: rgba(0, 255, 204, 0.85); width: 250px; height: 250px; top: 70%; left: 30%; animation: float 12s ease-in-out infinite alternate 4s;"></div>
-  <div style="position: absolute; border-radius: 50%; opacity: 0.7; filter: blur(100px); background-color: rgba(255, 204, 0, 0.85); width: 280px; height: 280px; top: 20%; left: 75%; animation: float 12s ease-in-out infinite alternate 1s;"></div>
-</div>
-
-<!-- Profile Card Section -->
-<div style="position: relative; width: 300px; height: 300px; margin: auto; top: 50vh; transform: translateY(-50%); z-index: 1; display: flex; justify-content: center; align-items: center;">
-  <div style="position: absolute; top: 50%; left: 50%; width: 320px; height: 320px; background: radial-gradient(circle, rgba(255,255,255,0.35), transparent 70%); border-radius: 50%; transform: translate(-50%, -50%); filter: blur(50px); animation: pulse 4s ease-in-out infinite;"></div>
-
-  <div id="profileCard" style="position: relative; width: 250px; height: 250px; transition: transform 0.3s ease; cursor: pointer;"
-       onmouseenter="this.style.transform='scale(1.02)'" 
-       onmouseleave="this.style.transform='scale(1)'">
-    <img src="https://picsum.photos/200/300" alt="Profile" 
-         style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 6px solid #fff; box-shadow: 0 10px 25px rgba(255,255,255,0.3);" />
-
-    <div style="position: absolute; top: -12px; left: -12px; background: rgba(255, 255, 255, 0.95); padding: 10px 14px; border-radius: 16px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; transition: transform 0.2s ease; cursor: pointer;"
-         onmouseenter="this.style.transform='translateY(-5px) scale(1.15)'" 
-         onmouseleave="this.style.transform='translateY(0) scale(1)'">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TS" style="width: 28px; height: 28px;" /> TypeScript
-    </div>
-    <div style="position: absolute; top: -12px; right: -12px; background: rgba(255, 255, 255, 0.95); padding: 10px 14px; border-radius: 16px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; transition: transform 0.2s ease; cursor: pointer;"
-         onmouseenter="this.style.transform='translateY(-5px) scale(1.15)'" 
-         onmouseleave="this.style.transform='translateY(0) scale(1)'">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" style="width: 28px; height: 28px;" /> React
-    </div>
-    <div style="position: absolute; bottom: -12px; left: -12px; background: rgba(255, 255, 255, 0.95); padding: 10px 14px; border-radius: 16px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; transition: transform 0.2s ease; cursor: pointer;"
-         onmouseenter="this.style.transform='translateY(-5px) scale(1.15)'" 
-         onmouseleave="this.style.transform='translateY(0) scale(1)'">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS" style="width: 28px; height: 28px;" /> JavaScript
-    </div>
-    <div style="position: absolute; bottom: -12px; right: -12px; background: rgba(255, 255, 255, 0.95); padding: 10px 14px; border-radius: 16px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; transition: transform 0.2s ease; cursor: pointer;"
-         onmouseenter="this.style.transform='translateY(-5px) scale(1.15)'" 
-         onmouseleave="this.style.transform='translateY(0) scale(1)'">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-line.svg" alt="Next.js" style="width: 28px; height: 28px;" /> Next.js
-    </div>
-  </div>
-</div>
-
-                <br>
-                <br>
                 <div class="about-content">
                     <p>Passionate Computer Science Engineering student at BMS Institute of Technology and Management, Bengaluru, with a strong foundation in Mechanical Engineering from Government Polytechnic Karwar.</p>
                     
@@ -1957,15 +1736,6 @@
     </button>
 
     <script>
-
-         // Touch support for mobile zoom
-    const card = document.getElementById("profileCard");
-
-    card.addEventListener("touchstart", () => card.classList.add("zoomed"));
-    card.addEventListener("touchend", () => card.classList.remove("zoomed"));
-    card.addEventListener("touchcancel", () => card.classList.remove("zoomed"));
-
-        
         // Project filtering functionality
 function initProjectFilters() {
     const filterPills = document.querySelectorAll('.filter-pill');
@@ -2005,96 +1775,55 @@ function initProjectFilters() {
 }
 
 // Contact form submission
- function handleContactForm() {
+        document.addEventListener('DOMContentLoaded', function() {
             const contactForm = document.getElementById('contactForm');
-            const statusMessage = document.getElementById('statusMessage');
             const submitButton = document.getElementById('submitButton');
+            const statusMessage = document.getElementById('statusMessage');
+            const successAlert = document.getElementById('successAlert');
             
-            if (contactForm) {
-                // Create a hidden iframe for form submission
-                const iframe = document.createElement('iframe');
-                iframe.name = 'formsubmit-iframe';
-                iframe.style.display = 'none';
-                document.body.appendChild(iframe);
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
                 
-                // Update form attributes for FormSubmit.co
-                contactForm.setAttribute('action', 'https://formsubmit.co/mahekaraditya468@gmail.com');
-                contactForm.setAttribute('method', 'POST');
-                contactForm.setAttribute('target', 'formsubmit-iframe');
+                // Show loading state
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                statusMessage.style.display = 'none';
                 
-                // Add hidden fields that FormSubmit.co expects
-                const hiddenFields = [
-                    { name: '_subject', value: 'New Contact Form Submission' },
-                    { name: '_template', value: 'table' },
-                    { name: '_captcha', value: 'false' },
-                    { name: '_blacklist', value: 'spammy pattern, bad word' }
-                ];
-                
-                hiddenFields.forEach(field => {
-                    const input = document.createElement('input');
-                    input.type = 'hidden';
-                    input.name = field.name;
-                    input.value = field.value;
-                    contactForm.appendChild(input);
-                });
-                
-                contactForm.addEventListener('submit', function(e) {
-                    // Client-side validation
-                    const name = document.getElementById('name').value;
-                    const email = document.getElementById('email').value;
-                    const message = document.getElementById('message').value;
+                // Simulate form submission (replace with actual form submission code)
+                setTimeout(function() {
+                    // Reset button state only after submission is complete
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
                     
-                    if (!name || !email || !message) {
-                        e.preventDefault();
-                        showStatus('Please fill in all fields', 'error');
-                        return;
-                    }
+                    // Show success alert
+                    successAlert.classList.add('show');
                     
-                    // Email validation
-                    if (!isValidEmail(email)) {
-                        e.preventDefault();
-                        showStatus('Please enter a valid email address', 'error');
-                        return;
-                    }
+                    // Show success message
+                    showStatus('Message sent successfully!', 'success');
                     
-                    // Show loading state
-                    submitButton.disabled = true;
-                    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                    statusMessage.style.display = 'none';
+                    // Reset the form
+                    contactForm.reset();
                     
-                    // Listen for the iframe load event to detect form submission completion
-                    iframe.onload = function() {
-                        submitButton.disabled = false;
-                        submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                        
-                        try {
-                            // This might not work due to cross-origin restrictions
-                            // but FormSubmit.co will redirect to a success page
-                            showStatus('Message sent successfully!', 'success');
-                            contactForm.reset();
-                        } catch (error) {
-                            // If we can't access iframe content due to CORS, assume success
-                            showStatus('Message sent successfully!', 'success');
-                            contactForm.reset();
-                        }
-                    };
-                });
-            }
+                    // Hide alert after 3 seconds
+                    setTimeout(function() {
+                        successAlert.classList.remove('show');
+                    }, 3000);
+                    
+                }, 2000); // Simulate 2 second delay for form submission
+            });
             
             function showStatus(message, type) {
                 statusMessage.textContent = message;
                 statusMessage.className = 'status-message ' + type;
                 statusMessage.style.display = 'block';
+                
+                // Add fade-in effect
+                statusMessage.classList.add('fade-in');
+                setTimeout(() => {
+                    statusMessage.classList.remove('fade-in');
+                }, 500);
             }
-            
-            function isValidEmail(email) {
-                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return re.test(email);
-            }
-        }
-         // Initialize the form handler when the page loads
-        document.addEventListener('DOMContentLoaded', handleContactForm);
-
+        });
         // View counter functionality
 function updateViewCount() {
     // Get current count from localStorage or initialize to 0
@@ -2233,7 +1962,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </script>
 </body>
 </html>
-
 
 
 
