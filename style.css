@@ -829,3 +829,14 @@ footer p {
         font-size: 0.8rem;
     }
 }
+
+
+/*Sliding image in Activity Section  */
+
+div::-webkit-scrollbar { display:none; } 
+
+    .pi{
+     margin:0; display:flex; justify-content:right; background:transparent; padding-bottom:0px;
+
+    }
+
