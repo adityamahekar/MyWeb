@@ -835,12 +835,18 @@ footer p {
 
 div::-webkit-scrollbar { display:none; } 
 
-    .pi{
-     margin:0;
-        display:flex; 
-     justify-content: flex-end; 
-        background:transparent;
-        padding-bottom:0px;
+   .pi {
+    margin: 0;
+    display: flex;
+    justify-content: flex-start; /* or flex-end */
+    background: transparent;
+    padding-bottom: 0;
+    overflow-x: auto;
+    gap: 1rem;
+}
 
-    }
+.pi::-webkit-scrollbar {
+    display: none;
+}
+
 
