@@ -836,7 +836,11 @@ footer p {
 div::-webkit-scrollbar { display:none; } 
 
     .pi{
-     margin:0; display:flex; justify-content:right; background:transparent; padding-bottom:0px;
+     margin:0;
+        display:flex; 
+     justify-content: flex-end; 
+        background:transparent;
+        padding-bottom:0px;
 
     }
 
